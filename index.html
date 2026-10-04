@@ -319,42 +319,20 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
 .result .msg { margin: 0; color: var(--ink-soft); font-size: 1.1rem; }
 .result .quiz-actions { justify-content: center; }
 
-/* ---------- printed page (the finished page with the text inside the picture) ----------
-   Small screens: the whole page on top, and below it a magnified close-up of the page's text box
-   (cut from the same picture) so the words are big enough to read. Wide screens: the whole page. */
+/* ---------- printed page: the finished page with the text inside the picture, shown as large as the screen allows ---------- */
 .page.printed {
-  display: grid; grid-template-columns: none; grid-template-rows: auto minmax(0, 1fr);
-  justify-items: center; align-items: center; gap: 10px; padding: 8px;
-  overflow: hidden; container-type: size; background: var(--stage);
+  display: grid; place-content: center; grid-template-columns: none; grid-template-rows: none;
+  padding: 0; overflow: hidden; container-type: size; background: var(--stage);
 }
 .page.printed .stage {
-  display: block; position: relative; container-type: normal;
-  width: 100%; aspect-ratio: 16 / 9; border-radius: 6px; overflow: hidden; box-shadow: var(--shadow);
+  display: block; position: relative; container-type: normal; height: auto;
+  width: min(calc(100cqw - 16px), calc((100cqh - 16px) * 16 / 9)); aspect-ratio: 16 / 9;
+  border-radius: 6px; overflow: hidden; box-shadow: var(--shadow);
 }
 .page.printed .art { position: absolute; inset: 0; aspect-ratio: auto; height: auto; }
 .page.printed .art img { object-fit: contain; object-position: 50% 50%; }
-.closeup-wrap { container-type: size; width: 100%; height: 100%; min-height: 0; display: grid; place-items: start center; }
-@media (orientation: landscape) { .closeup-wrap { place-items: center; } }
-.closeup {
-  position: relative; overflow: hidden; aspect-ratio: var(--ar);
-  width: min(100cqw, calc(100cqh * var(--ar)));
-  border-radius: 6px; box-shadow: var(--shadow); background: var(--panel);
-}
-.closeup img {
-  position: absolute; display: block; max-width: none; height: auto;
-  width: calc(100% / var(--bw));
-  left: calc(-100% * var(--bx) / var(--bw));
-  top: calc(-100% * var(--by) / var(--bh));
-  animation: show .35s ease;
-}
 @media (orientation: landscape) and (min-width: 720px) and (min-height: 561px) {
-  .page.printed { grid-template-rows: none; place-content: center; padding: 0; }
   .page.printed .stage { width: min(calc(100cqw - 24px), calc((100cqh - 24px) * 16 / 9)); }
-  .closeup-wrap { display: none; }
-}
-@media (orientation: landscape) and (max-height: 560px) {
-  .page.printed { grid-template-rows: none; grid-template-columns: auto minmax(0, 1fr); }
-  .page.printed .stage { width: auto; height: calc(100cqh - 16px); }
 }
 
 .load-error { padding: 24px; }
@@ -469,13 +447,7 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
   function img(base, w) { return base + "-" + w + ".webp"; }
   function hasPrinted(b) { return !!(b && b.pages && b.pages.length && b.pages.every(function (pg) { return pg.printed; })); }
   function printSet(base) { return img(base, 960) + " 960w, " + img(base, 1600) + " 1600w, " + img(base, 2400) + " 2400w"; }
-  /* On small screens both the page and its close-up use the same (large) file, so each page downloads once. */
-  var PRINT_SIZES = "(orientation: landscape) and (min-width: 720px) and (min-height: 561px) 96vw, 235vw";
-  function textBox(pg) {
-    var b = pg.textBox || (pg.side === "right" ? [54.5, 5, 97, 95] : [3, 5, 45.5, 95]);
-    var bx = b[0] / 100, by = b[1] / 100, bw = (b[2] - b[0]) / 100, bh = (b[3] - b[1]) / 100;
-    return "--bx:" + bx + ";--by:" + by + ";--bw:" + bw + ";--bh:" + bh + ";--ar:" + ((bw * 16) / (bh * 9)).toFixed(4);
-  }
+  var PRINT_SIZES = "96vw";
 
   /* ---------- address bar (lets teachers share a link to a book or language) ---------- */
   function readHash() {
@@ -652,9 +624,6 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
       main.innerHTML =
         '<section class="view page printed" aria-label="' + t("pageOf")(p, n) + '">' +
           '<div class="stage"><figure class="art"><img src="' + img(pp.printed, 1600) + '" srcset="' + printSet(pp.printed) + '" sizes="' + PRINT_SIZES + '" alt="' + esc(L(pp.alt)) + '" width="1600" height="900"></figure></div>' +
-          '<div class="closeup-wrap" aria-hidden="true"><div class="closeup" style="' + textBox(pp) + '">' +
-            '<img src="' + img(pp.printed, 1600) + '" srcset="' + printSet(pp.printed) + '" sizes="' + PRINT_SIZES + '" alt="">' +
-          "</div></div>" +
           '<div class="sr-only" lang="' + state.lang + '">' + storyHTML(L(pp.text)) + "</div>" +
         "</section>";
       var nextP = b.pages[p];
