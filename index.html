@@ -1,0 +1,893 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F4F7FA">
+<meta property="og:title" content="Germ Detectives">
+<meta property="og:description" content="Bilingual science picture books about germs, health, and safety.">
+<title>Germ Detectives</title>
+<meta name="description" content="Germ Detectives: bilingual (English and Spanish) science picture books about germs, health, and safety from Tennessee Tech University.">
+<style>
+@font-face{font-family:"Andika";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/andika-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Andika";font-style:italic;font-weight:400;font-display:swap;src:url("fonts/andika-latin-400-italic.woff2") format("woff2")}
+@font-face{font-family:"Andika";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/andika-latin-700-normal.woff2") format("woff2")}
+@font-face{font-family:"Andika";font-style:italic;font-weight:700;font-display:swap;src:url("fonts/andika-latin-700-italic.woff2") format("woff2")}
+@font-face{font-family:"Bree Serif";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/bree-serif-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Patrick Hand";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/patrick-hand-latin-400-normal.woff2") format("woff2")}
+</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='26' cy='26' r='17' fill='%23F0CF6E' stroke='%231C2F4D' stroke-width='6'/%3E%3Cpath d='M39 39l16 16' stroke='%231C2F4D' stroke-width='8' stroke-linecap='round'/%3E%3Ccircle cx='21' cy='22' r='4' fill='%23B2382A'/%3E%3Ccircle cx='31' cy='31' r='3' fill='%232F7A3B'/%3E%3C/svg%3E">
+<style>
+/* Layout: the library is a detective's ruled notebook of numbered case files;
+   the reader is a picture stage with the story on a parchment card, as in the printed book. */
+:root {
+  --paper: #F4F7FA;
+  --rule: #DAE3ED;
+  --margin: #E6A59C;
+  --surface: #FFFFFF;
+  --line: #C8D3E0;
+  --ink: #1C2F4D;
+  --ink-soft: #4C5D77;
+  --barn: #B2382A;
+  --on-barn: #FFFFFF;
+  --field: #2E7638;
+  --wrong: #B2382A;
+  --straw: #F0CF6E;
+  --stage: #E3E9F0;
+  --panel: rgba(246, 230, 176, 0.93);
+  --panel-ink: #221B0C;
+  --shadow: 0 1px 2px rgba(28, 47, 77, .10), 0 10px 28px rgba(28, 47, 77, .14);
+  --font-display: "Bree Serif", Rockwell, "Roboto Slab", Georgia, serif;
+  --font-read: "Andika", Verdana, "Trebuchet MS", system-ui, sans-serif;
+  --font-note: "Patrick Hand", "Segoe Print", "Comic Sans MS", cursive;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0F1828; --rule: #19253A; --margin: rgba(230, 165, 156, .30);
+    --surface: #16213A; --line: #293956;
+    --ink: #E6ECF5; --ink-soft: #A5B3C8;
+    --barn: #E66B58; --on-barn: #1B0C08;
+    --field: #73C580; --wrong: #F28C7C; --straw: #E8C75F;
+    --stage: #090F1A;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 28px rgba(0,0,0,.45);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0F1828; --rule: #19253A; --margin: rgba(230, 165, 156, .30);
+  --surface: #16213A; --line: #293956;
+  --ink: #E6ECF5; --ink-soft: #A5B3C8;
+  --barn: #E66B58; --on-barn: #1B0C08;
+  --field: #73C580; --wrong: #F28C7C; --straw: #E8C75F;
+  --stage: #090F1A;
+  --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 28px rgba(0,0,0,.45);
+  color-scheme: dark;
+}
+
+/* ---------- base ---------- */
+html { height: 100%; box-sizing: border-box; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+*, *::before, *::after { box-sizing: inherit; }
+body {
+  margin: 0; min-height: 100%;
+  background: var(--paper); color: var(--ink);
+  font-family: var(--font-read); font-size: 16px; line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+body.mode-read { height: 100%; overflow: hidden; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--barn); outline-offset: 2px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.note { font-family: var(--font-note); letter-spacing: .02em; }
+#app { min-height: 100%; }
+body.mode-read #app { height: 100%; }
+
+/* notebook ruling, shared by the library and the quiz */
+.ruled {
+  background-color: var(--paper);
+  background-image: repeating-linear-gradient(to bottom, transparent 0 35px, var(--rule) 35px 36px);
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .45em;
+  min-height: 48px; padding: 0 1.3em; border-radius: 999px;
+  font-family: var(--font-read); font-weight: 700; font-size: 1.05rem;
+  border: 2px solid var(--ink); background: transparent; color: var(--ink);
+  cursor: pointer; text-decoration: none;
+}
+.btn:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); }
+.btn.primary { background: var(--barn); border-color: var(--barn); color: var(--on-barn); }
+.btn.primary:hover { background: color-mix(in srgb, var(--barn) 88%, var(--ink)); }
+.btn svg { width: 1.15em; height: 1.15em; flex: none; }
+
+.lang {
+  display: inline-flex; padding: 3px; gap: 2px; border-radius: 999px;
+  background: var(--surface); border: 1.5px solid var(--line); flex: none;
+}
+.lang button {
+  border: 0; background: transparent; cursor: pointer; border-radius: 999px;
+  min-height: 38px; padding: 0 .9em; font-weight: 700; font-size: .95rem; color: var(--ink-soft);
+}
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.lang .short { display: none; }
+
+/* ---------- library ---------- */
+.lib { max-width: 1180px; margin: 0 auto; padding: 28px 16px 40px; position: relative; display: grid; gap: 28px; align-content: start; min-height: 100vh; min-height: 100dvh; }
+@media (min-width: 720px) {
+  .lib { padding-left: 76px; padding-right: 32px; padding-block: 44px 56px; }
+  .lib::before { content: ""; position: absolute; top: 0; bottom: 0; left: 46px; width: 2px; background: var(--margin); }
+}
+.lib-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; }
+.brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.brand svg { width: clamp(52px, 9vw, 76px); height: auto; flex: none; }
+.brand .eyebrow { margin: 0; color: var(--barn); font-size: clamp(1.05rem, 2.6vw, 1.35rem); line-height: 1.1; }
+.brand h1 {
+  margin: 0; font-family: var(--font-display); font-weight: 400; line-height: 1.02;
+  font-size: clamp(2.3rem, 7vw, 4rem); letter-spacing: -.01em; text-wrap: balance;
+}
+.intro { margin: 0; max-width: 40rem; font-size: clamp(1.08rem, 2.4vw, 1.25rem); color: var(--ink-soft); }
+.intro strong { color: var(--ink); font-weight: 700; }
+
+.cases { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+.case {
+  display: grid; grid-template-columns: 104px 1fr; gap: 16px; align-items: center;
+  width: 100%; text-align: left; padding: 0; border: 0; background: none; color: inherit; font: inherit;
+}
+button.case { cursor: pointer; }
+.case-cover { position: relative; display: block; }
+.case-cover img {
+  display: block; width: 100%; height: auto; aspect-ratio: 836 / 941; object-fit: cover;
+  border-radius: 3px 6px 6px 3px; box-shadow: var(--shadow); background: var(--stage);
+}
+.case.soon .case-cover img { filter: saturate(.5); opacity: .8; }
+.case-no {
+  position: absolute; top: -9px; left: -7px; padding: 1px 9px 0;
+  background: var(--straw); color: #2A2208; font-size: 1.05rem; line-height: 1.5;
+  transform: rotate(-4deg); box-shadow: 0 1px 2px rgba(0,0,0,.18);
+}
+.case-meta { display: grid; gap: 4px; min-width: 0; justify-items: start; }
+.case-title { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.15; text-wrap: balance; }
+.case-topic { color: var(--ink-soft); font-size: .98rem; }
+.chip {
+  margin-top: 6px; display: inline-flex; align-items: center; gap: .35em;
+  border-radius: 999px; padding: 4px 12px; font-weight: 700; font-size: .92rem; line-height: 1.3;
+}
+.chip.go { background: var(--barn); color: var(--on-barn); }
+.chip.wait { border: 1.5px dashed var(--ink-soft); color: var(--ink-soft); }
+.chip svg { width: 1em; height: 1em; }
+button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); }
+.case-cover img { transition: transform .2s ease; }
+
+@media (min-width: 640px) {
+  .cases { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 28px; }
+  .case { grid-template-columns: 1fr; align-items: start; gap: 14px; }
+  .case-no { top: -11px; left: -9px; font-size: 1.15rem; }
+}
+@media (min-width: 980px) {
+  .cases { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 28px; }
+}
+.lib-foot { display: grid; gap: 4px; color: var(--ink-soft); font-size: .92rem; border-top: 1.5px solid var(--line); padding-top: 16px; }
+.lib-foot p { margin: 0; }
+
+/* ---------- reader shell ---------- */
+.reader { height: 100%; display: flex; flex-direction: column; background: var(--stage); }
+.r-bar {
+  flex: none; display: flex; align-items: center; gap: 10px; padding: 6px 12px; min-height: 56px;
+  background: var(--surface); border-bottom: 1.5px solid var(--line);
+}
+.icon-btn {
+  display: inline-flex; align-items: center; gap: .35em; min-height: 44px; min-width: 44px; justify-content: center;
+  border: 0; background: transparent; border-radius: 999px; padding: 0 .7em; cursor: pointer; font-weight: 700; color: var(--ink);
+}
+.icon-btn:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); }
+.icon-btn svg { width: 22px; height: 22px; flex: none; }
+.r-title { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: .5em; overflow: hidden; }
+.r-title .note { color: var(--barn); font-size: 1.1rem; flex: none; }
+.r-title b { font-family: var(--font-display); font-weight: 400; font-size: 1.2rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.r-main { flex: 1; min-height: 0; position: relative; }
+.r-main > .view { position: absolute; inset: 0; }
+.r-nav {
+  flex: none; display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 8px 12px; min-height: 64px; background: var(--surface); border-top: 1.5px solid var(--line);
+}
+.r-nav .btn { min-height: 46px; padding: 0 1em; }
+.r-nav .btn[disabled] { opacity: .35; cursor: default; }
+.r-nav .ghost { visibility: hidden; }
+.nav-mid { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.dots { display: flex; align-items: center; gap: 6px; }
+.dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); display: block; }
+.dots i.done { background: var(--ink-soft); }
+.dots i.on { background: var(--barn); transform: scale(1.35); }
+.dots i.q { border-radius: 2px; transform: rotate(45deg); }
+.dots i.q.on { transform: rotate(45deg) scale(1.35); }
+.listen { border: 2px solid var(--ink); }
+.listen[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+@media (max-width: 459px) {
+  .r-nav .btn .lbl, .icon-btn .lbl { display: none; }
+  .r-nav .btn { padding: 0; width: 48px; }
+  .lang .long { display: none; } .lang .short { display: inline; }
+  .r-title .note { display: none; }
+}
+@media (max-width: 719px) { .reader .lang .long { display: none; } .reader .lang .short { display: inline; } }
+
+/* ---------- story page ---------- */
+.page { overflow-y: auto; background: var(--paper); }
+.stage { display: flex; flex-direction: column; }
+.art { margin: 0; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background: var(--stage); flex: none; }
+.art img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, 50%) 50%; animation: show .35s ease; }
+@media (min-width: 600px) { .art { aspect-ratio: 16 / 9; } .art img { object-position: 50% 50%; } }
+.story { padding: 20px 20px 28px; font-size: clamp(1.15rem, 4.6vw, 1.45rem); line-height: 1.55; max-width: 44rem; margin: 0 auto; width: 100%; }
+.story p { margin: 0 0 .5em; }
+.story p:last-child { margin-bottom: 0; }
+.story strong { font-weight: 700; }
+.story ul { margin: 0 0 .5em; padding-left: 1.25em; text-align: left; }
+.story li { margin: .15em 0; }
+@keyframes show { from { opacity: .25; } to { opacity: 1; } }
+
+/* wide screens: the story card sits on the picture, like the printed page */
+@media (orientation: landscape) and (min-width: 720px) and (min-height: 561px) {
+  .page { overflow: hidden; display: grid; place-items: center; container-type: size; background: var(--stage); }
+  .stage {
+    display: block; position: relative; container-type: inline-size;
+    width: min(calc(100cqw - 32px), calc((100cqh - 32px) * 16 / 9)); aspect-ratio: 16 / 9;
+    border-radius: 6px; overflow: hidden; box-shadow: var(--shadow);
+  }
+  .art { position: absolute; inset: 0; aspect-ratio: auto; }
+  .art img { object-position: 50% 50%; }
+  .story {
+    position: absolute; top: 50%; left: 3.4%; transform: translateY(-50%);
+    width: 41%; max-height: 88%; overflow-y: auto; margin: 0;
+    background: var(--panel); color: var(--panel-ink);
+    -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+    border-radius: .5cqw; box-shadow: 0 2px 14px rgba(40, 28, 0, .22);
+    padding: 2.8cqw 2.6cqw; text-align: center;
+    font-size: clamp(15px, 1.85cqw, 30px); line-height: 1.42;
+  }
+  .story.right { left: auto; right: 3.4%; }
+  .story ul { display: inline-block; }
+}
+/* phones turned sideways: picture on the left, story on the right */
+@media (orientation: landscape) and (max-height: 560px) {
+  .page { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); overflow: hidden; }
+  .stage { display: contents; }
+  .art { aspect-ratio: auto; height: 100%; }
+  .art img { object-position: var(--focus, 50%) 50%; }
+  .story { overflow-y: auto; margin: 0; padding: 14px 18px; font-size: 1.08rem; line-height: 1.5; align-self: stretch; }
+  .r-bar { min-height: 46px; padding-block: 2px; }
+  .r-nav { min-height: 52px; padding-block: 4px; }
+  .r-nav .btn { min-height: 42px; }
+}
+
+/* ---------- cover page ---------- */
+.cover { overflow-y: auto; background: var(--paper); container-type: size; }
+.cover-in { min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; padding: 22px 20px 28px; }
+.cover-art img { display: block; max-height: 46cqh; width: auto; height: auto; border-radius: 3px 7px 7px 3px; box-shadow: var(--shadow); }
+.cover-info { max-width: 32rem; display: grid; gap: 10px; justify-items: center; text-align: center; }
+.cover-info .note { margin: 0; color: var(--barn); font-size: 1.2rem; }
+.cover-info h2 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(2rem, 7vw, 3.2rem); line-height: 1.05; text-wrap: balance; }
+.cover-info .blurb { margin: 0; font-size: 1.12rem; color: var(--ink-soft); }
+.cover-info .btn { margin-top: 8px; }
+.cover-info .hint { margin: 2px 0 0; font-size: .9rem; color: var(--ink-soft); }
+@media (orientation: landscape) and (min-width: 720px) {
+  .cover-in { flex-direction: row; gap: clamp(28px, 5vw, 72px); padding: 24px 40px; }
+  .cover-art img { max-height: 84cqh; max-width: 44cqw; }
+  .cover-info { justify-items: start; text-align: left; }
+}
+@media (orientation: landscape) and (max-height: 560px) {
+  .cover-in { flex-direction: row; gap: 24px; padding: 12px 24px; }
+  .cover-art img { max-height: 88cqh; }
+  .cover-info { justify-items: start; text-align: left; gap: 6px; }
+  .cover-info h2 { font-size: 1.9rem; }
+  .cover-info .blurb { font-size: .98rem; }
+}
+
+/* ---------- quiz ---------- */
+.quiz { overflow-y: auto; }
+.quiz-in { max-width: 40rem; margin: 0 auto; padding: 28px 18px 36px; display: grid; gap: 16px; }
+.quiz .note { margin: 0; color: var(--barn); font-size: 1.2rem; }
+.quiz h2 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(1.55rem, 5vw, 2.1rem); line-height: 1.15; text-wrap: balance; }
+.opts { display: grid; gap: 10px; }
+.opt {
+  display: grid; grid-template-columns: 36px 1fr 24px; align-items: center; gap: 12px; text-align: left;
+  min-height: 60px; padding: 10px 14px; border-radius: 14px; cursor: pointer;
+  background: var(--surface); border: 2px solid var(--line); font-size: 1.15rem; line-height: 1.3; color: var(--ink);
+}
+.opt:hover:not([disabled]) { border-color: var(--ink); }
+.opt .k {
+  width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--paper); border: 2px solid var(--line); font-weight: 700; font-size: 1rem;
+}
+.opt .mark svg { width: 24px; height: 24px; display: block; }
+.opt[disabled] { cursor: default; }
+.opt.right { border-color: var(--field); background: color-mix(in srgb, var(--field) 12%, var(--surface)); }
+.opt.right .k { background: var(--field); border-color: var(--field); color: var(--surface); }
+.opt.right .mark { color: var(--field); }
+.opt.miss { border-color: var(--wrong); background: color-mix(in srgb, var(--wrong) 10%, var(--surface)); }
+.opt.miss .k { background: var(--wrong); border-color: var(--wrong); color: var(--surface); }
+.opt.miss .mark { color: var(--wrong); }
+.opt.dim { opacity: .55; }
+.feedback { display: grid; gap: 4px; padding: 14px 16px; border-radius: 12px; background: var(--surface); border-left: 6px solid var(--field); font-size: 1.08rem; }
+.feedback.miss { border-left-color: var(--wrong); }
+.feedback b { font-family: var(--font-display); font-weight: 400; font-size: 1.3rem; }
+.feedback p { margin: 0; }
+.quiz-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.result { text-align: center; justify-items: center; }
+.result svg.badge { width: 132px; height: 132px; }
+.result .score { margin: 0; font-size: 1.3rem; }
+.result .msg { margin: 0; color: var(--ink-soft); font-size: 1.1rem; }
+.result .quiz-actions { justify-content: center; }
+
+/* ---------- printed page (the finished page with text inside the picture) ---------- */
+.view-switch .vlbl { margin-left: .35em; }
+.view-switch button { display: inline-flex; align-items: center; }
+.view-switch svg { width: 20px; height: 20px; flex: none; }
+@media (max-width: 899px) { .view-switch .vlbl { display: none; } .view-switch button { padding: 0 .7em; } }
+.page.printed {
+  display: grid; place-content: center; justify-items: center; gap: 12px;
+  grid-template-columns: none; overflow: hidden; container-type: size; background: var(--stage);
+}
+.page.printed .stage {
+  display: block; position: relative; container-type: normal;
+  width: min(calc(100cqw - 24px), calc((100cqh - 24px) * 16 / 9)); aspect-ratio: 16 / 9;
+  border-radius: 6px; overflow: hidden; box-shadow: var(--shadow);
+}
+.page.printed .art { position: absolute; inset: 0; aspect-ratio: auto; height: auto; }
+.page.printed .art img { object-fit: contain; object-position: 50% 50%; }
+.print-hint { display: none; margin: 0 16px; text-align: center; color: var(--ink-soft); font-size: 1rem; }
+.print-hint button {
+  border: 0; background: none; padding: 0; cursor: pointer; font-weight: 700; color: var(--barn);
+  text-decoration: underline; text-underline-offset: 3px;
+}
+@media (orientation: portrait), (max-width: 719px), (max-height: 560px) {
+  .print-hint { display: block; }
+  .page.printed .stage { width: min(calc(100cqw - 16px), calc((100cqh - 72px) * 16 / 9)); }
+}
+
+.load-error { padding: 24px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+
+</head>
+<body>
+<div id="app" aria-live="off"></div>
+<p id="announce" class="sr-only" aria-live="polite"></p>
+<noscript><p style="padding:24px">Please turn on JavaScript to read the Germ Detectives books.</p></noscript>
+
+<script src="books.js"></script>
+<script>
+(function () {
+  "use strict";
+  var DATA = window.GERM_DETECTIVES;
+  var app = document.getElementById("app");
+  var announcer = document.getElementById("announce");
+  if (!DATA) {
+    app.innerHTML = '<p class="load-error">The book list (books.js) did not load. Check that books.js sits next to index.html.</p>';
+    return;
+  }
+
+  /* ---------- words used by the app itself ---------- */
+  var T = {
+    en: {
+      language: "Language", turn: "Turn pages", library: "Library", backToLib: "Back to library",
+      intro: "Picture books about germs, health, and safety. <strong>Every story can be read in English or Spanish.</strong> Pick a case to start reading.",
+      caseWord: "Case", read: "Read the book", soon: "Coming soon",
+      adventure: "A Germ Detectives Adventure", start: "Start reading",
+      hint: "Swipe, or use the arrow keys, to turn the page.",
+      prev: "Back", next: "Next", toQuiz: "Detective Check",
+      listen: "Listen", pause: "Pause", noAudio: "No recording for this page yet",
+      cover: "Cover", pageOf: function (i, n) { return "Page " + i + " of " + n; },
+      quizTitle: "Detective Check", qOf: function (i, n) { return "Question " + i + " of " + n; },
+      right: "That’s right!", wrong: "Not quite.", answerWas: "The answer is: ",
+      nextQ: "Next question", finish: "See how I did",
+      solved: "Case solved!", goodTry: "Good try, detective!", score: function (s, n) { return "You got " + s + " of " + n + " right."; },
+      perfect: "You’re a real Germ Detective.", good: "Great detective work!",
+      more: "Read the book again to find more clues!",
+      tryAgain: "Try the questions again", readAgain: "Read the book again",
+      privacy: "No sign-up, no ads, no tracking.",
+      missing: "Book not found.",
+      viewLabel: "Page style", printed: "Printed page", large: "Large text",
+      hintSmall: "Words too small?", useLarge: "Use large text"
+    },
+    es: {
+      language: "Idioma", turn: "Pasar páginas", library: "Biblioteca", backToLib: "Volver a la biblioteca",
+      intro: "Libros ilustrados sobre los gérmenes, la salud y la seguridad. <strong>Cada cuento se puede leer en inglés o en español.</strong> Elige un caso para empezar a leer.",
+      caseWord: "Caso", read: "Leer el libro", soon: "Próximamente",
+      adventure: "Una aventura de los detectives de los gérmenes", start: "Empezar a leer",
+      hint: "Desliza el dedo o usa las flechas del teclado para pasar la página.",
+      prev: "Atrás", next: "Siguiente", toQuiz: "Prueba de detective",
+      listen: "Escuchar", pause: "Pausa", noAudio: "Todavía no hay grabación para esta página",
+      cover: "Portada", pageOf: function (i, n) { return "Página " + i + " de " + n; },
+      quizTitle: "Prueba de detective", qOf: function (i, n) { return "Pregunta " + i + " de " + n; },
+      right: "¡Correcto!", wrong: "¡Casi!", answerWas: "La respuesta es: ",
+      nextQ: "Siguiente pregunta", finish: "Ver mi resultado",
+      solved: "¡Caso resuelto!", goodTry: "¡Buen intento, detective!", score: function (s, n) { return "Acertaste " + s + " de " + n + "."; },
+      perfect: "Ya formas parte de los detectives de los gérmenes.", good: "¡Muy buen trabajo de detective!",
+      more: "¡Lee el libro otra vez para encontrar más pistas!",
+      tryAgain: "Repetir las preguntas", readAgain: "Leer el libro otra vez",
+      privacy: "Sin registro, sin anuncios, sin rastreo.",
+      missing: "No se encontró el libro.",
+      viewLabel: "Estilo de página", printed: "Página impresa", large: "Texto grande",
+      hintSmall: "¿Letras muy pequeñas?", useLarge: "Usar texto grande"
+    }
+  };
+
+  /* ---------- icons ---------- */
+  var I = {
+    prev: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>',
+    next: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>',
+    shelf: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h4v16H4zM10 4h4v16h-4zM16.5 4.8l3.6-.9 3 14.7-3.6.9z"/></svg>',
+    speaker: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12"/></svg>',
+    pause: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>',
+    printed: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="1.5"/><path d="M5.5 9h5M5.5 12h5M5.5 15h3.5"/><path d="M13 16l2.6-3.2 2 2.2 1.4-1.6"/><circle cx="17" cy="9" r="1.3"/></svg>',
+    large: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.4 5h2.3l5.1 14h-2.5l-1.3-3.7H5.9L4.6 19H2.2zm-.8 8.3h4.1L8.6 7.6zM18.6 10.4c2.2 0 3.4 1.1 3.4 3.2V19h-2v-1.1c-.6.9-1.5 1.3-2.7 1.3-1.8 0-2.9-1-2.9-2.5 0-1.6 1.2-2.5 3.4-2.5h2.1v-.4c0-1-.6-1.6-1.8-1.6-.9 0-1.6.3-2.2.9l-1.1-1.2c.9-.9 2.2-1.5 3.8-1.5zm-.8 7.2c1.2 0 2.1-.7 2.1-1.8v-.5H18c-1.1 0-1.6.4-1.6 1.1 0 .7.6 1.2 1.4 1.2z"/></svg>',
+    check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+    cross: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+    lens: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="33" cy="33" r="22" fill="var(--straw)" stroke="var(--ink)" stroke-width="7"/><path d="M50 50l20 20" stroke="var(--ink)" stroke-width="10" stroke-linecap="round"/><circle cx="26" cy="27" r="5" fill="var(--barn)"/><circle cx="39" cy="38" r="4" fill="var(--field)"/><circle cx="38" cy="23" r="2.6" fill="var(--ink)"/><path d="M20 38q4 6 10 3" stroke="var(--ink)" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>',
+    badge: '<svg class="badge" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54" fill="var(--straw)"/><circle cx="60" cy="60" r="54" fill="none" stroke="var(--ink)" stroke-width="4" stroke-dasharray="6 6"/><circle cx="54" cy="52" r="22" fill="var(--surface)" stroke="var(--ink)" stroke-width="6"/><path d="M70 68l18 18" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/><path d="M54 40l3.6 7.4 8.1 1.2-5.9 5.7 1.4 8.1-7.2-3.8-7.2 3.8 1.4-8.1-5.9-5.7 8.1-1.2z" fill="var(--barn)"/></svg>'
+  };
+
+  /* ---------- state ---------- */
+  var state = { lang: "en", view: "library", book: null, page: 0, quiz: null, listening: false, mode: null };
+  /* Printed pages are the default where they are easy to read (laptops, tablets held sideways);
+     everywhere else the default is large text. A reader's own choice is remembered. */
+  var wideScreen = window.matchMedia ? window.matchMedia("(orientation: landscape) and (min-width: 720px) and (min-height: 561px)") : { matches: true };
+  var audio = new Audio();
+  audio.preload = "none";
+
+  function t(key) { return T[state.lang][key]; }
+  function L(obj) { return obj ? (obj[state.lang] || obj.en || "") : ""; }
+  function esc(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  function inline(s) {
+    return esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/_([^_]+)_/g, "<em>$1</em>");
+  }
+  function storyHTML(text) {
+    var out = [], list = [];
+    String(text || "").split("\n").forEach(function (raw) {
+      var line = raw.trim();
+      if (/^- /.test(line)) { list.push("<li>" + inline(line.slice(2)) + "</li>"); return; }
+      if (list.length) { out.push("<ul>" + list.join("") + "</ul>"); list = []; }
+      if (line) out.push("<p>" + inline(line) + "</p>");
+    });
+    if (list.length) out.push("<ul>" + list.join("") + "</ul>");
+    return out.join("");
+  }
+  function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function recall(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function say(msg) { announcer.textContent = ""; setTimeout(function () { announcer.textContent = msg; }, 30); }
+
+  function totalPages(b) { return b.pages.length + 1 + (b.quiz && b.quiz.length ? 1 : 0); }
+  function kindOf(b, p) { return p === 0 ? "cover" : (p <= b.pages.length ? "page" : "quiz"); }
+  function img(base, w) { return base + "-" + w + ".webp"; }
+  function hasPrinted(b) { return !!(b && b.pages && b.pages.length && b.pages.every(function (pg) { return pg.printed; })); }
+  function viewMode(b) {
+    if (!hasPrinted(b)) return "text";
+    if (state.mode === "print" || state.mode === "text") return state.mode;
+    return wideScreen.matches ? "print" : "text";
+  }
+  function printSet(base) { return img(base, 960) + " 960w, " + img(base, 1600) + " 1600w, " + img(base, 2400) + " 2400w"; }
+
+  /* ---------- address bar (lets teachers share a link to a book or language) ---------- */
+  function readHash() {
+    var parts = (location.hash || "").replace(/^#/, "").split("-").filter(Boolean);
+    var out = { lang: null, book: null, page: 0 };
+    parts.forEach(function (p) {
+      if (p === "en" || p === "es") out.lang = p;
+      else if (/^p\d+$/.test(p)) out.page = parseInt(p.slice(1), 10);
+      else {
+        var b = DATA.books.filter(function (x) { return x.id === p && x.ready; })[0];
+        if (b) out.book = b;
+      }
+    });
+    return out;
+  }
+  function writeHash(push) {
+    var parts = [];
+    if (state.view === "reader" && state.book) {
+      parts.push(state.book.id);
+      if (state.page > 0) parts.push("p" + state.page);
+    }
+    if (state.lang === "es") parts.push("es");
+    var url = location.pathname + location.search + (parts.length ? "#" + parts.join("-") : "");
+    try {
+      if (push) history.pushState(null, "", url); else history.replaceState(null, "", url);
+    } catch (e) {}
+  }
+
+  function langSwitch() {
+    return '<div class="lang" role="group" aria-label="' + t("language") + '">' +
+      '<button type="button" data-lang="en" aria-pressed="' + (state.lang === "en") + '"><span class="long">English</span><span class="short">EN</span></button>' +
+      '<button type="button" data-lang="es" aria-pressed="' + (state.lang === "es") + '"><span class="long">Español</span><span class="short">ES</span></button>' +
+      "</div>";
+  }
+  function bindLang(root) {
+    root.querySelectorAll("[data-lang]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        if (state.lang === b.dataset.lang) return;
+        setLang(b.dataset.lang);
+        var again = app.querySelector('[data-lang="' + state.lang + '"]');
+        if (again) again.focus();
+      });
+    });
+  }
+  function setLang(lang) {
+    state.lang = lang;
+    document.documentElement.lang = lang;
+    store("gd-lang", lang);
+    stopAudio();
+    writeHash(false);
+    if (state.view === "library") renderLibrary(); else renderReader();
+  }
+
+  /* ---------- library ---------- */
+  function renderLibrary() {
+    stopAudio();
+    state.view = "library";
+    document.body.className = "mode-lib ruled";
+    document.title = L(DATA.series);
+    var cards = DATA.books.map(function (b) {
+      var title = L(b.title), topic = L(b.topic);
+      var showTopic = topic && topic.toLowerCase() !== title.toLowerCase();
+      var inner =
+        '<span class="case-cover"><img src="' + b.cover + '-420.webp" alt="' + esc(L(b.coverAlt)) + '" loading="lazy" width="420" height="473">' +
+        '<span class="case-no note">' + t("caseWord") + " " + b.caseNumber + "</span></span>" +
+        '<span class="case-meta"><span class="case-title">' + esc(title) + "</span>" +
+        (showTopic ? '<span class="case-topic">' + esc(topic) + "</span>" : "") +
+        (b.ready
+          ? '<span class="chip go">' + t("read") + I.next + "</span>"
+          : '<span class="chip wait">' + t("soon") + "</span>") +
+        "</span>";
+      return "<li>" + (b.ready
+        ? '<button type="button" class="case" data-open="' + b.id + '">' + inner + "</button>"
+        : '<div class="case soon" aria-disabled="true">' + inner + "</div>") + "</li>";
+    }).join("");
+
+    app.innerHTML =
+      '<div class="lib">' +
+        '<header class="lib-head">' +
+          '<div class="brand">' + I.lens +
+            '<div><p class="eyebrow note">' + esc(L(DATA.tagline)) + "</p><h1>" + esc(L(DATA.series)) + "</h1></div>" +
+          "</div>" + langSwitch() +
+        "</header>" +
+        '<p class="intro">' + t("intro") + "</p>" +
+        '<ol class="cases">' + cards + "</ol>" +
+        '<footer class="lib-foot"><p>' + esc(L(DATA.credit)) + "</p><p>" + t("privacy") + "</p></footer>" +
+      "</div>";
+
+    bindLang(app);
+    app.querySelectorAll("[data-open]").forEach(function (el) {
+      el.addEventListener("click", function () { openBook(el.dataset.open, 0, true); });
+    });
+  }
+
+  /* ---------- reader ---------- */
+  function openBook(id, page, push) {
+    var b = DATA.books.filter(function (x) { return x.id === id && x.ready; })[0];
+    if (!b) { renderLibrary(); return; }
+    state.view = "reader";
+    state.book = b;
+    state.page = Math.max(0, Math.min(page || 0, totalPages(b) - 1));
+    state.quiz = null;
+    writeHash(push);
+    renderReader();
+  }
+
+  function renderReader() {
+    var b = state.book;
+    document.body.className = "mode-read";
+    document.title = L(b.title) + " · " + L(DATA.series);
+    app.innerHTML =
+      '<div class="reader">' +
+        '<header class="r-bar">' +
+          '<button type="button" class="icon-btn" id="toLib" aria-label="' + t("backToLib") + '">' + I.shelf + '<span class="lbl">' + t("library") + "</span></button>" +
+          '<div class="r-title"><span class="note">' + t("caseWord") + " " + b.caseNumber + "</span><b>" + esc(L(b.title)) + "</b></div>" +
+          (hasPrinted(b)
+            ? '<div class="lang view-switch" role="group" aria-label="' + t("viewLabel") + '">' +
+                '<button type="button" data-view="print" title="' + t("printed") + '" aria-label="' + t("printed") + '">' + I.printed + '<span class="vlbl">' + t("printed") + "</span></button>" +
+                '<button type="button" data-view="text" title="' + t("large") + '" aria-label="' + t("large") + '">' + I.large + '<span class="vlbl">' + t("large") + "</span></button>" +
+              "</div>"
+            : "") +
+          langSwitch() +
+        "</header>" +
+        '<main class="r-main" id="main"></main>' +
+        '<nav class="r-nav" aria-label="' + t("turn") + '">' +
+          '<button type="button" class="btn" id="prev">' + I.prev + '<span class="lbl">' + t("prev") + "</span></button>" +
+          '<div class="nav-mid"><div class="dots" aria-hidden="true"></div>' +
+            '<button type="button" class="btn listen" id="listen" aria-pressed="false" hidden>' + I.speaker + '<span class="lbl">' + t("listen") + "</span></button></div>" +
+          '<button type="button" class="btn primary" id="next"><span class="lbl">' + t("next") + "</span>" + I.next + "</button>" +
+        "</nav>" +
+      "</div>";
+
+    bindLang(app);
+    app.querySelectorAll(".view-switch [data-view]").forEach(function (btn) {
+      btn.addEventListener("click", function () { setMode(btn.dataset.view); });
+    });
+    app.querySelector("#toLib").addEventListener("click", goLibrary);
+    app.querySelector("#prev").addEventListener("click", function () { go(state.page - 1); });
+    app.querySelector("#next").addEventListener("click", function () { go(state.page + 1); });
+    app.querySelector("#listen").addEventListener("click", toggleListen);
+    bindSwipe(app.querySelector("#main"));
+    renderPage(false);
+  }
+
+  function setMode(m) {
+    state.mode = m;
+    store("gd-view", m);
+    if (state.view === "reader" && kindOf(state.book, state.page) === "page") renderPage(false, true);
+    syncModeSwitch();
+  }
+  function syncModeSwitch() {
+    var m = state.book ? viewMode(state.book) : "text";
+    app.querySelectorAll(".view-switch [data-view]").forEach(function (btn) {
+      btn.setAttribute("aria-pressed", btn.dataset.view === m ? "true" : "false");
+    });
+  }
+  if (wideScreen.addEventListener) {
+    wideScreen.addEventListener("change", function () {
+      if (!state.mode && state.view === "reader" && kindOf(state.book, state.page) === "page") renderPage(false, true);
+      syncModeSwitch();
+    });
+  }
+
+  function goLibrary() {
+    state.view = "library";
+    state.book = null;
+    writeHash(true);
+    renderLibrary();
+    var first = app.querySelector("[data-open]");
+    if (first) first.focus();
+  }
+
+  function go(p) {
+    var b = state.book;
+    if (!b || p < 0 || p >= totalPages(b) || p === state.page) return;
+    state.page = p;
+    if (kindOf(b, p) === "quiz") state.quiz = { i: 0, picked: null, score: 0, done: false };
+    writeHash(false);
+    renderPage(true);
+  }
+
+  function renderPage(announce, keepAudio) {
+    var b = state.book, p = state.page, kind = kindOf(b, p);
+    var main = app.querySelector("#main");
+    var n = b.pages.length;
+
+    if (kind === "cover") {
+      main.innerHTML =
+        '<section class="view cover"><div class="cover-in">' +
+          '<div class="cover-art"><img src="' + b.cover + '.webp" alt="' + esc(L(b.coverAlt)) + '" width="836" height="941"></div>' +
+          '<div class="cover-info">' +
+            '<p class="note">' + t("caseWord") + " " + b.caseNumber + " · " + t("adventure") + "</p>" +
+            "<h2>" + esc(L(b.title)) + "</h2>" +
+            '<p class="blurb">' + esc(L(b.blurb)) + "</p>" +
+            '<button type="button" class="btn primary" id="startBtn">' + t("start") + I.next + "</button>" +
+            '<p class="hint">' + t("hint") + "</p>" +
+          "</div>" +
+        "</div></section>";
+      main.querySelector("#startBtn").addEventListener("click", function () { go(1); app.querySelector("#next").focus(); });
+    } else if (kind === "page" && viewMode(b) === "print") {
+      var pp = b.pages[p - 1];
+      main.innerHTML =
+        '<section class="view page printed" aria-label="' + t("pageOf")(p, n) + '"><div class="stage">' +
+          '<figure class="art"><img src="' + img(pp.printed, 1600) + '" srcset="' + printSet(pp.printed) + '" sizes="96vw" alt="' + esc(L(pp.alt)) + '" width="1600" height="900"></figure>' +
+        "</div>" +
+        '<div class="sr-only" lang="' + state.lang + '">' + storyHTML(L(pp.text)) + "</div>" +
+        '<p class="print-hint">' + t("hintSmall") + ' <button type="button" data-view="text">' + t("useLarge") + "</button></p>" +
+        "</section>";
+      main.querySelector(".print-hint button").addEventListener("click", function () { setMode("text"); });
+      var nextP = b.pages[p];
+      if (nextP) { var preP = new Image(); preP.sizes = "96vw"; preP.srcset = printSet(nextP.printed); }
+    } else if (kind === "page") {
+      var pg = b.pages[p - 1];
+      main.innerHTML =
+        '<section class="view page" aria-label="' + t("pageOf")(p, n) + '"><div class="stage">' +
+          '<figure class="art" style="--focus:' + (pg.focus == null ? 50 : pg.focus) + '%">' +
+            '<img src="' + img(pg.image, 1600) + '" srcset="' + img(pg.image, 960) + " 960w, " + img(pg.image, 1600) + ' 1600w" sizes="100vw" alt="' + esc(L(pg.alt)) + '" width="1600" height="900">' +
+          "</figure>" +
+          '<div class="story' + (pg.side === "right" ? " right" : "") + '" lang="' + state.lang + '">' + storyHTML(L(pg.text)) + "</div>" +
+        "</div></section>";
+      var nextPg = b.pages[p];
+      if (nextPg) { var pre = new Image(); pre.srcset = img(nextPg.image, 960) + " 960w, " + img(nextPg.image, 1600) + " 1600w"; pre.sizes = "100vw"; }
+    } else {
+      if (!state.quiz) state.quiz = { i: 0, picked: null, score: 0, done: false };
+      main.innerHTML = '<section class="view quiz ruled"><div class="quiz-in" id="quizIn"></div></section>';
+      renderQuiz();
+    }
+
+    updateNav();
+    syncModeSwitch();
+    if (!keepAudio) playIfListening();
+    if (announce) say(kind === "cover" ? t("cover") : kind === "page" ? t("pageOf")(p, n) : t("quizTitle"));
+  }
+
+  function updateNav() {
+    var b = state.book, p = state.page, total = totalPages(b), kind = kindOf(b, p);
+    var hasQuiz = b.quiz && b.quiz.length;
+    var dots = "";
+    for (var i = 0; i < total; i++) {
+      var isQ = hasQuiz && i === total - 1;
+      dots += '<i class="' + (i === p ? "on" : i < p ? "done" : "") + (isQ ? " q" : "") + '"></i>';
+    }
+    app.querySelector(".dots").innerHTML = dots;
+    var prev = app.querySelector("#prev"), next = app.querySelector("#next");
+    prev.disabled = p === 0;
+    var last = p === total - 1;
+    next.classList.toggle("ghost", last);
+    next.disabled = last;
+    var toQuiz = hasQuiz && p === b.pages.length;
+    next.querySelector(".lbl").textContent = toQuiz ? t("toQuiz") : t("next");
+    next.setAttribute("aria-label", toQuiz ? t("toQuiz") : t("next"));
+    prev.setAttribute("aria-label", t("prev"));
+    var listen = app.querySelector("#listen");
+    listen.hidden = !(b.narration && b.narration[state.lang]) || kind === "quiz";
+    listen.disabled = false;
+    listen.title = "";
+  }
+
+  /* ---------- narration ---------- */
+  function audioSrc() { return "audio/" + state.book.id + "/" + state.lang + "/page-" + state.page + ".mp3"; }
+  function setListenUI(playing) {
+    var btn = app.querySelector("#listen");
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", playing ? "true" : "false");
+    btn.innerHTML = (playing ? I.pause : I.speaker) + '<span class="lbl">' + (playing ? t("pause") : t("listen")) + "</span>";
+    btn.setAttribute("aria-label", playing ? t("pause") : t("listen"));
+  }
+  function stopAudio() {
+    try { audio.pause(); } catch (e) {}
+    setListenUI(false);
+  }
+  function toggleListen() {
+    if (!audio.paused) { state.listening = false; stopAudio(); return; }
+    state.listening = true;
+    playCurrent();
+  }
+  function playIfListening() {
+    stopAudio();
+    if (state.listening && state.view === "reader" && kindOf(state.book, state.page) !== "quiz") playCurrent();
+  }
+  function playCurrent() {
+    var btn = app.querySelector("#listen");
+    if (!btn || btn.hidden) return;
+    audio.src = audioSrc();
+    var pr = audio.play();
+    setListenUI(true);
+    if (pr && pr.catch) pr.catch(function () { setListenUI(false); });
+  }
+  audio.addEventListener("ended", function () { setListenUI(false); });
+  audio.addEventListener("error", function () {
+    setListenUI(false);
+    var btn = app.querySelector("#listen");
+    if (btn && !btn.hidden) { btn.disabled = true; btn.title = t("noAudio"); }
+  });
+
+  /* ---------- quiz ---------- */
+  function renderQuiz() {
+    var b = state.book, q = state.quiz, box = app.querySelector("#quizIn");
+    if (!box) return;
+    var n = b.quiz.length;
+    if (q.done) {
+      var msg = q.score === n ? t("perfect") : q.score >= n - 2 ? t("good") : t("more");
+      box.className = "quiz-in result";
+      box.innerHTML = I.badge +
+        "<h2>" + (q.score >= n - 2 ? t("solved") : t("goodTry")) + "</h2>" +
+        '<p class="score">' + t("score")(q.score, n) + "</p>" +
+        '<p class="msg">' + msg + "</p>" +
+        '<div class="quiz-actions">' +
+          '<button type="button" class="btn primary" id="qAgain">' + t("tryAgain") + "</button>" +
+          '<button type="button" class="btn" id="qRead">' + t("readAgain") + "</button>" +
+          '<button type="button" class="btn" id="qLib">' + t("backToLib") + "</button>" +
+        "</div>";
+      box.querySelector("#qAgain").addEventListener("click", function () { state.quiz = { i: 0, picked: null, score: 0, done: false }; renderQuiz(); focusQuiz(); });
+      box.querySelector("#qRead").addEventListener("click", function () { go(0); });
+      box.querySelector("#qLib").addEventListener("click", goLibrary);
+      return;
+    }
+    var item = b.quiz[q.i], answered = q.picked !== null;
+    var opts = item.options.map(function (o, i) {
+      var cls = "opt";
+      var mark = "";
+      if (answered) {
+        if (i === item.answer) { cls += " right"; mark = I.check; }
+        else if (i === q.picked) { cls += " miss"; mark = I.cross; }
+        else cls += " dim";
+      }
+      return '<button type="button" class="' + cls + '" data-opt="' + i + '"' + (answered ? " disabled" : "") + ">" +
+        '<span class="k">' + "ABCD".charAt(i) + "</span><span>" + inline(L(o)) + '</span><span class="mark">' + mark + "</span></button>";
+    }).join("");
+    var good = answered && q.picked === item.answer;
+    box.className = "quiz-in";
+    box.innerHTML =
+      '<p class="note">' + t("quizTitle") + " · " + t("qOf")(q.i + 1, n) + "</p>" +
+      '<h2 id="qText">' + inline(L(item.q)) + "</h2>" +
+      '<div class="opts" role="group" aria-labelledby="qText">' + opts + "</div>" +
+      (answered
+        ? '<div class="feedback' + (good ? "" : " miss") + '" role="status"><b>' + (good ? t("right") : t("wrong")) + "</b>" +
+            (good ? "" : "<p>" + t("answerWas") + "<strong>" + inline(L(item.options[item.answer])) + "</strong></p>") +
+            "<p>" + inline(L(item.why)) + "</p></div>" +
+          '<div class="quiz-actions"><button type="button" class="btn primary" id="qNext">' + (q.i + 1 < n ? t("nextQ") : t("finish")) + I.next + "</button></div>"
+        : "");
+    box.querySelectorAll("[data-opt]").forEach(function (el) {
+      el.addEventListener("click", function () {
+        if (q.picked !== null) return;
+        q.picked = parseInt(el.dataset.opt, 10);
+        if (q.picked === item.answer) q.score++;
+        renderQuiz();
+        var nx = box.querySelector("#qNext"); if (nx) nx.focus();
+      });
+    });
+    var nx = box.querySelector("#qNext");
+    if (nx) nx.addEventListener("click", function () {
+      if (q.i + 1 < n) { q.i++; q.picked = null; } else { q.done = true; }
+      renderQuiz(); focusQuiz();
+    });
+  }
+  function focusQuiz() {
+    var first = app.querySelector("#quizIn button");
+    var sec = app.querySelector(".quiz");
+    if (sec) sec.scrollTop = 0;
+    if (first) first.focus();
+  }
+
+  /* ---------- swipe and keys ---------- */
+  function bindSwipe(el) {
+    var sx = 0, sy = 0, active = false;
+    el.addEventListener("pointerdown", function (e) {
+      if (e.pointerType === "mouse") return;
+      active = true; sx = e.clientX; sy = e.clientY;
+    });
+    el.addEventListener("pointerup", function (e) {
+      if (!active) return;
+      active = false;
+      if (kindOf(state.book, state.page) === "quiz") return;
+      var dx = e.clientX - sx, dy = e.clientY - sy;
+      if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) go(state.page + (dx < 0 ? 1 : -1));
+    });
+    el.addEventListener("pointercancel", function () { active = false; });
+  }
+  document.addEventListener("keydown", function (e) {
+    if (state.view !== "reader" || e.altKey || e.ctrlKey || e.metaKey) return;
+    var tag = (e.target && e.target.tagName) || "";
+    if (tag === "INPUT" || tag === "TEXTAREA") return;
+    if (e.key === "ArrowRight") { go(state.page + 1); e.preventDefault(); }
+    else if (e.key === "ArrowLeft") { go(state.page - 1); e.preventDefault(); }
+    else if (e.key === "Escape") goLibrary();
+  });
+  window.addEventListener("popstate", route);
+  window.addEventListener("hashchange", route);
+
+  function route() {
+    var h = readHash();
+    if (h.lang && h.lang !== state.lang) { state.lang = h.lang; document.documentElement.lang = h.lang; }
+    if (h.book) {
+      if (state.view === "reader" && state.book === h.book) {
+        if (h.page !== state.page) { state.page = Math.min(h.page, totalPages(h.book) - 1); if (kindOf(h.book, state.page) === "quiz") state.quiz = { i: 0, picked: null, score: 0, done: false }; renderPage(true); }
+      } else {
+        openBook(h.book.id, h.page, false);
+      }
+    } else if (state.view !== "library") {
+      renderLibrary();
+    }
+  }
+
+  /* ---------- start ---------- */
+  (function start() {
+    var h = readHash();
+    var saved = recall("gd-lang");
+    var savedView = recall("gd-view");
+    if (savedView === "print" || savedView === "text") state.mode = savedView;
+    var nav = (navigator.language || "en").toLowerCase();
+    state.lang = h.lang || (saved === "es" || saved === "en" ? saved : (nav.indexOf("es") === 0 ? "es" : "en"));
+    document.documentElement.lang = state.lang;
+    if (h.book) openBook(h.book.id, h.page, false); else renderLibrary();
+  })();
+})();
+</script>
+
+</body>
+</html>
