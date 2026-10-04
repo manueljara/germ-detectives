@@ -9,20 +9,18 @@ The site doesn't need a server, a database, accounts or a build step. Everything
 | File or folder | What it is |
 |---|---|
 | `index.html` | The app. You shouldn't need to edit it. |
-| `books.js` | **All the book content**: titles, page text (English and Spanish), quiz questions. Edit this to fix text or add books. |
-| `img/book1/` | Book 1 illustrations **without text**, as `p1-1600.webp` / `p1-960.webp` for large and small screens. |
+| `books.js` | **All the book content**: titles, which picture each page uses, the story text for screen readers, and the quiz. Edit this to add books. |
 | `img/book1/print/` | Book 1's **finished pages with the text inside the picture** (from `Book1_ready`), in three sizes. |
 | `img/covers/` | Front covers for the library page. |
 | `audio/` | Empty for now. This is where narration recordings go (see below). |
 | `fonts/` | The three typefaces, stored here so the site never calls Google. Andika is a font designed for early readers. |
-| `tools/make_images.py` | Turns your PNG illustrations into the web-sized images the site uses. |
+| `tools/make_images.py` | Turns your finished PNG pages and cover into the web-sized images the site uses. |
 
-## Two ways to read each page
+## How the pages look
 
-- **Printed page** shows your finished page exactly as printed, with English and Spanish together. It's the default on laptops, projectors and tablets held sideways, where the words are big enough to read.
-- **Large text** shows the picture with the story as real text in one language at a time. It's the default on phones and on tablets held upright, where the printed words would be too small.
+Every page is your finished page with the English and Spanish text inside the picture, exactly as printed, shown as large as the screen allows. On a phone held upright the words are small: turning the phone sideways or pinching to zoom makes them bigger. Laptops, projectors and tablets show them comfortably.
 
-Readers can switch with the **Printed page / Large text** buttons at the top, and the site remembers their choice. In Printed page view on a small screen, a "Words too small?" link switches to Large text. Screen readers always get the story as text.
+The **English / Español** switch changes the app's buttons, the quiz and the narration language. Screen readers get the story as text from `books.js`.
 
 ## Put it online with GitHub Pages (about 10 minutes, no coding)
 
@@ -58,21 +56,17 @@ A **Listen** button then appears on every page. Once a child taps it, each page 
 
 ## Add Books 2–5
 
-1. Make sure you have the text-free illustrations named `1.png`, `2.png` … and the front/back cover spread in the book's folder.
-2. From inside this website folder, run:
+1. From inside this website folder, prepare the finished pages (the folder with `Page_1.png`, `Page_2.png` …) and the cover:
    ```
    pip install pillow
-   python tools/make_images.py "C:\Manuel\Grant_applications\Children's_book\Book2_Water_microorganisms" book2
+   python tools/make_images.py "C:\Manuel\Grant_applications\Children's_book\Book2_Water_microorganisms\Book2_ready" book2
+   python tools/make_images.py "C:\Manuel\Grant_applications\Children's_book\Book2_Water_microorganisms" book2 --cover
    ```
-   When the finished pages with text are ready (for example in a `Book2_ready` folder with `Page_1.png` …), also run:
-   ```
-   python tools/make_images.py "C:\Manuel\Grant_applications\Children's_book\Book2_Water_microorganisms\Book2_ready" book2 --printed
-   ```
-   Then give each page in `books.js` a `printed: "img/book2/print/p1"` line, like Book 1. The Printed page / Large text switch appears once every page of the book has one. If you later change a finished page, run the `--printed` command again and upload the new images.
-3. In `books.js`, find the `book2` entry. Copy the `blurb`, `narration`, `pages` and `quiz` sections from Book 1, replace the text, and change `ready: false` to `ready: true`.
-   - `side: "left"` or `"right"` puts the story card where the picture has empty space on wide screens.
-   - `focus` (0–100) is the part of the picture kept on phones held upright (0 = left edge, 100 = right edge).
-   - `alt` is a one-sentence description of the picture for children who use screen readers.
+   If you later change a finished page, run the first command again and upload the new images.
+2. In `books.js`, find the `book2` entry. Copy the `blurb`, `narration`, `pages` and `quiz` sections from Book 1, replace the content, and change `ready: false` to `ready: true`. For each page:
+   - `printed: "img/book2/print/p1"` (p2, p3 …) is the picture.
+   - `text` is the story in each language, for screen readers.
+   - `alt` is a one-sentence description of the picture, also for screen readers.
 
 ## The quiz and Phase 4 assessment
 
@@ -80,12 +74,12 @@ The quiz is practice only. **Nothing a reader does is saved or sent anywhere**, 
 
 If you want to use responses for the project's impact assessment, collect them with an IRB-approved instrument outside this site (for example a teacher survey or a Qualtrics link). Don't add tracking to the site.
 
-## Text differences from the printed pages
+## Punctuation to check on the printed pages
 
-In **Large text** view, the story text matches the printed Book 1 except for punctuation that seemed to be missing in print. The **Printed page** view shows your pages exactly as they are, so fix these in Photoshop if you agree:
+The site shows your pages exactly as they are. These look like missing quotation marks. The screen-reader text in `books.js` already has them, so if you agree, fix them in Photoshop and rerun `make_images.py`:
 
 - Page 3 (EN): added quotation marks to *"Clue found!" said Deanna.* and *"Salmonella and Campylobacter … chicken poop," explained Sam.*
 - Page 3 (ES): added the opening quotation marks to *"¡Encontramos una pista!", dijo Deanna.* and *"Salmonella y Campylobacter … gallinas", explicó Sam.*
 - Page 4 (EN): added quotation marks to *"They had the flu last year," whispered Deanna.*
 
-These are new and need a native-speaker review: the Spanish book titles (all five), the Spanish back-cover summary for Book 1, the picture descriptions (`alt`), and the quiz in both languages.
+These were written for the site and need a native-speaker review: the Spanish book titles (all five), the Spanish back-cover summary for Book 1, the picture descriptions (`alt`), and the quiz in both languages.

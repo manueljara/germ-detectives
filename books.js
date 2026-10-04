@@ -8,13 +8,12 @@
      • _underscores_ make text italic (use for species names).
      • A line starting with "- " becomes a bullet point.
 
-   Pictures: put text-free illustrations in img/<book-id>/ as
-     p1-1600.webp and p1-960.webp, p2-1600.webp ... (see README).
-   Printed pages (optional): the finished pages with the text inside
-     the picture go in img/<book-id>/print/ as p1-960.webp, p1-1600.webp,
-     p1-2400.webp ... and each page gets   printed: "img/<book-id>/print/p1"
-     When every page of a book has one, readers can switch between
-     "Printed page" and "Large text".
+   Pages: each page is your finished page with the text inside the picture,
+     saved in img/<book-id>/print/ as p1-960.webp, p1-1600.webp, p1-2400.webp
+     (tools/make_images.py --printed makes these). For each page:
+       printed: "img/<book-id>/print/p1"   which picture to show
+       text:    the same words as plain text. Readers don't see it; screen readers
+                read it aloud for blind and low-vision children.
 
    Narration: set narration.en / narration.es to true once the audio
    files exist at audio/<book-id>/en/page-1.mp3 ... (see README).
@@ -46,7 +45,7 @@ window.GERM_DETECTIVES = {
 
       pages: [
         { // 1
-          image: "img/book1/p1", printed: "img/book1/print/p1", side: "left", focus: 70,
+          printed: "img/book1/print/p1",
           alt: {
             en: "Sam and Deanna, with their dog, look worried at a quiet chicken coop and a tired calf lying on the ground.",
             es: "Sam y Deanna, con su perro, miran preocupados un gallinero silencioso y un ternero cansado tumbado en el suelo."
@@ -67,7 +66,7 @@ Sacaron sus cuadernos.
           }
         },
         { // 2
-          image: "img/book1/p2", printed: "img/book1/print/p2", side: "left", focus: 62,
+          printed: "img/book1/print/p2",
           alt: {
             en: "A teacher points to a screen about bacteria and viruses while students listen at their desks.",
             es: "Una profesora señala una pantalla sobre bacterias y virus mientras los alumnos escuchan en sus pupitres."
@@ -84,7 +83,7 @@ Las bacterias y los virus son distintos tipos de microbios.
           }
         },
         { // 3
-          image: "img/book1/p3", printed: "img/book1/print/p3", side: "left", focus: 50,
+          printed: "img/book1/print/p3",
           alt: {
             en: "Inside the chicken coop, Deanna inspects eggs in dirty straw with a magnifying glass while Sam takes notes.",
             es: "Dentro del gallinero, Deanna examina con una lupa unos huevos sobre paja sucia mientras Sam toma notas."
@@ -101,7 +100,7 @@ Las bacterias y los virus son distintos tipos de microbios.
           }
         },
         { // 4
-          image: "img/book1/p4", printed: "img/book1/print/p4", side: "left", focus: 58,
+          printed: "img/book1/print/p4",
           alt: {
             en: "Sam and Deanna lean on a fence, watching pigs sneeze in a muddy pen.",
             es: "Sam y Deanna se apoyan en una cerca y observan a unos cerdos que estornudan en un corral con barro."
@@ -120,7 +119,7 @@ Las bacterias y los virus son distintos tipos de microbios.
           }
         },
         { // 5
-          image: "img/book1/p5", printed: "img/book1/print/p5", side: "left", focus: 75,
+          printed: "img/book1/print/p5",
           alt: {
             en: "A cow drinks from a trough of dirty water. A magnified circle shows E. coli and Salmonella bacteria.",
             es: "Una vaca bebe de un bebedero con agua sucia. Un círculo ampliado muestra las bacterias E. coli y Salmonella."
@@ -135,7 +134,7 @@ Las bacterias y los virus son distintos tipos de microbios.
           }
         },
         { // 6
-          image: "img/book1/p6", printed: "img/book1/print/p6", side: "left", focus: 70,
+          printed: "img/book1/print/p6",
           alt: {
             en: "Uncle Bob sits in his living room holding up a glass of milk as Sam and Deanna come through the door.",
             es: "El tío Bob, sentado en su sala, levanta un vaso de leche mientras Sam y Deanna entran por la puerta."
@@ -154,7 +153,7 @@ Las bacterias y los virus son distintos tipos de microbios.
           }
         },
         { // 7
-          image: "img/book1/p7", printed: "img/book1/print/p7", side: "left", focus: 50,
+          printed: "img/book1/print/p7",
           alt: {
             en: "Sam and Deanna sit at a table covered with clue notes and their Germ Safety Plan.",
             es: "Sam y Deanna, sentados a una mesa llena de notas con pistas y su plan contra los gérmenes."
@@ -177,7 +176,7 @@ Juntos, hicieron una lista:
           }
         },
         { // 8
-          image: "img/book1/p8", printed: "img/book1/print/p8", side: "right", focus: 22,
+          printed: "img/book1/print/p8",
           alt: {
             en: "At sunset, Uncle Bob, Sam, and Deanna wave by the barn, with healthy cows, pigs, and chickens around them.",
             es: "Al atardecer, el tío Bob, Sam y Deanna saludan junto al granero, rodeados de vacas, cerdos y gallinas sanos."

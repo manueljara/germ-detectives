@@ -3,20 +3,19 @@ Prepare a book's pictures for the website.
 
 Usage (from inside the website folder):
 
-  Text-free illustrations and the cover:
-    python tools/make_images.py "C:\\path\\to\\Book2_Water_microorganisms" book2
+  Finished pages (the pages with the text inside the picture):
+    python tools/make_images.py "C:\\path\\to\\Book2_Water_microorganisms\\Book2_ready" book2
 
-  Finished pages with the text inside the picture ("Printed page" view):
-    python tools/make_images.py "C:\\path\\to\\Book2_Water_microorganisms\\Book2_ready" book2 --printed
+  Front cover for the library (from the front/back cover spread):
+    python tools/make_images.py "C:\\path\\to\\Book2_Water_microorganisms" book2 --cover
 
 What it does:
-  • Text-free mode: takes 1.png, 2.png, 3.png ... and saves img/book2/p1-1600.webp and
-    img/book2/p1-960.webp (and so on). It also takes the front/back cover spread (any .png
-    with "front" in its name), keeps the right half (the front cover), and saves
-    img/covers/book2.webp and book2-420.webp.
-  • --printed mode: takes Page_1.png, Page_2.png ... (or 1.png, 2.png ...) and saves
-    img/book2/print/p1-960.webp, p1-1600.webp and p1-2400.webp (and so on). The largest size
-    keeps the printed words sharp on high-resolution screens.
+  • Pages: takes Page_1.png, Page_2.png ... (or 1.png, 2.png ...) and saves
+    img/book2/print/p1-960.webp, p1-1600.webp and p1-2400.webp (and so on).
+    The largest size keeps the words sharp on high-resolution screens.
+  • --cover: takes the front/back cover spread (any .png with "front" in its name),
+    keeps the right half (the front cover), and saves img/covers/book2.webp and
+    img/covers/book2-420.webp.
 
 Needs Python 3 and Pillow:  pip install pillow
 """
@@ -26,8 +25,8 @@ from pathlib import Path
 
 from PIL import Image
 
-args = [a for a in sys.argv[1:] if a != "--printed"]
-printed = "--printed" in sys.argv
+args = [a for a in sys.argv[1:] if not a.startswith("--")]
+cover_mode = "--cover" in sys.argv
 if len(args) != 2:
     sys.exit(__doc__)
 
@@ -56,37 +55,31 @@ def resized(im, width):
     return im.resize((width, height), Image.LANCZOS)
 
 
+if cover_mode:
+    covers = [p for p in source.glob("*.png") if "front" in p.name.lower()]
+    if not covers:
+        sys.exit(f"No cover found in {source} (looked for a .png with 'front' in its name).")
+    out = site / "img" / "covers"
+    out.mkdir(parents=True, exist_ok=True)
+    im = load_rgb(covers[0])
+    front = im.crop((im.width // 2, 0, im.width, im.height))
+    front.save(out / f"{book_id}.webp", "WEBP", quality=82, method=6)
+    resized(front, 420).save(out / f"{book_id}-420.webp", "WEBP", quality=80, method=6)
+    print(f"Cover saved to {out} (from {covers[0].name})")
+    sys.exit(0)
+
 pages = sorted((p for p in source.glob("*.png") if page_number(p) is not None), key=page_number)
 if not pages:
-    sys.exit(f"No numbered .png pages found in {source}")
+    sys.exit(f"No numbered pages (Page_1.png or 1.png ...) found in {source}")
 
-if printed:
-    out = site / "img" / book_id / "print"
-    sizes = ((2400, 82), (1600, 82), (960, 80))
-else:
-    out = site / "img" / book_id
-    sizes = ((1600, 80), (960, 78))
+out = site / "img" / book_id / "print"
 out.mkdir(parents=True, exist_ok=True)
-
 for p in pages:
     im = load_rgb(p)
     n = page_number(p)
-    for width, quality in sizes:
+    for width, quality in ((2400, 82), (1600, 82), (960, 80)):
         resized(im, width).save(out / f"p{n}-{width}.webp", "WEBP", quality=quality, method=6)
     print(f"page {n}: done")
-print(f"\n{len(pages)} pages saved to {out}")
 
-if not printed:
-    covers_out = site / "img" / "covers"
-    covers_out.mkdir(parents=True, exist_ok=True)
-    covers = [p for p in source.glob("*.png") if "front" in p.name.lower()]
-    if covers:
-        im = load_rgb(covers[0])
-        front = im.crop((im.width // 2, 0, im.width, im.height))
-        front.save(covers_out / f"{book_id}.webp", "WEBP", quality=82, method=6)
-        resized(front, 420).save(covers_out / f"{book_id}-420.webp", "WEBP", quality=80, method=6)
-        print(f"cover: done (from {covers[0].name})")
-    else:
-        print("No cover found (looked for a .png with 'front' in its name).")
-else:
-    print(f'\nIn books.js, add  printed: "img/{book_id}/print/pN"  to each page (N = page number).')
+print(f"\n{len(pages)} pages saved to {out}")
+print(f'In books.js, each page needs  printed: "img/{book_id}/print/pN"  (N = page number).')

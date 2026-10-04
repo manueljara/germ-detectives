@@ -319,30 +319,42 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
 .result .msg { margin: 0; color: var(--ink-soft); font-size: 1.1rem; }
 .result .quiz-actions { justify-content: center; }
 
-/* ---------- printed page (the finished page with text inside the picture) ---------- */
-.view-switch .vlbl { margin-left: .35em; }
-.view-switch button { display: inline-flex; align-items: center; }
-.view-switch svg { width: 20px; height: 20px; flex: none; }
-@media (max-width: 899px) { .view-switch .vlbl { display: none; } .view-switch button { padding: 0 .7em; } }
+/* ---------- printed page (the finished page with the text inside the picture) ----------
+   Small screens: the whole page on top, and below it a magnified close-up of the page's text box
+   (cut from the same picture) so the words are big enough to read. Wide screens: the whole page. */
 .page.printed {
-  display: grid; place-content: center; justify-items: center; gap: 12px;
-  grid-template-columns: none; overflow: hidden; container-type: size; background: var(--stage);
+  display: grid; grid-template-columns: none; grid-template-rows: auto minmax(0, 1fr);
+  justify-items: center; align-items: center; gap: 10px; padding: 8px;
+  overflow: hidden; container-type: size; background: var(--stage);
 }
 .page.printed .stage {
   display: block; position: relative; container-type: normal;
-  width: min(calc(100cqw - 24px), calc((100cqh - 24px) * 16 / 9)); aspect-ratio: 16 / 9;
-  border-radius: 6px; overflow: hidden; box-shadow: var(--shadow);
+  width: 100%; aspect-ratio: 16 / 9; border-radius: 6px; overflow: hidden; box-shadow: var(--shadow);
 }
 .page.printed .art { position: absolute; inset: 0; aspect-ratio: auto; height: auto; }
 .page.printed .art img { object-fit: contain; object-position: 50% 50%; }
-.print-hint { display: none; margin: 0 16px; text-align: center; color: var(--ink-soft); font-size: 1rem; }
-.print-hint button {
-  border: 0; background: none; padding: 0; cursor: pointer; font-weight: 700; color: var(--barn);
-  text-decoration: underline; text-underline-offset: 3px;
+.closeup-wrap { container-type: size; width: 100%; height: 100%; min-height: 0; display: grid; place-items: start center; }
+@media (orientation: landscape) { .closeup-wrap { place-items: center; } }
+.closeup {
+  position: relative; overflow: hidden; aspect-ratio: var(--ar);
+  width: min(100cqw, calc(100cqh * var(--ar)));
+  border-radius: 6px; box-shadow: var(--shadow); background: var(--panel);
 }
-@media (orientation: portrait), (max-width: 719px), (max-height: 560px) {
-  .print-hint { display: block; }
-  .page.printed .stage { width: min(calc(100cqw - 16px), calc((100cqh - 72px) * 16 / 9)); }
+.closeup img {
+  position: absolute; display: block; max-width: none; height: auto;
+  width: calc(100% / var(--bw));
+  left: calc(-100% * var(--bx) / var(--bw));
+  top: calc(-100% * var(--by) / var(--bh));
+  animation: show .35s ease;
+}
+@media (orientation: landscape) and (min-width: 720px) and (min-height: 561px) {
+  .page.printed { grid-template-rows: none; place-content: center; padding: 0; }
+  .page.printed .stage { width: min(calc(100cqw - 24px), calc((100cqh - 24px) * 16 / 9)); }
+  .closeup-wrap { display: none; }
+}
+@media (orientation: landscape) and (max-height: 560px) {
+  .page.printed { grid-template-rows: none; grid-template-columns: auto minmax(0, 1fr); }
+  .page.printed .stage { width: auto; height: calc(100cqh - 16px); }
 }
 
 .load-error { padding: 24px; }
@@ -388,9 +400,7 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
       more: "Read the book again to find more clues!",
       tryAgain: "Try the questions again", readAgain: "Read the book again",
       privacy: "No sign-up, no ads, no tracking.",
-      missing: "Book not found.",
-      viewLabel: "Page style", printed: "Printed page", large: "Large text",
-      hintSmall: "Words too small?", useLarge: "Use large text"
+      missing: "Book not found."
     },
     es: {
       language: "Idioma", turn: "Pasar páginas", library: "Biblioteca", backToLib: "Volver a la biblioteca",
@@ -409,9 +419,7 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
       more: "¡Lee el libro otra vez para encontrar más pistas!",
       tryAgain: "Repetir las preguntas", readAgain: "Leer el libro otra vez",
       privacy: "Sin registro, sin anuncios, sin rastreo.",
-      missing: "No se encontró el libro.",
-      viewLabel: "Estilo de página", printed: "Página impresa", large: "Texto grande",
-      hintSmall: "¿Letras muy pequeñas?", useLarge: "Usar texto grande"
+      missing: "No se encontró el libro."
     }
   };
 
@@ -422,8 +430,6 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
     shelf: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h4v16H4zM10 4h4v16h-4zM16.5 4.8l3.6-.9 3 14.7-3.6.9z"/></svg>',
     speaker: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12"/></svg>',
     pause: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>',
-    printed: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="1.5"/><path d="M5.5 9h5M5.5 12h5M5.5 15h3.5"/><path d="M13 16l2.6-3.2 2 2.2 1.4-1.6"/><circle cx="17" cy="9" r="1.3"/></svg>',
-    large: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.4 5h2.3l5.1 14h-2.5l-1.3-3.7H5.9L4.6 19H2.2zm-.8 8.3h4.1L8.6 7.6zM18.6 10.4c2.2 0 3.4 1.1 3.4 3.2V19h-2v-1.1c-.6.9-1.5 1.3-2.7 1.3-1.8 0-2.9-1-2.9-2.5 0-1.6 1.2-2.5 3.4-2.5h2.1v-.4c0-1-.6-1.6-1.8-1.6-.9 0-1.6.3-2.2.9l-1.1-1.2c.9-.9 2.2-1.5 3.8-1.5zm-.8 7.2c1.2 0 2.1-.7 2.1-1.8v-.5H18c-1.1 0-1.6.4-1.6 1.1 0 .7.6 1.2 1.4 1.2z"/></svg>',
     check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
     cross: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
     lens: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="33" cy="33" r="22" fill="var(--straw)" stroke="var(--ink)" stroke-width="7"/><path d="M50 50l20 20" stroke="var(--ink)" stroke-width="10" stroke-linecap="round"/><circle cx="26" cy="27" r="5" fill="var(--barn)"/><circle cx="39" cy="38" r="4" fill="var(--field)"/><circle cx="38" cy="23" r="2.6" fill="var(--ink)"/><path d="M20 38q4 6 10 3" stroke="var(--ink)" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>',
@@ -431,10 +437,7 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
   };
 
   /* ---------- state ---------- */
-  var state = { lang: "en", view: "library", book: null, page: 0, quiz: null, listening: false, mode: null };
-  /* Printed pages are the default where they are easy to read (laptops, tablets held sideways);
-     everywhere else the default is large text. A reader's own choice is remembered. */
-  var wideScreen = window.matchMedia ? window.matchMedia("(orientation: landscape) and (min-width: 720px) and (min-height: 561px)") : { matches: true };
+  var state = { lang: "en", view: "library", book: null, page: 0, quiz: null, listening: false };
   var audio = new Audio();
   audio.preload = "none";
 
@@ -465,12 +468,14 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
   function kindOf(b, p) { return p === 0 ? "cover" : (p <= b.pages.length ? "page" : "quiz"); }
   function img(base, w) { return base + "-" + w + ".webp"; }
   function hasPrinted(b) { return !!(b && b.pages && b.pages.length && b.pages.every(function (pg) { return pg.printed; })); }
-  function viewMode(b) {
-    if (!hasPrinted(b)) return "text";
-    if (state.mode === "print" || state.mode === "text") return state.mode;
-    return wideScreen.matches ? "print" : "text";
-  }
   function printSet(base) { return img(base, 960) + " 960w, " + img(base, 1600) + " 1600w, " + img(base, 2400) + " 2400w"; }
+  /* On small screens both the page and its close-up use the same (large) file, so each page downloads once. */
+  var PRINT_SIZES = "(orientation: landscape) and (min-width: 720px) and (min-height: 561px) 96vw, 235vw";
+  function textBox(pg) {
+    var b = pg.textBox || (pg.side === "right" ? [54.5, 5, 97, 95] : [3, 5, 45.5, 95]);
+    var bx = b[0] / 100, by = b[1] / 100, bw = (b[2] - b[0]) / 100, bh = (b[3] - b[1]) / 100;
+    return "--bx:" + bx + ";--by:" + by + ";--bw:" + bw + ";--bh:" + bh + ";--ar:" + ((bw * 16) / (bh * 9)).toFixed(4);
+  }
 
   /* ---------- address bar (lets teachers share a link to a book or language) ---------- */
   function readHash() {
@@ -586,12 +591,6 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
         '<header class="r-bar">' +
           '<button type="button" class="icon-btn" id="toLib" aria-label="' + t("backToLib") + '">' + I.shelf + '<span class="lbl">' + t("library") + "</span></button>" +
           '<div class="r-title"><span class="note">' + t("caseWord") + " " + b.caseNumber + "</span><b>" + esc(L(b.title)) + "</b></div>" +
-          (hasPrinted(b)
-            ? '<div class="lang view-switch" role="group" aria-label="' + t("viewLabel") + '">' +
-                '<button type="button" data-view="print" title="' + t("printed") + '" aria-label="' + t("printed") + '">' + I.printed + '<span class="vlbl">' + t("printed") + "</span></button>" +
-                '<button type="button" data-view="text" title="' + t("large") + '" aria-label="' + t("large") + '">' + I.large + '<span class="vlbl">' + t("large") + "</span></button>" +
-              "</div>"
-            : "") +
           langSwitch() +
         "</header>" +
         '<main class="r-main" id="main"></main>' +
@@ -604,34 +603,12 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
       "</div>";
 
     bindLang(app);
-    app.querySelectorAll(".view-switch [data-view]").forEach(function (btn) {
-      btn.addEventListener("click", function () { setMode(btn.dataset.view); });
-    });
     app.querySelector("#toLib").addEventListener("click", goLibrary);
     app.querySelector("#prev").addEventListener("click", function () { go(state.page - 1); });
     app.querySelector("#next").addEventListener("click", function () { go(state.page + 1); });
     app.querySelector("#listen").addEventListener("click", toggleListen);
     bindSwipe(app.querySelector("#main"));
     renderPage(false);
-  }
-
-  function setMode(m) {
-    state.mode = m;
-    store("gd-view", m);
-    if (state.view === "reader" && kindOf(state.book, state.page) === "page") renderPage(false, true);
-    syncModeSwitch();
-  }
-  function syncModeSwitch() {
-    var m = state.book ? viewMode(state.book) : "text";
-    app.querySelectorAll(".view-switch [data-view]").forEach(function (btn) {
-      btn.setAttribute("aria-pressed", btn.dataset.view === m ? "true" : "false");
-    });
-  }
-  if (wideScreen.addEventListener) {
-    wideScreen.addEventListener("change", function () {
-      if (!state.mode && state.view === "reader" && kindOf(state.book, state.page) === "page") renderPage(false, true);
-      syncModeSwitch();
-    });
   }
 
   function goLibrary() {
@@ -670,18 +647,18 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
           "</div>" +
         "</div></section>";
       main.querySelector("#startBtn").addEventListener("click", function () { go(1); app.querySelector("#next").focus(); });
-    } else if (kind === "page" && viewMode(b) === "print") {
+    } else if (kind === "page" && hasPrinted(b)) {
       var pp = b.pages[p - 1];
       main.innerHTML =
-        '<section class="view page printed" aria-label="' + t("pageOf")(p, n) + '"><div class="stage">' +
-          '<figure class="art"><img src="' + img(pp.printed, 1600) + '" srcset="' + printSet(pp.printed) + '" sizes="96vw" alt="' + esc(L(pp.alt)) + '" width="1600" height="900"></figure>' +
-        "</div>" +
-        '<div class="sr-only" lang="' + state.lang + '">' + storyHTML(L(pp.text)) + "</div>" +
-        '<p class="print-hint">' + t("hintSmall") + ' <button type="button" data-view="text">' + t("useLarge") + "</button></p>" +
+        '<section class="view page printed" aria-label="' + t("pageOf")(p, n) + '">' +
+          '<div class="stage"><figure class="art"><img src="' + img(pp.printed, 1600) + '" srcset="' + printSet(pp.printed) + '" sizes="' + PRINT_SIZES + '" alt="' + esc(L(pp.alt)) + '" width="1600" height="900"></figure></div>' +
+          '<div class="closeup-wrap" aria-hidden="true"><div class="closeup" style="' + textBox(pp) + '">' +
+            '<img src="' + img(pp.printed, 1600) + '" srcset="' + printSet(pp.printed) + '" sizes="' + PRINT_SIZES + '" alt="">' +
+          "</div></div>" +
+          '<div class="sr-only" lang="' + state.lang + '">' + storyHTML(L(pp.text)) + "</div>" +
         "</section>";
-      main.querySelector(".print-hint button").addEventListener("click", function () { setMode("text"); });
       var nextP = b.pages[p];
-      if (nextP) { var preP = new Image(); preP.sizes = "96vw"; preP.srcset = printSet(nextP.printed); }
+      if (nextP) { var preP = new Image(); preP.sizes = PRINT_SIZES; preP.srcset = printSet(nextP.printed); }
     } else if (kind === "page") {
       var pg = b.pages[p - 1];
       main.innerHTML =
@@ -700,7 +677,6 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
     }
 
     updateNav();
-    syncModeSwitch();
     if (!keepAudio) playIfListening();
     if (announce) say(kind === "cover" ? t("cover") : kind === "page" ? t("pageOf")(p, n) : t("quizTitle"));
   }
@@ -879,8 +855,6 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
   (function start() {
     var h = readHash();
     var saved = recall("gd-lang");
-    var savedView = recall("gd-view");
-    if (savedView === "print" || savedView === "text") state.mode = savedView;
     var nav = (navigator.language || "en").toLowerCase();
     state.lang = h.lang || (saved === "es" || saved === "en" ? saved : (nav.indexOf("es") === 0 ? "es" : "en"));
     document.documentElement.lang = state.lang;
