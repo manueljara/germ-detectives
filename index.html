@@ -16,50 +16,60 @@
 @font-face{font-family:"Bree Serif";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/bree-serif-latin-400-normal.woff2") format("woff2")}
 @font-face{font-family:"Patrick Hand";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/patrick-hand-latin-400-normal.woff2") format("woff2")}
 </style>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='26' cy='26' r='17' fill='%23F0CF6E' stroke='%231C2F4D' stroke-width='6'/%3E%3Cpath d='M39 39l16 16' stroke='%231C2F4D' stroke-width='8' stroke-linecap='round'/%3E%3Ccircle cx='21' cy='22' r='4' fill='%23B2382A'/%3E%3Ccircle cx='31' cy='31' r='3' fill='%232F7A3B'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='26' cy='26' r='17' fill='%23FFD100' stroke='%23753BBD' stroke-width='6'/%3E%3Cpath d='M39 39l16 16' stroke='%23753BBD' stroke-width='8' stroke-linecap='round'/%3E%3Ccircle cx='21' cy='22' r='4' fill='%23753BBD'/%3E%3Ccircle cx='31' cy='31' r='3' fill='%23444444'/%3E%3C/svg%3E">
 <style>
-/* Layout: the library is a detective's ruled notebook of numbered case files;
-   the reader is a picture stage with the story on a parchment card, as in the printed book. */
+/* Layout: Tennessee Tech purple band on top, then the library as a detective's ruled notebook of
+   numbered case files. Reader: the finished page on wide screens; on phones, the picture part of the
+   page with the story underneath as large text in one language.
+   Colors: Tennessee Tech Purple #753BBD and Gold #FFD100 (primary), Gray #444444, Black, White. */
 :root {
-  --paper: #F4F7FA;
-  --rule: #DAE3ED;
-  --margin: #E6A59C;
+  --paper: #F8F6FC;
+  --rule: #E7E1F1;
+  --margin: #FFD100;
   --surface: #FFFFFF;
-  --line: #C8D3E0;
-  --ink: #1C2F4D;
-  --ink-soft: #4C5D77;
-  --barn: #B2382A;
-  --on-barn: #FFFFFF;
+  --line: #D9D1E6;
+  --ink: #1E1726;
+  --ink-soft: #444444;
+  --purple: #753BBD;
+  --on-purple: #FFFFFF;
+  --band: #753BBD;
+  --on-band: #FFFFFF;
+  --gold: #FFD100;
+  --on-gold: #1E1726;
+  --focus: #753BBD;
   --field: #2E7638;
-  --wrong: #B2382A;
-  --straw: #F0CF6E;
-  --stage: #E3E9F0;
+  --wrong: #B3261E;
+  --stage: #ECE8F3;
   --panel: rgba(246, 230, 176, 0.93);
   --panel-ink: #221B0C;
-  --shadow: 0 1px 2px rgba(28, 47, 77, .10), 0 10px 28px rgba(28, 47, 77, .14);
+  --shadow: 0 1px 2px rgba(40, 20, 70, .10), 0 10px 28px rgba(40, 20, 70, .14);
   --font-display: "Bree Serif", Rockwell, "Roboto Slab", Georgia, serif;
   --font-read: "Andika", Verdana, "Trebuchet MS", system-ui, sans-serif;
   --font-note: "Patrick Hand", "Segoe Print", "Comic Sans MS", cursive;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #0F1828; --rule: #19253A; --margin: rgba(230, 165, 156, .30);
-    --surface: #16213A; --line: #293956;
-    --ink: #E6ECF5; --ink-soft: #A5B3C8;
-    --barn: #E66B58; --on-barn: #1B0C08;
-    --field: #73C580; --wrong: #F28C7C; --straw: #E8C75F;
-    --stage: #090F1A;
+    --paper: #140F1C; --rule: #211A2C; --margin: rgba(255, 209, 0, .45);
+    --surface: #1D1628; --line: #33294A;
+    --ink: #F1EDF7; --ink-soft: #BDB5CB;
+    --purple: #B796F2; --on-purple: #140F1C;
+    --band: #3B2163; --on-band: #FFFFFF;
+    --gold: #FFD100; --on-gold: #1E1726; --focus: #FFD100;
+    --field: #73C580; --wrong: #F28C7C;
+    --stage: #0C0812;
     --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 28px rgba(0,0,0,.45);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --paper: #0F1828; --rule: #19253A; --margin: rgba(230, 165, 156, .30);
-  --surface: #16213A; --line: #293956;
-  --ink: #E6ECF5; --ink-soft: #A5B3C8;
-  --barn: #E66B58; --on-barn: #1B0C08;
-  --field: #73C580; --wrong: #F28C7C; --straw: #E8C75F;
-  --stage: #090F1A;
+  --paper: #140F1C; --rule: #211A2C; --margin: rgba(255, 209, 0, .45);
+  --surface: #1D1628; --line: #33294A;
+  --ink: #F1EDF7; --ink-soft: #BDB5CB;
+  --purple: #B796F2; --on-purple: #140F1C;
+  --band: #3B2163; --on-band: #FFFFFF;
+  --gold: #FFD100; --on-gold: #1E1726; --focus: #FFD100;
+  --field: #73C580; --wrong: #F28C7C;
+  --stage: #0C0812;
   --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 28px rgba(0,0,0,.45);
   color-scheme: dark;
 }
@@ -77,7 +87,7 @@ body.mode-read { height: 100%; overflow: hidden; }
 img { max-width: 100%; }
 [hidden] { display: none !important; }
 button { font: inherit; color: inherit; }
-:focus-visible { outline: 3px solid var(--barn); outline-offset: 2px; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .note { font-family: var(--font-note); letter-spacing: .02em; }
 #app { min-height: 100%; }
@@ -94,12 +104,12 @@ body.mode-read #app { height: 100%; }
   display: inline-flex; align-items: center; justify-content: center; gap: .45em;
   min-height: 48px; padding: 0 1.3em; border-radius: 999px;
   font-family: var(--font-read); font-weight: 700; font-size: 1.05rem;
-  border: 2px solid var(--ink); background: transparent; color: var(--ink);
+  border: 2px solid var(--purple); background: transparent; color: var(--purple);
   cursor: pointer; text-decoration: none;
 }
 .btn:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); }
-.btn.primary { background: var(--barn); border-color: var(--barn); color: var(--on-barn); }
-.btn.primary:hover { background: color-mix(in srgb, var(--barn) 88%, var(--ink)); }
+.btn.primary { background: var(--purple); border-color: var(--purple); color: var(--on-purple); }
+.btn.primary:hover { background: color-mix(in srgb, var(--purple) 88%, var(--ink)); }
 .btn svg { width: 1.15em; height: 1.15em; flex: none; }
 
 .lang {
@@ -110,19 +120,28 @@ body.mode-read #app { height: 100%; }
   border: 0; background: transparent; cursor: pointer; border-radius: 999px;
   min-height: 38px; padding: 0 .9em; font-weight: 700; font-size: .95rem; color: var(--ink-soft);
 }
-.lang button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.lang button[aria-pressed="true"] { background: var(--purple); color: var(--on-purple); }
 .lang .short { display: none; }
 
 /* ---------- library ---------- */
-.lib { max-width: 1180px; margin: 0 auto; padding: 28px 16px 40px; position: relative; display: grid; gap: 28px; align-content: start; min-height: 100vh; min-height: 100dvh; }
+.band { background: var(--band); color: var(--on-band); border-bottom: 5px solid var(--gold); }
+.band-in {
+  max-width: 1180px; margin: 0 auto; padding: 22px 16px;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px;
+}
+.band .lang { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255, 255, .3); }
+.band .lang button, .r-bar .lang button { color: rgba(255, 255, 255, .88); }
+.band .lang button[aria-pressed="true"], .r-bar .lang button[aria-pressed="true"] { background: var(--gold); color: var(--on-gold); }
+.band :focus-visible, .r-bar :focus-visible { outline-color: var(--gold); }
+.lib { max-width: 1180px; margin: 0 auto; padding: 28px 16px 40px; position: relative; display: grid; gap: 28px; align-content: start; min-height: 80vh; }
 @media (min-width: 720px) {
-  .lib { padding-left: 76px; padding-right: 32px; padding-block: 44px 56px; }
+  .band-in { padding: 30px 32px 30px 76px; }
+  .lib { padding-left: 76px; padding-right: 32px; padding-block: 36px 56px; }
   .lib::before { content: ""; position: absolute; top: 0; bottom: 0; left: 46px; width: 2px; background: var(--margin); }
 }
-.lib-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; }
 .brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
-.brand svg { width: clamp(52px, 9vw, 76px); height: auto; flex: none; }
-.brand .eyebrow { margin: 0; color: var(--barn); font-size: clamp(1.05rem, 2.6vw, 1.35rem); line-height: 1.1; }
+.brand svg { width: clamp(52px, 9vw, 76px); height: auto; flex: none; color: var(--on-band); }
+.brand .eyebrow { margin: 0; color: var(--gold); font-size: clamp(1.05rem, 2.6vw, 1.35rem); line-height: 1.1; }
 .brand h1 {
   margin: 0; font-family: var(--font-display); font-weight: 400; line-height: 1.02;
   font-size: clamp(2.3rem, 7vw, 4rem); letter-spacing: -.01em; text-wrap: balance;
@@ -144,7 +163,7 @@ button.case { cursor: pointer; }
 .case.soon .case-cover img { filter: saturate(.5); opacity: .8; }
 .case-no {
   position: absolute; top: -9px; left: -7px; padding: 1px 9px 0;
-  background: var(--straw); color: #2A2208; font-size: 1.05rem; line-height: 1.5;
+  background: var(--gold); color: var(--on-gold); font-size: 1.05rem; line-height: 1.5;
   transform: rotate(-4deg); box-shadow: 0 1px 2px rgba(0,0,0,.18);
 }
 .case-meta { display: grid; gap: 4px; min-width: 0; justify-items: start; }
@@ -154,7 +173,7 @@ button.case { cursor: pointer; }
   margin-top: 6px; display: inline-flex; align-items: center; gap: .35em;
   border-radius: 999px; padding: 4px 12px; font-weight: 700; font-size: .92rem; line-height: 1.3;
 }
-.chip.go { background: var(--barn); color: var(--on-barn); }
+.chip.go { background: var(--purple); color: var(--on-purple); }
 .chip.wait { border: 1.5px dashed var(--ink-soft); color: var(--ink-soft); }
 .chip svg { width: 1em; height: 1em; }
 button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); }
@@ -170,13 +189,17 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
 }
 .lib-foot { display: grid; gap: 4px; color: var(--ink-soft); font-size: .92rem; border-top: 1.5px solid var(--line); padding-top: 16px; }
 .lib-foot p { margin: 0; }
+.lib-foot p:first-child { color: var(--purple); font-weight: 700; }
 
 /* ---------- reader shell ---------- */
 .reader { height: 100%; display: flex; flex-direction: column; background: var(--stage); }
 .r-bar {
   flex: none; display: flex; align-items: center; gap: 10px; padding: 6px 12px; min-height: 56px;
-  background: var(--surface); border-bottom: 1.5px solid var(--line);
+  background: var(--band); color: var(--on-band); border-bottom: 4px solid var(--gold);
 }
+.r-bar .lang { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255, 255, .3); }
+.r-bar .icon-btn { color: var(--on-band); }
+.r-bar .icon-btn:hover { background: rgba(255, 255, 255, .14); }
 .icon-btn {
   display: inline-flex; align-items: center; gap: .35em; min-height: 44px; min-width: 44px; justify-content: center;
   border: 0; background: transparent; border-radius: 999px; padding: 0 .7em; cursor: pointer; font-weight: 700; color: var(--ink);
@@ -184,7 +207,7 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
 .icon-btn:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); }
 .icon-btn svg { width: 22px; height: 22px; flex: none; }
 .r-title { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: .5em; overflow: hidden; }
-.r-title .note { color: var(--barn); font-size: 1.1rem; flex: none; }
+.r-title .note { color: var(--gold); font-size: 1.1rem; flex: none; }
 .r-title b { font-family: var(--font-display); font-weight: 400; font-size: 1.2rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .r-main { flex: 1; min-height: 0; position: relative; }
 .r-main > .view { position: absolute; inset: 0; }
@@ -199,11 +222,11 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
 .dots { display: flex; align-items: center; gap: 6px; }
 .dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); display: block; }
 .dots i.done { background: var(--ink-soft); }
-.dots i.on { background: var(--barn); transform: scale(1.35); }
+.dots i.on { background: var(--purple); transform: scale(1.35); }
 .dots i.q { border-radius: 2px; transform: rotate(45deg); }
 .dots i.q.on { transform: rotate(45deg) scale(1.35); }
-.listen { border: 2px solid var(--ink); }
-.listen[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.listen { border: 2px solid var(--purple); color: var(--purple); }
+.listen[aria-pressed="true"] { background: var(--purple); color: var(--on-purple); }
 @media (max-width: 459px) {
   .r-nav .btn .lbl, .icon-btn .lbl { display: none; }
   .r-nav .btn { padding: 0; width: 48px; }
@@ -265,7 +288,7 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
 .cover-in { min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; padding: 22px 20px 28px; }
 .cover-art img { display: block; max-height: 46cqh; width: auto; height: auto; border-radius: 3px 7px 7px 3px; box-shadow: var(--shadow); }
 .cover-info { max-width: 32rem; display: grid; gap: 10px; justify-items: center; text-align: center; }
-.cover-info .note { margin: 0; color: var(--barn); font-size: 1.2rem; }
+.cover-info .note { margin: 0; color: var(--purple); font-size: 1.2rem; }
 .cover-info h2 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(2rem, 7vw, 3.2rem); line-height: 1.05; text-wrap: balance; }
 .cover-info .blurb { margin: 0; font-size: 1.12rem; color: var(--ink-soft); }
 .cover-info .btn { margin-top: 8px; }
@@ -286,7 +309,7 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
 /* ---------- quiz ---------- */
 .quiz { overflow-y: auto; }
 .quiz-in { max-width: 40rem; margin: 0 auto; padding: 28px 18px 36px; display: grid; gap: 16px; }
-.quiz .note { margin: 0; color: var(--barn); font-size: 1.2rem; }
+.quiz .note { margin: 0; color: var(--purple); font-size: 1.2rem; }
 .quiz h2 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(1.55rem, 5vw, 2.1rem); line-height: 1.15; text-wrap: balance; }
 .opts { display: grid; gap: 10px; }
 .opt {
@@ -335,6 +358,59 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
   .page.printed .stage { width: min(calc(100cqw - 24px), calc((100cqh - 24px) * 16 / 9)); }
 }
 
+/* ---------- reading view: phones and tablets held upright ----------
+   The picture part of the finished page (the text box is cut away) with the story below as large
+   text in the chosen language. The crop box (artBox in books.js) is cut from the same picture. */
+.page.reading { overflow-y: auto; background: var(--paper); display: block; }
+.page.reading .stage { display: flex; flex-direction: column; }
+.crop {
+  position: relative; overflow: hidden; margin: 0; flex: none;
+  width: 100%; aspect-ratio: var(--ar); background: var(--stage);
+}
+.crop img {
+  position: absolute; display: block; max-width: none; height: auto;
+  width: calc(100% / var(--bw));
+  left: calc(-100% * var(--bx) / var(--bw));
+  top: calc(-100% * var(--by) / var(--bh));
+  animation: show .35s ease;
+}
+.whole {
+  position: absolute; right: 10px; bottom: 10px; display: inline-flex; align-items: center; gap: .35em;
+  min-height: 36px; padding: 0 .8em; border-radius: 999px; border: 0; cursor: pointer;
+  background: rgba(20, 12, 30, .72); color: #FFFFFF; font-weight: 700; font-size: .9rem;
+}
+.whole svg { width: 16px; height: 16px; }
+.page.reading .story { background: var(--paper); padding-bottom: 44px; }
+.page.reading .story p { margin-bottom: .4em; }
+@media (orientation: portrait) {
+  /* soft fade at the bottom edge: a cue that the story continues when you scroll */
+  .page.reading::after {
+    content: ""; position: sticky; bottom: 0; display: block; height: 36px; margin-top: -36px;
+    background: linear-gradient(to bottom, color-mix(in srgb, var(--paper) 0%, transparent), var(--paper));
+    pointer-events: none;
+  }
+}
+@media (min-width: 600px) and (orientation: portrait) {
+  .crop { width: min(calc(100% - 32px), calc(52vh * var(--ar))); margin: 16px auto 0; border-radius: 8px; box-shadow: var(--shadow); }
+}
+@media (orientation: landscape) and (max-height: 560px) {
+  .page.reading { display: grid; grid-template-columns: auto minmax(0, 1fr); overflow: hidden; }
+  .page.reading .stage { display: contents; }
+  .crop { width: auto; height: 100%; }
+  .page.reading .story { overflow-y: auto; }
+}
+
+/* whole-page viewer */
+.lightbox {
+  position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; gap: 12px;
+  grid-template-rows: 1fr auto; padding: 16px; background: rgba(10, 6, 16, .94); color: #FFFFFF;
+}
+.lightbox img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; align-self: center; border-radius: 4px; }
+.lightbox .lb-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 16px; }
+.lightbox .lb-tip { margin: 0; font-size: .95rem; color: rgba(255, 255, 255, .8); }
+.lightbox .btn { border-color: var(--gold); background: var(--gold); color: var(--on-gold); }
+@media (orientation: landscape) { .lightbox .lb-tip { display: none; } }
+
 .load-error { padding: 24px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -378,7 +454,9 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
       more: "Read the book again to find more clues!",
       tryAgain: "Try the questions again", readAgain: "Read the book again",
       privacy: "No sign-up, no ads, no tracking.",
-      missing: "Book not found."
+      missing: "Book not found.",
+      whole: "Whole page", wholeLabel: "See the whole printed page", close: "Close",
+      rotateTip: "Turn your phone sideways to see the page bigger."
     },
     es: {
       language: "Idioma", turn: "Pasar páginas", library: "Biblioteca", backToLib: "Volver a la biblioteca",
@@ -397,7 +475,9 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
       more: "¡Lee el libro otra vez para encontrar más pistas!",
       tryAgain: "Repetir las preguntas", readAgain: "Leer el libro otra vez",
       privacy: "Sin registro, sin anuncios, sin rastreo.",
-      missing: "No se encontró el libro."
+      missing: "No se encontró el libro.",
+      whole: "Página completa", wholeLabel: "Ver la página impresa completa", close: "Cerrar",
+      rotateTip: "Gira el teléfono para ver la página más grande."
     }
   };
 
@@ -410,8 +490,9 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
     pause: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>',
     check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
     cross: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
-    lens: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="33" cy="33" r="22" fill="var(--straw)" stroke="var(--ink)" stroke-width="7"/><path d="M50 50l20 20" stroke="var(--ink)" stroke-width="10" stroke-linecap="round"/><circle cx="26" cy="27" r="5" fill="var(--barn)"/><circle cx="39" cy="38" r="4" fill="var(--field)"/><circle cx="38" cy="23" r="2.6" fill="var(--ink)"/><path d="M20 38q4 6 10 3" stroke="var(--ink)" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>',
-    badge: '<svg class="badge" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54" fill="var(--straw)"/><circle cx="60" cy="60" r="54" fill="none" stroke="var(--ink)" stroke-width="4" stroke-dasharray="6 6"/><circle cx="54" cy="52" r="22" fill="var(--surface)" stroke="var(--ink)" stroke-width="6"/><path d="M70 68l18 18" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/><path d="M54 40l3.6 7.4 8.1 1.2-5.9 5.7 1.4 8.1-7.2-3.8-7.2 3.8 1.4-8.1-5.9-5.7 8.1-1.2z" fill="var(--barn)"/></svg>'
+    lens: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="33" cy="33" r="22" fill="var(--gold)" stroke="currentColor" stroke-width="7"/><path d="M50 50l20 20" stroke="currentColor" stroke-width="10" stroke-linecap="round"/><circle cx="26" cy="27" r="5" fill="#753BBD"/><circle cx="39" cy="38" r="4" fill="#444444"/><circle cx="38" cy="23" r="2.6" fill="#753BBD"/><path d="M20 38q4 6 10 3" stroke="#1E1726" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>',
+    expand: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg>',
+    badge: '<svg class="badge" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54" fill="var(--gold)"/><circle cx="60" cy="60" r="54" fill="none" stroke="var(--ink)" stroke-width="4" stroke-dasharray="6 6"/><circle cx="54" cy="52" r="22" fill="var(--surface)" stroke="var(--ink)" stroke-width="6"/><path d="M70 68l18 18" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/><path d="M54 40l3.6 7.4 8.1 1.2-5.9 5.7 1.4 8.1-7.2-3.8-7.2 3.8 1.4-8.1-5.9-5.7 8.1-1.2z" fill="#753BBD"/></svg>'
   };
 
   /* ---------- state ---------- */
@@ -448,6 +529,15 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
   function hasPrinted(b) { return !!(b && b.pages && b.pages.length && b.pages.every(function (pg) { return pg.printed; })); }
   function printSet(base) { return img(base, 960) + " 960w, " + img(base, 1600) + " 1600w, " + img(base, 2400) + " 2400w"; }
   var PRINT_SIZES = "96vw";
+  /* Wide screens (laptops, projectors, tablets held sideways) show the whole finished page.
+     Everything else shows the reading view. Keep this query in step with the CSS above. */
+  var WIDE_QUERY = "(orientation: landscape) and (min-width: 720px) and (min-height: 561px)";
+  var wideScreen = window.matchMedia ? window.matchMedia(WIDE_QUERY) : { matches: true };
+  function cropStyle(pg) {
+    var b = pg.artBox || (pg.side === "right" ? [0, 12, 53.5, 88.1] : [46.5, 12, 100, 88.1]);
+    var bx = b[0] / 100, by = b[1] / 100, bw = (b[2] - b[0]) / 100, bh = (b[3] - b[1]) / 100;
+    return "--bx:" + bx + ";--by:" + by + ";--bw:" + bw + ";--bh:" + bh + ";--ar:" + ((bw * 16) / (bh * 9)).toFixed(4);
+  }
 
   /* ---------- address bar (lets teachers share a link to a book or language) ---------- */
   function readHash() {
@@ -525,12 +615,12 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
     }).join("");
 
     app.innerHTML =
+      '<header class="band"><div class="band-in">' +
+        '<div class="brand">' + I.lens +
+          '<div><p class="eyebrow note">' + esc(L(DATA.tagline)) + "</p><h1>" + esc(L(DATA.series)) + "</h1></div>" +
+        "</div>" + langSwitch() +
+      "</div></header>" +
       '<div class="lib">' +
-        '<header class="lib-head">' +
-          '<div class="brand">' + I.lens +
-            '<div><p class="eyebrow note">' + esc(L(DATA.tagline)) + "</p><h1>" + esc(L(DATA.series)) + "</h1></div>" +
-          "</div>" + langSwitch() +
-        "</header>" +
         '<p class="intro">' + t("intro") + "</p>" +
         '<ol class="cases">' + cards + "</ol>" +
         '<footer class="lib-foot"><p>' + esc(L(DATA.credit)) + "</p><p>" + t("privacy") + "</p></footer>" +
@@ -583,7 +673,38 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
     renderPage(false);
   }
 
+  /* ---------- whole-page viewer ---------- */
+  var lightbox = null, lastFocus = null;
+  function openWhole(pg) {
+    closeWhole();
+    lastFocus = document.activeElement;
+    lightbox = document.createElement("div");
+    lightbox.className = "lightbox";
+    lightbox.setAttribute("role", "dialog");
+    lightbox.setAttribute("aria-modal", "true");
+    lightbox.setAttribute("aria-label", t("wholeLabel"));
+    lightbox.innerHTML =
+      '<img src="' + img(pg.printed, 1600) + '" srcset="' + printSet(pg.printed) + '" sizes="100vw" alt="' + esc(L(pg.alt)) + '">' +
+      '<div class="lb-foot"><p class="lb-tip">' + t("rotateTip") + '</p><button type="button" class="btn">' + t("close") + "</button></div>";
+    document.body.appendChild(lightbox);
+    lightbox.addEventListener("click", closeWhole);
+    lightbox.querySelector("button").focus();
+  }
+  function closeWhole() {
+    if (!lightbox) return;
+    lightbox.remove();
+    lightbox = null;
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  if (wideScreen.addEventListener) {
+    wideScreen.addEventListener("change", function () {
+      closeWhole();
+      if (state.view === "reader" && state.book && kindOf(state.book, state.page) === "page") renderPage(false, true);
+    });
+  }
+
   function goLibrary() {
+    closeWhole();
     state.view = "library";
     state.book = null;
     writeHash(true);
@@ -593,6 +714,7 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
   }
 
   function go(p) {
+    closeWhole();
     var b = state.book;
     if (!b || p < 0 || p >= totalPages(b) || p === state.page) return;
     state.page = p;
@@ -619,6 +741,19 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
           "</div>" +
         "</div></section>";
       main.querySelector("#startBtn").addEventListener("click", function () { go(1); app.querySelector("#next").focus(); });
+    } else if (kind === "page" && hasPrinted(b) && !wideScreen.matches) {
+      var rp = b.pages[p - 1];
+      main.innerHTML =
+        '<section class="view page reading" aria-label="' + t("pageOf")(p, n) + '"><div class="stage">' +
+          '<figure class="crop" style="' + cropStyle(rp) + '">' +
+            '<img src="' + img(rp.printed, 1600) + '" srcset="' + printSet(rp.printed) + '" sizes="190vw" alt="' + esc(L(rp.alt)) + '">' +
+            '<button type="button" class="whole" aria-label="' + t("wholeLabel") + '">' + I.expand + "<span>" + t("whole") + "</span></button>" +
+          "</figure>" +
+          '<div class="story" lang="' + state.lang + '">' + storyHTML(L(rp.text)) + "</div>" +
+        "</div></section>";
+      main.querySelector(".whole").addEventListener("click", function () { openWhole(rp); });
+      var nextR = b.pages[p];
+      if (nextR) { var preR = new Image(); preR.sizes = "190vw"; preR.srcset = printSet(nextR.printed); }
     } else if (kind === "page" && hasPrinted(b)) {
       var pp = b.pages[p - 1];
       main.innerHTML =
@@ -796,6 +931,8 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
     el.addEventListener("pointercancel", function () { active = false; });
   }
   document.addEventListener("keydown", function (e) {
+    if (lightbox && e.key === "Escape") { closeWhole(); e.preventDefault(); return; }
+    if (lightbox) return;
     if (state.view !== "reader" || e.altKey || e.ctrlKey || e.metaKey) return;
     var tag = (e.target && e.target.tagName) || "";
     if (tag === "INPUT" || tag === "TEXTAREA") return;

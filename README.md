@@ -18,9 +18,12 @@ The site doesn't need a server, a database, accounts or a build step. Everything
 
 ## How the pages look
 
-Every page is your finished page with the English and Spanish text inside the picture, exactly as printed, shown as large as the screen allows. On a phone held upright the words are small: turning the phone sideways or pinching to zoom makes them bigger. Laptops, projectors and tablets show them comfortably.
+- **Laptops, projectors and tablets held sideways** show your finished page exactly as printed, with English and Spanish together.
+- **Phones and tablets held upright** show the picture part of the same page (the text box is cut away) with the story underneath as large, real text in the language picked with **EN / ES**. A **Whole page** button shows the full printed page. Turning a phone sideways shows the picture and the text side by side.
 
-The **English / Español** switch changes the app's buttons, the quiz and the narration language. Screen readers get the story as text from `books.js`.
+The picture part comes from `artBox` in `books.js`, so there are no extra images to make.
+
+Colors follow the official Tennessee Tech palette: Purple `#753BBD` and Gold `#FFD100`, with Gray `#444444`, Black and White ([tntech.edu/ocm/color.php](https://www.tntech.edu/ocm/color.php)).
 
 ## Put it online with GitHub Pages (about 10 minutes, no coding)
 
@@ -65,7 +68,8 @@ A **Listen** button then appears on every page. Once a child taps it, each page 
    If you later change a finished page, run the first command again and upload the new images.
 2. In `books.js`, find the `book2` entry. Copy the `blurb`, `narration`, `pages` and `quiz` sections from Book 1, replace the content, and change `ready: false` to `ready: true`. For each page:
    - `printed: "img/book2/print/p1"` (p2, p3 …) is the picture.
-   - `text` is the story in each language, for screen readers.
+   - `artBox: [left, top, right, bottom]` is the picture part shown on phones, in % of the page's width and height. Keep it clear of the text box and about 5:4 in shape. For Book 1 it's `[46.5, 10, 100, 86.1]` when the text box is on the left. If you leave it out, the app uses the side of the page opposite the text box (`side: "left"` or `"right"`).
+   - `text` is the story in English and Spanish. Phones show it under the picture and screen readers read it aloud, so it must match the printed page.
    - `alt` is a one-sentence description of the picture, also for screen readers.
 
 ## The quiz and Phase 4 assessment
@@ -76,7 +80,7 @@ If you want to use responses for the project's impact assessment, collect them w
 
 ## Punctuation to check on the printed pages
 
-The site shows your pages exactly as they are. These look like missing quotation marks. The screen-reader text in `books.js` already has them, so if you agree, fix them in Photoshop and rerun `make_images.py`:
+Laptops show your pages exactly as printed. These look like missing quotation marks. The phone text in `books.js` already has them, so if you agree, fix them in Photoshop and rerun `make_images.py`:
 
 - Page 3 (EN): added quotation marks to *"Clue found!" said Deanna.* and *"Salmonella and Campylobacter … chicken poop," explained Sam.*
 - Page 3 (ES): added the opening quotation marks to *"¡Encontramos una pista!", dijo Deanna.* and *"Salmonella y Campylobacter … gallinas", explicó Sam.*
