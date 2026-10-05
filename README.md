@@ -34,6 +34,8 @@ Colors follow the official Tennessee Tech palette: Purple `#753BBD` and Gold `#F
 
 To change something later, edit the file on GitHub (pencil icon) or upload the new version. The site updates by itself within a minute or two.
 
+After an upload, give GitHub about two minutes to publish. New or changed books show up on the next visit, because the site always fetches the latest `books.js`. Browsers can keep their saved copy of `index.html` (the app's design) and of the pictures for up to 10 minutes. To see an `index.html` change right away, open the site with `?v=` and any new number at the end, for example `https://manueljara.github.io/germ-detectives/?v=7`.
+
 > Before sharing publicly, check with TTU University Communications about showing the Tennessee Tech logo, which appears on the covers, on a public website.
 
 ## Links you can share

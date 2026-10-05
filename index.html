@@ -423,8 +423,21 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
 <p id="announce" class="sr-only" aria-live="polite"></p>
 <noscript><p style="padding:24px">Please turn on JavaScript to read the Germ Detectives books.</p></noscript>
 
-<script src="books.js"></script>
 <script>
+(function () {
+  var s = document.createElement("script");
+  s.src = "books.js?t=" + Date.now();
+  s.onload = function () { if (window.startGermDetectives) window.startGermDetectives(); };
+  s.onerror = function () { window.gdBooksFailed = true; if (window.startGermDetectives) window.startGermDetectives(); };
+  document.head.appendChild(s);
+})();
+</script>
+<script>
+/* The app starts once the book list (books.js) has loaded. */
+var gdStarted = false;
+window.startGermDetectives = function () {
+  if (gdStarted) return;
+  gdStarted = true;
 (function () {
   "use strict";
   var DATA = window.GERM_DETECTIVES;
@@ -967,6 +980,8 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
     if (h.book) openBook(h.book.id, h.page, false); else renderLibrary();
   })();
 })();
+};
+if (window.GERM_DETECTIVES || window.gdBooksFailed) window.startGermDetectives();
 </script>
 
 </body>
