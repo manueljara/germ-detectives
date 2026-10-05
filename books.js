@@ -282,14 +282,255 @@ Juntos, hicieron una lista:
       ]
     },
 
-    /* ------------------------------------------------- BOOKS 2–5 (coming) */
+    /* ------------------------------------------------------------ BOOK 2 */
     {
-      id: "book2", caseNumber: 2, ready: false,
+      id: "book2",
+      caseNumber: 2,
+      ready: true,
       title: { en: "The Water Mystery", es: "El misterio del agua" },
       topic: { en: "Water microorganisms", es: "Microorganismos del agua" },
       cover: "img/covers/book2",
-      coverAlt: { en: "Cover of The Water Mystery", es: "Portada de El misterio del agua" }
+      coverAlt: {
+        en: "Cover of The Water Mystery: by a creek, Deanna looks through a microscope next to a jar of water while Sam writes in his clue log. A magnifying glass shows tiny water germs.",
+        es: "Portada de El misterio del agua: junto a un arroyo, Deanna mira por un microscopio al lado de un frasco con agua mientras Sam escribe en su cuaderno de pistas. Una lupa muestra gérmenes diminutos del agua."
+      },
+      blurb: {
+        en: "Sam and Deanna love solving mysteries. When clues in the creek lead the Germ Detectives to tiny water germs, wells, and safe drinking water, they discover simple water safety rules that help families stay healthy.",
+        es: "A Sam y a Deanna les encanta resolver misterios. Cuando unas pistas en el arroyo llevan a los detectives de los gérmenes hasta gérmenes diminutos del agua, pozos y agua potable segura, descubren reglas sencillas de seguridad del agua que ayudan a las familias a mantenerse sanas."
+      },
+      narration: { en: false, es: false },
+
+      pages: [
+        { // 1
+          printed: "img/book2/print/p1", artBox: [46, 6, 100, 82.8],
+          alt: {
+            en: "Sam and Deanna crouch at the edge of a clear creek, filling a jar with water, while their friend Ben holds his stomach.",
+            es: "Sam y Deanna se agachan a la orilla de un arroyo de agua clara para llenar un frasco, mientras su amigo Ben se sujeta el estómago."
+          },
+          text: {
+            en: `“The creek looks so clear!” said Deanna.
+“Clear doesn’t always mean safe,” Sam replied.
+Ben arrived, holding his stomach. “My tummy hurts. I drank water from our well.”
+“Let’s tell an adult and look for clues,” said Deanna.
+**“Germ Detectives, we have a mystery!”**`,
+            es: `“¡El agua del arroyo se ve tan clara!”, dijo Deanna.
+“Que sea clara no significa que sea segura”, respondió Sam.
+Ben llegó con dolor de estómago. “Me duele la barriga. Bebí agua de nuestro pozo”.
+“Avisemos a un adulto y busquemos pistas”, dijo Deanna.
+**“¡Detectives de los Gérmenes, tenemos un misterio!”**`
+          }
+        },
+        { // 2
+          printed: "img/book2/print/p2", artBox: [49, 27, 100, 99.5],
+          alt: {
+            en: "Sam looks at a jar of creek water through a magnifying glass. A magnified circle shows the parasites Giardia and Cryptosporidium.",
+            es: "Sam mira un frasco con agua del arroyo a través de una lupa. Un círculo ampliado muestra los parásitos Giardia y Cryptosporidium."
+          },
+          text: {
+            en: `“My magnifying glass can’t show these germs,” said Sam.
+Deanna pointed to an enlarged drawing. “_Giardia_ and _Cryptosporidium_ are tiny parasites. They can get into water through poop from infected people or animals.
+**Swallowing that water can cause stomachaches and diarrhea.**”`,
+            es: `“Mi lupa no permite ver estos gérmenes”, dijo Sam.
+Deanna señaló un dibujo ampliado. “_Giardia_ y _Cryptosporidium_ son parásitos diminutos. Pueden llegar al agua a través de la caca de personas o animales infectados.
+**Si tragamos esa agua, podemos tener dolor de barriga y diarrea**”.`
+          }
+        },
+        { // 3
+          printed: "img/book2/print/p3", side: "right", artBox: [0, 20, 53, 95.4],
+          alt: {
+            en: "Cows graze on a hill above the creek while muddy rainwater runs down into it. Deanna points at the water and Sam takes notes. A magnified circle shows E. coli bacteria.",
+            es: "Unas vacas pastan en una colina sobre el arroyo mientras el agua de lluvia con barro baja hasta él. Deanna señala el agua y Sam toma notas. Un círculo ampliado muestra bacterias E. coli."
+          },
+          text: {
+            en: `Cows grazed above the creek.
+“Look at the muddy rainwater!” said Deanna.
+“Rain can wash manure, or animal poop, into the stream.”
+“It can carry bacteria,” said Sam.
+**“Some kinds of _E. coli_ can make us sick if we swallow them.”**`,
+            es: `Unas vacas pastaban cerca del arroyo.
+“¡Mira el agua de lluvia llena de barro!”, dijo Deanna.
+“La lluvia puede arrastrar estiércol, o caca de animales, hasta el arroyo”.
+“Puede llevar bacterias”, dijo Sam.
+**“Algunos tipos de _E. coli_ pueden enfermarnos si los tragamos”.**`
+          }
+        },
+        { // 4
+          printed: "img/book2/print/p4", artBox: [49, 24, 100, 96.5],
+          alt: {
+            en: "A cutaway view of the ground shows underground water flowing from a leaking septic tank toward a spring, carrying germs. Deanna points at it while Sam writes in his notebook.",
+            es: "Un corte del suelo muestra agua subterránea que sale de un tanque séptico con fugas y llega a un manantial llevando gérmenes. Deanna la señala mientras Sam escribe en su cuaderno."
+          },
+          text: {
+            en: `The detectives followed the creek to a spring.
+“Water underground can feed springs and wells,” said Deanna.
+“Germs from animal poop or leaking sewage tanks can reach that water.”
+Sam opened his notebook.
+**“An underground clue! Let’s ask an adult to help check the well.”**`,
+            es: `Los detectives siguieron el arroyo hasta un manantial.
+“El agua bajo tierra puede llegar a manantiales y pozos”, dijo Deanna. “La caca de animales o las fugas de tanques de aguas residuales pueden llevar gérmenes hasta ella”.
+Sam abrió su cuaderno.
+**“¡Una pista subterránea! Pidamos ayuda a un adulto para revisar el pozo”.**`
+          }
+        },
+        { // 5
+          printed: "img/book2/print/p5", artBox: [46, 8, 100, 99],
+          alt: {
+            en: "Sam and Deanna watch a garden sprinkler spray a fine mist with a rainbow. A small diagram shows water from a pipe becoming mist that a child breathes into his lungs.",
+            es: "Sam y Deanna observan un rociador de jardín que lanza una neblina fina con un arcoíris. Un pequeño diagrama muestra el agua de una tubería convirtiéndose en neblina que un niño respira hasta sus pulmones."
+          },
+          text: {
+            en: `At a sprinkler, Sam noticed the mist.
+“Those are tiny water droplets,” he said.
+“Bacteria called _Legionella_ can grow in warm water that sits in pipes,” said Deanna.
+**“Breathing in droplets containing these bacteria can cause a lung infection. Adults help keep water systems safe.”**`,
+            es: `Sam observó la neblina de un rociador.
+“Son gotitas de agua”, dijo.
+“Las bacterias _Legionella_ pueden crecer en agua tibia estancada en tuberías”, explicó Deanna.
+**“Respirar gotitas que contienen estas bacterias puede causar una infección en los pulmones. Los adultos ayudan a cuidar los sistemas de agua”.**`
+          }
+        },
+        { // 6
+          printed: "img/book2/print/p6", artBox: [49, 22, 100, 97],
+          alt: {
+            en: "In a classroom with several empty seats, Deanna points and Sam thinks. A diagram shows germs spreading from a glass of water and unwashed hands to a sick child and a door handle.",
+            es: "En un salón de clases con varios asientos vacíos, Deanna señala y Sam piensa. Un diagrama muestra gérmenes que pasan de un vaso de agua y de unas manos sin lavar a un niño enfermo y a la manija de una puerta."
+          },
+          text: {
+            en: `The next day, several classmates were home with a stomach bug.
+“Viruses such as norovirus can cause vomiting and diarrhea,” said Deanna.
+**“They can spread through contaminated water or from unwashed hands to our mouths,” said Sam. “Soap and water help stop them!”**`,
+            es: `Al día siguiente, varios compañeros faltaron por una infección estomacal.
+“Virus como el norovirus pueden causar vómitos y diarrea”, dijo Deanna.
+**“Pueden propagarse por agua contaminada o pasar de las manos sin lavar a la boca”, dijo Sam. “¡El agua y el jabón ayudan a detenerlos!”**`
+          }
+        },
+        { // 7
+          printed: "img/book2/print/p7", artBox: [46, 22, 100, 98.8],
+          alt: {
+            en: "Sam, Deanna, and their classmates gather around a table to make a poster called Our Water Safety Plan.",
+            es: "Sam, Deanna y sus compañeros se reúnen alrededor de una mesa para hacer un cartel llamado Nuestro plan de seguridad del agua."
+          },
+          text: {
+            en: `“Let’s turn our clues into a plan!” said Sam.
+**Together, they wrote:**
+- Drink water from a safe source.
+- Wash hands with soap and water before eating and after using the toilet.
+- Don’t drink untreated water from streams or springs.
+- Ask adults to have wells checked and protected.`,
+            es: `“¡Convirtamos nuestras pistas en un plan!”, dijo Sam. **Juntos escribieron:**
+- Beber agua de una fuente segura.
+- Lavarse las manos con agua y jabón antes de comer y después de ir al baño.
+- No beber agua sin tratar de arroyos o manantiales.
+- Pedir a los adultos que revisen y protejan los pozos.`
+          }
+        },
+        { // 8
+          printed: "img/book2/print/p8", artBox: [49, 25, 100, 97.5],
+          alt: {
+            en: "Ben, now feeling better, smiles with Sam, Deanna, and their friends next to a repaired well and a sign that says Clean Water, Healthy Life!",
+            es: "Ben, ya recuperado, sonríe con Sam, Deanna y sus amigos junto a un pozo reparado y un letrero que dice: Clean Water, Healthy Life! (¡Agua limpia, vida sana!)."
+          },
+          text: {
+            en: `A week later, Ben felt better.
+“Adults had our well tested and repaired,” he said. “They followed advice to make our drinking water safe.”
+Deanna closed her notebook.
+**“We learned to look beyond clear water!”**
+“And to ask for help,” said Sam.
+“Case solved!”`,
+            es: `Una semana después, Ben se sentía mejor.
+“Los adultos hicieron analizar el agua y reparar nuestro pozo”, dijo. “Siguieron las indicaciones para que el agua fuera segura para beber”.
+Deanna cerró su cuaderno.
+**“¡Aprendimos que no basta con que el agua se vea clara!”**
+“Y que debemos pedir ayuda”, dijo Sam.
+“¡Caso resuelto!”`
+          }
+        }
+      ],
+
+      /* End-of-book quiz. "answer" is the position of the right option,
+         counting from 0. Nothing a reader chooses is saved or sent anywhere. */
+      quiz: [
+        {
+          q: { en: "Does clear water always mean safe water?", es: "¿El agua clara siempre es agua segura?" },
+          options: [
+            { en: "Yes, if it looks clear it is safe to drink", es: "Sí, si se ve clara se puede beber" },
+            { en: "No, it can have germs too small to see", es: "No, puede tener gérmenes demasiado pequeños para verlos" }
+          ],
+          answer: 1,
+          why: {
+            en: "Clear doesn’t always mean safe. Some germs are so tiny that even a magnifying glass can’t show them.",
+            es: "Que sea clara no significa que sea segura. Algunos gérmenes son tan pequeños que ni con lupa se pueden ver."
+          }
+        },
+        {
+          q: { en: "Which tiny parasites can get into water through poop?", es: "¿Qué parásitos diminutos pueden llegar al agua a través de la caca?" },
+          options: [
+            { en: "Ladybugs and spiders", es: "Mariquitas y arañas" },
+            { en: "Tadpoles and minnows", es: "Renacuajos y pececitos" },
+            { en: "_Giardia_ and _Cryptosporidium_", es: "_Giardia_ y _Cryptosporidium_" }
+          ],
+          answer: 2,
+          why: {
+            en: "Swallowing water with these parasites can cause stomachaches and diarrhea.",
+            es: "Tragar agua con estos parásitos puede causar dolor de barriga y diarrea."
+          }
+        },
+        {
+          q: { en: "How can bacteria like _E. coli_ get into a stream?", es: "¿Cómo pueden llegar bacterias como _E. coli_ a un arroyo?" },
+          options: [
+            { en: "Rain washes manure, or animal poop, into it", es: "La lluvia arrastra estiércol, o caca de animales, hasta él" },
+            { en: "Fish bring them from the ocean", es: "Los peces las traen del mar" },
+            { en: "Sunlight makes them", es: "La luz del sol las crea" }
+          ],
+          answer: 0,
+          why: {
+            en: "That’s why muddy rainwater near animals is a clue to watch for.",
+            es: "Por eso el agua de lluvia con barro cerca de los animales es una pista importante."
+          }
+        },
+        {
+          q: { en: "Where can _Legionella_ bacteria grow?", es: "¿Dónde pueden crecer las bacterias _Legionella_?" },
+          options: [
+            { en: "In cold snow", es: "En la nieve fría" },
+            { en: "In warm water that sits in pipes", es: "En agua tibia estancada en tuberías" },
+            { en: "In dry sand", es: "En la arena seca" }
+          ],
+          answer: 1,
+          why: {
+            en: "Breathing in tiny droplets with these bacteria can cause a lung infection. Adults help keep water systems safe.",
+            es: "Respirar gotitas con estas bacterias puede causar una infección en los pulmones. Los adultos ayudan a cuidar los sistemas de agua."
+          }
+        },
+        {
+          q: { en: "What helps stop viruses like norovirus from spreading?", es: "¿Qué ayuda a detener virus como el norovirus?" },
+          options: [
+            { en: "Sharing cups with friends", es: "Compartir vasos con los amigos" },
+            { en: "Washing hands with soap and water", es: "Lavarse las manos con agua y jabón" },
+            { en: "Drinking water from a stream", es: "Beber agua de un arroyo" }
+          ],
+          answer: 1,
+          why: {
+            en: "Norovirus can spread through contaminated water or from unwashed hands to our mouths.",
+            es: "El norovirus puede propagarse por agua contaminada o pasar de las manos sin lavar a la boca."
+          }
+        },
+        {
+          q: { en: "What should you do if you think your water might not be safe?", es: "¿Qué debes hacer si crees que el agua podría no ser segura?" },
+          options: [
+            { en: "Tell an adult and ask for help", es: "Avisar a un adulto y pedir ayuda" },
+            { en: "Drink it anyway", es: "Beberla de todos modos" },
+            { en: "Keep it a secret", es: "No decírselo a nadie" }
+          ],
+          answer: 0,
+          why: {
+            en: "Adults can have wells checked and protected so the water is safe to drink.",
+            es: "Los adultos pueden hacer revisar y proteger los pozos para que el agua sea segura para beber."
+          }
+        }
+      ]
     },
+
+    /* ------------------------------------------------- BOOKS 3–5 (coming) */
     {
       id: "book3", caseNumber: 3, ready: false,
       title: { en: "The Food Safety Case", es: "El caso de la seguridad alimentaria" },

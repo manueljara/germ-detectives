@@ -57,17 +57,19 @@ Add these to the end of the site address:
 
 A **Listen** button then appears on every page. Once a child taps it, each page they turn plays its recording automatically until they tap **Pause**. To keep files small, export as mono MP3 at 64–96 kbps. Audacity (free) can convert them.
 
-## Add Books 2–5
+## Add Books 3–5
 
-1. From inside this website folder, prepare the finished pages (the folder with `Page_1.png`, `Page_2.png` …) and the cover:
+Books 1 and 2 are done. Each new book follows the same steps (Book 3 shown):
+
+1. From inside this website folder, prepare the finished pages (the folder with `Page_1.png`, `Page_2.png` …, as in `Book2_Water_microorganisms`) and the cover:
    ```
    pip install pillow
-   python tools/make_images.py "C:\Manuel\Grant_applications\Children's_book\Book2_Water_microorganisms\Book2_ready" book2
-   python tools/make_images.py "C:\Manuel\Grant_applications\Children's_book\Book2_Water_microorganisms" book2 --cover
+   python tools/make_images.py "C:\Manuel\Grant_applications\Children's_book\Book3_Food_safety" book3
+   python tools/make_images.py "C:\Manuel\Grant_applications\Children's_book\Book3_Food_safety" book3 --cover
    ```
    If you later change a finished page, run the first command again and upload the new images.
-2. In `books.js`, find the `book2` entry. Copy the `blurb`, `narration`, `pages` and `quiz` sections from Book 1, replace the content, and change `ready: false` to `ready: true`. For each page:
-   - `printed: "img/book2/print/p1"` (p2, p3 …) is the picture.
+2. In `books.js`, find the `book3` entry. Copy the `blurb`, `narration`, `pages` and `quiz` sections from Book 2, replace the content, and change `ready: false` to `ready: true`. For each page:
+   - `printed: "img/book3/print/p1"` (p2, p3 …) is the picture.
    - `artBox: [left, top, right, bottom]` is the picture part shown on phones, in % of the page's width and height. Keep it clear of the text box and about 5:4 in shape. For Book 1 it's `[46.5, 10, 100, 86.1]` when the text box is on the left. If you leave it out, the app uses the side of the page opposite the text box (`side: "left"` or `"right"`).
    - `text` is the story in English and Spanish. Phones show it under the picture and screen readers read it aloud, so it must match the printed page.
    - `alt` is a one-sentence description of the picture, also for screen readers.
