@@ -68,7 +68,19 @@ if cover_mode:
     print(f"Cover saved to {out} (from {covers[0].name})")
     sys.exit(0)
 
-pages = sorted((p for p in source.glob("*.png") if page_number(p) is not None), key=page_number)
+# One file per page number. If a folder has both Page_3.png and 3.png, Page_3.png wins.
+by_number = {}
+for p in sorted(source.glob("*.png")):
+    n = page_number(p)
+    if n is None:
+        continue
+    if n in by_number and not p.stem.lower().startswith("page"):
+        print(f"note: using {by_number[n].name}, not {p.name}, for page {n}")
+        continue
+    if n in by_number:
+        print(f"note: using {p.name}, not {by_number[n].name}, for page {n}")
+    by_number[n] = p
+pages = [by_number[n] for n in sorted(by_number)]
 if not pages:
     sys.exit(f"No numbered pages (Page_1.png or 1.png ...) found in {source}")
 

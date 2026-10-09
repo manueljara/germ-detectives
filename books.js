@@ -530,14 +530,284 @@ Deanna cerró su cuaderno.
       ]
     },
 
-    /* ------------------------------------------------- BOOKS 3–5 (coming) */
+    /* ------------------------------------------------------------ BOOK 3 */
     {
-      id: "book3", caseNumber: 3, ready: false,
+      id: "book3",
+      caseNumber: 3,
+      ready: true,
       title: { en: "The Food Safety Case", es: "El caso de la seguridad alimentaria" },
       topic: { en: "Food safety", es: "Seguridad alimentaria" },
       cover: "img/covers/book3",
-      coverAlt: { en: "Cover of The Food Safety Case", es: "Portada de El caso de la seguridad alimentaria" }
+      coverAlt: {
+        en: "Cover of The Food Safety Case: Deanna and Sam, holding a Germ Detectives notebook, stand at a kitchen counter with raw and cooked meat, next to an open fridge and a sign that says wash, clean, chill, separate.",
+        es: "Portada de El caso de la seguridad alimentaria: Deanna y Sam, con un cuaderno de los detectives de los gérmenes, están junto a una mesa de cocina con carne cruda y carne cocinada, al lado de un refrigerador abierto y un letrero que dice lavar, limpiar, enfriar, separar."
+      },
+      blurb: {
+        en: "Sam and Deanna love solving mysteries. When a tummy ache after lunch leads to clues in the kitchen, at the farmers’ market, and around the fridge, the Germ Detectives discover simple food safety rules that help keep everyone healthy.",
+        es: "A Sam y a Deanna les encanta resolver misterios. Cuando un dolor de barriga después del almuerzo los lleva a buscar pistas en la cocina, en el mercado de agricultores y alrededor del refrigerador, los detectives de los gérmenes descubren reglas sencillas de seguridad alimentaria que ayudan a mantener sanos a todos."
+      },
+      narration: { en: false, es: false },
+
+      pages: [
+        { // 1
+          printed: "img/book3/print/p1", artBox: [46.5, 18, 100, 94.1],
+          alt: {
+            en: "At a picnic near a farmers’ market, Sam and Deanna kneel beside their friend, who holds her stomach. Sam holds a Germ Detectives notebook.",
+            es: "En un picnic cerca de un mercado de agricultores, Sam y Deanna se arrodillan junto a su amiga, que se sujeta la barriga. Sam sostiene un cuaderno de los detectives de los gérmenes."
+          },
+          text: {
+            en: `At the picnic, their friend held her stomach.
+“My tummy hurts!”
+“Let’s get an adult,” said Deanna.
+Deanna opened her notebook.
+**“Food can carry germs we can’t see.** Let’s follow the clues and learn how to keep our meals safe!”`,
+            es: `En el picnic, su amiga se llevó las manos a la barriga.
+“¡Me duele!”
+“Busquemos a un adulto”, dijo Deanna.
+Sam abrió su cuaderno.
+**“La comida puede llevar gérmenes que no vemos.** ¡Sigamos las pistas y aprendamos a cuidar lo que comemos!”`
+          }
+        },
+        { // 2
+          printed: "img/book3/print/p2", artBox: [48.5, 12, 100, 85.2],
+          alt: {
+            en: "In a kitchen, Deanna raises a finger beside a tray of raw chicken while Sam takes notes. A magnifying glass shows Salmonella and Campylobacter bacteria.",
+            es: "En una cocina, Deanna levanta un dedo junto a una bandeja de pollo crudo mientras Sam toma notas. Una lupa muestra las bacterias Salmonella y Campylobacter."
+          },
+          text: {
+            en: `Sam looked at the raw chicken.
+“Can we wash the germs off?”
+“No,” said Deanna.
+**“Splashes can spread germs like _Salmonella_ and _Campylobacter_.**
+An adult needs to cook the chicken safely.”`,
+            es: `Sam miró el pollo crudo.
+“¿Podemos quitar los gérmenes lavándolo?”
+“No”, dijo Deanna.
+**“Las salpicaduras pueden esparcir gérmenes como _Salmonella_ y _Campylobacter_.**
+Un adulto debe cocinar bien el pollo”.`
+          }
+        },
+        { // 3
+          printed: "img/book3/print/p3", side: "right", artBox: [0, 4, 53.5, 98.5],
+          alt: {
+            en: "Sam and Deanna look at raw chicken next to a bowl of salad. A close-up shows drips from the chicken carrying Salmonella and Campylobacter toward the salad.",
+            es: "Sam y Deanna miran un pollo crudo junto a un plato de ensalada. Un primer plano muestra gotas del pollo que llevan Salmonella y Campylobacter hacia la ensalada."
+          },
+          text: {
+            en: `Sam spotted drips from the raw chicken beside the salad.
+“Germs can spread with those drips,” said Deanna.
+**“Raw chicken needs its own cutting board.”**
+“If those drips touch the salad, we can’t eat it,” said Sam.
+They called an adult to clean up.`,
+            es: `Sam vio unas gotas del pollo crudo junto a la ensalada.
+“Esas gotas pueden llevar gérmenes”, dijo Deanna.
+**“Usemos una tabla para el pollo crudo y otra para la ensalada”.**
+“Si las gotas tocan la ensalada, no debemos comerla”, dijo Sam.`
+          }
+        },
+        { // 4
+          printed: "img/book3/print/p4", artBox: [46.5, 18, 100, 94.1],
+          alt: {
+            en: "At a farmers’ market vegetable stall, Sam holds up a tomato next to Deanna. Vegetables sit in a big pot of water, and a magnified circle shows E. coli bacteria.",
+            es: "En el puesto de verduras de un mercado de agricultores, Sam muestra un tomate junto a Deanna. Hay verduras en una olla grande con agua, y un círculo ampliado muestra bacterias E. coli."
+          },
+          text: {
+            en: `Sam stopped by the vegetable stall.
+Fresh vegetables can carry germs.
+Some kinds of _E. coli_ can make us sick.
+“At home, we’ll rinse them under clean running water,” he said.
+“Just water for the vegetables,” Deanna added. “Soap and water for our hands.”
+**Washing helps, but some germs may remain.**`,
+            es: `Sam se detuvo frente al puesto de verduras.
+Las verduras frescas pueden tener gérmenes.
+Algunos tipos de _E. coli_ pueden enfermarnos.
+“En casa, las enjuagaremos bajo el chorro de agua limpia”, dijo Sam.
+“Solo agua para las verduras”, añadió Deanna. “Para las manos, agua y jabón”.
+**El lavado ayuda, pero pueden quedar algunos gérmenes.**`
+          }
+        },
+        { // 5
+          printed: "img/book3/print/p5", artBox: [46, 14, 99.5, 90.1],
+          alt: {
+            en: "In front of an open fridge, Sam reads the label on a package of turkey breast while Deanna holds a block of cheese.",
+            es: "Frente a un refrigerador abierto, Sam lee la etiqueta de un paquete de pechuga de pavo mientras Deanna sostiene un trozo de queso."
+          },
+          text: {
+            en: `Sam read a food label.
+“Cold slows down how fast many germs grow,” said Deanna.
+**“But _Listeria_ can grow in food even when it’s cold.”**
+“Let’s ask an adult how long we can keep this.”`,
+            es: `Sam leyó la etiqueta de un alimento.
+“Con el frío, muchos gérmenes crecen más despacio”, dijo Deanna.
+**“Pero _Listeria_ puede crecer en la comida, incluso si está fría”.**
+“Preguntemos a un adulto cuánto tiempo podemos guardarlo”.`
+          }
+        },
+        { // 6
+          printed: "img/book3/print/p6", side: "right", artBox: [0, 18, 53.5, 94.1],
+          alt: {
+            en: "In a pantry full of canned food, Sam holds a jar and Deanna points to one with a bulging lid. A close-up shows Clostridium botulinum bacteria inside a jar.",
+            es: "En una despensa llena de conservas, Sam sostiene un frasco y Deanna señala otro con la tapa hinchada. Un primer plano muestra bacterias Clostridium botulinum dentro de un frasco."
+          },
+          text: {
+            en: `“That lid is bulging,” said Deanna.
+“Leave the jar closed. I’ll get an adult,” said Sam.
+In food that is canned the wrong way, _Clostridium botulinum_ can make a dangerous poison.
+**You cannot see or smell the poison. Never taste the food to check.**`,
+            es: `“Esa tapa está hinchada”, dijo Deanna.
+“No abramos el frasco. Voy a avisar a un adulto”, dijo Sam.
+En una conserva mal preparada, _Clostridium botulinum_ puede producir un veneno peligroso.
+**No podemos verlo ni olerlo. Nunca pruebes la comida para comprobar si es segura.**`
+          }
+        },
+        { // 7
+          printed: "img/book3/print/p7", artBox: [45.5, 22, 99, 98.1],
+          alt: {
+            en: "Sam and Deanna draw a Food Safety Plan poster at a table, with steps for cooking meat well, washing fruits and vegetables, keeping raw and cooked foods separate, and storing food safely.",
+            es: "Sam y Deanna dibujan en una mesa un cartel con su plan de seguridad alimentaria, con pasos para cocinar bien la carne, lavar frutas y verduras, separar los alimentos crudos de los cocinados y guardar bien la comida."
+          },
+          text: {
+            en: `In their notebook, Sam wrote:
+- **Clean:** Wash hands with soap and water for 20 seconds.
+- **Separate:** Keep raw meat away from food that’s ready to eat.
+- **Cook:** An adult checks cooked meat with a food thermometer.
+- **Chill:** Put milk, meat and leftovers in the fridge right away.`,
+            es: `En el cuaderno, Sam escribió:
+- **Limpiar:** Lávate las manos con agua y jabón durante 20 segundos.
+- **Separar:** Mantén la carne cruda lejos de alimentos listos para comer.
+- **Cocinar:** Un adulto comprueba la temperatura de la carne con un termómetro para alimentos.
+- **Enfriar:** Guarda pronto la leche, la carne y las sobras en el refrigerador.`
+          }
+        },
+        { // 8
+          printed: "img/book3/print/p8", artBox: [48, 24, 100, 98],
+          alt: {
+            en: "In the kitchen, their friend, now feeling better, eats from a bowl while Sam holds his notebook and Deanna points.",
+            es: "En la cocina, su amiga, ya recuperada, come de un tazón mientras Sam sostiene su cuaderno y Deanna señala."
+          },
+          text: {
+            en: `Later, their friend felt better.
+“Did you find the germs?” she asked.
+“We couldn’t see them,” said Sam.
+**“But we learned how to keep them from spreading.”**
+Deanna showed her their notes.
+“Can I help with the next picnic?”
+They nodded.`,
+            es: `Más tarde, su amiga se sintió mejor.
+“¿Encontraron los gérmenes?”, preguntó.
+“No pudimos verlos”, dijo Sam.
+**“Pero aprendimos a evitar que se esparzan”.**
+Deanna le mostró sus notas.
+“¿Puedo ayudar con el próximo picnic?”
+Los dos asintieron.`
+          }
+        },
+        { // 9
+          printed: "img/book3/print/p9", artBox: [46, 23.9, 99.5, 100],
+          alt: {
+            en: "Sam and Deanna stand in front of a chalkboard titled Food Safety Rules and explain it to a group of children.",
+            es: "Sam y Deanna están frente a una pizarra titulada Food Safety Rules (Reglas de seguridad alimentaria) y se las explican a un grupo de niños."
+          },
+          text: {
+            en: `Sam put the cold foods in a cooler with ice packs.
+“We’ll take out what we’re ready to eat,” said Deanna.
+“The rest stays cold.”
+Their friend joined them.
+**“Before we eat, let’s wash our hands.”**
+Sam put his notebook away. It was time for lunch.`,
+            es: `Sam guardó los alimentos fríos en una hielera con hielo.
+“Saquemos solo lo que vamos a comer”, dijo Deanna. “Lo demás se queda frío”.
+Su amiga se acercó.
+**“Antes de comer, lavémonos las manos”.**
+Sam cerró el cuaderno. Era hora de almorzar.`
+          }
+        }
+      ],
+
+      /* End-of-book quiz. "answer" is the position of the right option,
+         counting from 0. Nothing a reader chooses is saved or sent anywhere. */
+      quiz: [
+        {
+          q: { en: "Should we wash raw chicken before cooking it?", es: "¿Debemos lavar el pollo crudo antes de cocinarlo?" },
+          options: [
+            { en: "Yes, to wash the germs off", es: "Sí, para quitarle los gérmenes" },
+            { en: "No, the splashes can spread germs", es: "No, las salpicaduras pueden esparcir gérmenes" }
+          ],
+          answer: 1,
+          why: {
+            en: "Splashes can spread _Salmonella_ and _Campylobacter_. An adult cooks the chicken safely instead.",
+            es: "Las salpicaduras pueden esparcir _Salmonella_ y _Campylobacter_. Lo seguro es que un adulto cocine bien el pollo."
+          }
+        },
+        {
+          q: { en: "Why does raw chicken need its own cutting board?", es: "¿Por qué el pollo crudo necesita su propia tabla?" },
+          options: [
+            { en: "So its drips don’t spread germs to food like salad", es: "Para que sus gotas no lleven gérmenes a otros alimentos, como la ensalada" },
+            { en: "Because chicken is heavy", es: "Porque el pollo pesa mucho" },
+            { en: "So the board stays pretty", es: "Para que la tabla se vea bonita" }
+          ],
+          answer: 0,
+          why: {
+            en: "Keeping raw meat away from food that’s ready to eat is called separate.",
+            es: "Mantener la carne cruda lejos de los alimentos listos para comer se llama separar."
+          }
+        },
+        {
+          q: { en: "How should we wash fresh vegetables at home?", es: "¿Cómo debemos lavar las verduras frescas en casa?" },
+          options: [
+            { en: "With soap and water", es: "Con agua y jabón" },
+            { en: "We don’t need to wash them", es: "No hace falta lavarlas" },
+            { en: "Rinse them under clean running water", es: "Enjuagarlas bajo el chorro de agua limpia" }
+          ],
+          answer: 2,
+          why: {
+            en: "Just water for vegetables, and soap and water for our hands. Washing helps, but some germs may remain.",
+            es: "Solo agua para las verduras, y agua y jabón para las manos. El lavado ayuda, pero pueden quedar algunos gérmenes."
+          }
+        },
+        {
+          q: { en: "Which germ can grow in food even when it’s cold?", es: "¿Qué germen puede crecer en la comida incluso si está fría?" },
+          options: [
+            { en: "_Listeria_", es: "_Listeria_" },
+            { en: "A cold virus", es: "El virus del resfriado" },
+            { en: "None, cold stops all germs", es: "Ninguno, el frío detiene todos los gérmenes" }
+          ],
+          answer: 0,
+          why: {
+            en: "Cold slows down many germs, but _Listeria_ can still grow. Ask an adult how long food can be kept.",
+            es: "El frío hace que muchos gérmenes crezcan más despacio, pero _Listeria_ puede seguir creciendo. Pregunta a un adulto cuánto tiempo se puede guardar la comida."
+          }
+        },
+        {
+          q: { en: "A jar of food has a bulging lid. What should you do?", es: "Un frasco de comida tiene la tapa hinchada. ¿Qué debes hacer?" },
+          options: [
+            { en: "Open it and smell it", es: "Abrirlo y olerlo" },
+            { en: "Taste a little to check", es: "Probar un poquito para comprobarlo" },
+            { en: "Leave it closed and get an adult", es: "No abrirlo y avisar a un adulto" }
+          ],
+          answer: 2,
+          why: {
+            en: "_Clostridium botulinum_ can make a poison you cannot see or smell. Never taste the food to check.",
+            es: "_Clostridium botulinum_ puede producir un veneno que no podemos ver ni oler. Nunca pruebes la comida para comprobarlo."
+          }
+        },
+        {
+          q: { en: "What are the four steps in Sam’s notebook?", es: "¿Cuáles son los cuatro pasos del cuaderno de Sam?" },
+          options: [
+            { en: "Clean, Separate, Cook, Chill", es: "Limpiar, Separar, Cocinar, Enfriar" },
+            { en: "Shop, Cook, Eat, Sleep", es: "Comprar, Cocinar, Comer, Dormir" },
+            { en: "Wash, Taste, Smell, Share", es: "Lavar, Probar, Oler, Compartir" }
+          ],
+          answer: 0,
+          why: {
+            en: "Clean hands, separate raw meat, cook meat well, and chill food in the fridge right away.",
+            es: "Lavarse las manos, separar la carne cruda, cocinar bien la carne y guardar pronto la comida en el refrigerador."
+          }
+        }
+      ]
     },
+
+    /* ------------------------------------------------- BOOKS 4–5 (coming) */
     {
       id: "book4", caseNumber: 4, ready: false,
       title: { en: "The Buzzing Mystery Case", es: "El caso del misterio zumbador" },
