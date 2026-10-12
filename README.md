@@ -59,19 +59,19 @@ Add these to the end of the site address:
 
 A **Listen** button then appears on every page. Once a child taps it, each page they turn plays its recording automatically until they tap **Pause**. To keep files small, export as mono MP3 at 64–96 kbps. Audacity (free) can convert them.
 
-## Add Books 4–5
+## Add Book 5
 
-Books 1–3 are done. Each new book follows the same steps (Book 4 shown):
+Books 1–4 are done. Book 5 follows the same steps:
 
-1. From inside this website folder, prepare the finished pages (the folder with `Page_1.png`, `Page_2.png` …, as in `Book3_Food_safety`) and the cover:
+1. From inside this website folder, prepare the finished pages (the folder with `Page_1.png`, `Page_2.png` …, as in `Book4_Vector-borne_diseases`) and the cover:
    ```
    pip install pillow
-   python tools/make_images.py "C:\Manuel\Grant_applications\Children's_book\Book4_Vector-borne_diseases" book4
-   python tools/make_images.py "C:\Manuel\Grant_applications\Children's_book\Book4_Vector-borne_diseases" book4 --cover
+   python tools/make_images.py "C:\Manuel\Grant_applications\Children's_book\Book5_Antibiotic_use" book5
+   python tools/make_images.py "C:\Manuel\Grant_applications\Children's_book\Book5_Antibiotic_use" book5 --cover
    ```
    If you later change a finished page, run the first command again and upload the new images.
-2. In `books.js`, find the `book4` entry. Copy the `blurb`, `narration`, `pages` and `quiz` sections from Book 3, replace the content, and change `ready: false` to `ready: true`. For each page:
-   - `printed: "img/book4/print/p1"` (p2, p3 …) is the picture.
+2. In `books.js`, find the `book5` entry. Copy the `blurb`, `narration`, `pages` and `quiz` sections from Book 4, replace the content, and change `ready: false` to `ready: true`. For each page:
+   - `printed: "img/book5/print/p1"` (p2, p3 …) is the picture.
    - `artBox: [left, top, right, bottom]` is the picture part shown on phones, in % of the page's width and height. Keep it clear of the text box and about 5:4 in shape. For Book 1 it's `[46.5, 10, 100, 86.1]` when the text box is on the left. If you leave it out, the app uses the side of the page opposite the text box (`side: "left"` or `"right"`).
    - `text` is the story in English and Spanish. Phones show it under the picture and screen readers read it aloud, so it must match the printed page.
    - `alt` is a one-sentence description of the picture, also for screen readers.

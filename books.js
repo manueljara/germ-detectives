@@ -807,14 +807,285 @@ Sam cerró el cuaderno. Era hora de almorzar.`
       ]
     },
 
-    /* ------------------------------------------------- BOOKS 4–5 (coming) */
+    /* ------------------------------------------------------------ BOOK 4 */
     {
-      id: "book4", caseNumber: 4, ready: false,
+      id: "book4",
+      caseNumber: 4,
+      ready: true,
       title: { en: "The Buzzing Mystery Case", es: "El caso del misterio zumbador" },
       topic: { en: "Vector-borne diseases", es: "Enfermedades transmitidas por vectores" },
       cover: "img/covers/book4",
-      coverAlt: { en: "Cover of The Buzzing Mystery Case", es: "Portada de El caso del misterio zumbador" }
+      coverAlt: {
+        en: "Cover of The Buzzing Mystery Case: Deanna and Sam crouch by a puddle with a mosquito. A magnifying glass shows a tick on a leaf, next to mosquito repellent and a sign that says smart choices keep bugs away.",
+        es: "Portada de El caso del misterio zumbador: Deanna y Sam se agachan junto a un charco con un mosquito. Una lupa muestra una garrapata sobre una hoja, junto a un repelente de mosquitos y un letrero que dice que las decisiones inteligentes alejan a los bichos."
+      },
+      blurb: {
+        en: "Sam and Deanna love solving mysteries. When buzzing mosquitoes and tiny ticks lead to clues in puddles, woods, and tall grass, the Germ Detectives discover simple vector safety rules that help keep everyone healthy.",
+        es: "A Sam y a Deanna les encanta resolver misterios. Cuando unos mosquitos zumbadores y unas garrapatas diminutas los llevan a buscar pistas en charcos, bosques y pasto alto, los detectives de los gérmenes descubren reglas sencillas para protegerse de los vectores y ayudar a mantener sanos a todos."
+      },
+      narration: { en: false, es: false },
+
+      pages: [
+        { // 1
+          printed: "img/book4/print/p1", artBox: [46, 15, 100, 91.8],
+          alt: {
+            en: "At a farmyard picnic, Sam rubs a mosquito bite on his arm while Deanna holds the Germ Detectives notebook and Ruby runs behind them.",
+            es: "En un picnic en la granja, Sam se frota una picadura de mosquito en el brazo mientras Deanna sostiene el cuaderno de los detectives de los gérmenes y Ruby corre detrás de ellos."
+          },
+          text: {
+            en: `Sam rubbed his itchy arm at the picnic.
+**“Another mosquito bite.”**
+Their friend Ruby waved a mosquito away.
+“Why are there so many?”
+Deanna opened their notebook.
+“Let’s see where they’re coming from.”`,
+            es: `Sam se frotó el brazo durante el picnic.
+**“Me volvió a picar un mosquito”.**
+Su amiga Ruby espantó uno con la mano.
+“¿Por qué hay tantos?”
+Deanna abrió el cuaderno.
+“Vamos a ver de dónde vienen”.`
+          }
+        },
+        { // 2
+          printed: "img/book4/print/p2", artBox: [46, 20, 100, 96.8],
+          alt: {
+            en: "Sam, Deanna, and Ruby crouch beside a puddle with mosquitoes on a farm path. A circle shows a mosquito passing germs to a dog and a child.",
+            es: "Sam, Deanna y Ruby se agachan junto a un charco con mosquitos en un camino de la granja. Un círculo muestra un mosquito que pasa gérmenes a un perro y a una niña."
+          },
+          text: {
+            en: `They found mosquitoes beside a puddle on the farm path.
+“Mosquitoes need water to grow,” said Sam.
+“Some can spread germs to people and animals when they bite,” said Deanna.
+**“A germ carrier like that is called a vector.”**`,
+            es: `Encontraron mosquitos junto a un charco en el camino de la granja.
+“Los mosquitos necesitan agua para crecer”, dijo Sam.
+“Algunos transmiten gérmenes a personas y animales al picarlos”, dijo Deanna. **“Un animal que transmite gérmenes así se llama vector”.**`
+          }
+        },
+        { // 3
+          printed: "img/book4/print/p3", artBox: [46, 20, 100, 96.8],
+          alt: {
+            en: "In the woods, Deanna points to rainwater in a tree hole while Sam takes notes. A circle shows a mosquito passing germs to a child.",
+            es: "En el bosque, Deanna señala agua de lluvia en el hueco de un árbol mientras Sam toma notas. Un círculo muestra un mosquito que pasa gérmenes a un niño."
+          },
+          text: {
+            en: `In the woods, Deanna found rainwater in a tree hole.
+“Mosquitoes start life in places like this,” said Sam.
+**Some mosquitoes in Tennessee can carry diseases like West Nile virus. An infected mosquito can pass it to people when it bites.**
+Sam took some notes in their notebook.`,
+            es: `En el bosque, Deanna encontró agua de lluvia en un hueco del árbol.
+“Los mosquitos empiezan su vida en lugares como este”, dijo Sam.
+**Algunos mosquitos de Tennessee pueden llevar enfermedades como el virus del Nilo Occidental. Un mosquito infectado puede transmitirlo a las personas al picarlas.**
+Sam lo apuntó en el cuaderno.`
+          }
+        },
+        { // 4
+          printed: "img/book4/print/p4", artBox: [46, 22, 100, 98.8],
+          alt: {
+            en: "In the woods, Deanna points to a tick on Sam’s sock. A magnified circle shows the tick.",
+            es: "En el bosque, Deanna señala una garrapata en el calcetín de Sam. Un círculo ampliado muestra la garrapata."
+          },
+          text: {
+            en: `“Sam, there’s a tick on your sock!”
+He bent down. “How did it get there?”
+**“It may have climbed on when you brushed past the grass,” said Deanna.**
+“Ticks can’t jump or fly.”
+“Let’s ask an adult to take it off and check for more,” said Sam.`,
+            es: `“¡Sam, tienes una garrapata en el calcetín!”
+Él se agachó. “¿Cómo llegó ahí?”
+**“Tal vez se subió cuando rozaste el pasto”, dijo Deanna.**
+“Las garrapatas no saltan ni vuelan”.
+“Pidamos a un adulto que la quite y nos revise por si hay más”, dijo Sam.`
+          }
+        },
+        { // 5
+          printed: "img/book4/print/p5", artBox: [46, 12, 100, 88.8],
+          alt: {
+            en: "Two deer graze at the edge of a field as Sam and Deanna walk past. A magnified circle shows a tick on one of the deer.",
+            es: "Dos venados pastan al borde de un campo mientras Sam y Deanna pasan caminando. Un círculo ampliado muestra una garrapata en uno de los venados."
+          },
+          text: {
+            en: `Two deer grazed near the woods.
+“Do deer get ticks, too?” Sam whispered.
+“Yes. Ticks feed on their blood,” said Deanna.
+**Some ticks can pass germs to people when they bite.**
+One illness they can spread is called ehrlichiosis. It can cause fever and headaches.`,
+            es: `Dos venados pastaban cerca del bosque.
+“¿Los venados también tienen garrapatas?” susurró Sam.
+“Sí. Las garrapatas se alimentan de su sangre”, dijo Deanna.
+**Algunas garrapatas transmiten gérmenes a las personas al picarlas.**
+Una enfermedad que pueden transmitir se llama ehrlichiosis. Puede causar fiebre y dolor de cabeza.`
+          }
+        },
+        { // 6
+          printed: "img/book4/print/p6", artBox: [46, 8, 100, 95],
+          alt: {
+            en: "At home, Deanna and Sam look at a science book page about alpha-gal syndrome, with a drawing of a tick, an arrow, and pieces of meat.",
+            es: "En casa, Deanna y Sam miran una página de un libro de ciencias sobre el síndrome de alfa-gal, con el dibujo de una garrapata, una flecha y trozos de carne."
+          },
+          text: {
+            en: `Sam pointed to a picture in the science book.
+**“A tick bite can cause a food allergy?”**
+“Sometimes,” Deanna read. “It’s called alpha-gal syndrome. Beef or pork can make someone with this allergy sick.”
+The allergy can be serious.
+People who have it need a doctor’s care.`,
+            es: `Sam señaló un dibujo en el libro de ciencias.
+**“¿Una picadura de garrapata puede causar alergia?”**
+“A veces”, leyó Deanna. “Se llama síndrome de alfa-gal. La carne de res o cerdo puede enfermar a alguien con esta alergia”.
+La alergia puede ser grave. Las personas que la tienen necesitan ayuda de un médico.`
+          }
+        },
+        { // 7
+          printed: "img/book4/print/p7", artBox: [46, 14, 100, 95],
+          alt: {
+            en: "Sam and Deanna draw a safety poster with pictures of repellent, a long-sleeved shirt, a tick check, a house, and an emptied bucket.",
+            es: "Sam y Deanna dibujan un cartel de seguridad con imágenes de un repelente, una camisa de manga larga, una revisión de garrapatas, una casa y una cubeta vacía."
+          },
+          text: {
+            en: `Look at the poster that Deanna and Sam made:
+- An adult helps us use repellent.
+- We wear long sleeves and long pants.
+- An adult checks us for ticks after outdoor play.
+- We close doors and use window screens.
+- With an adult, we empty and scrub buckets each week.
+- We walk in the middle of paths, away from tall grass.`,
+            es: `Mira el cartel que hicieron Deanna y Sam:
+- Un adulto nos ayuda a usar repelente.
+- Usamos mangas largas y pantalones largos.
+- Un adulto nos revisa para buscar garrapatas después de jugar afuera.
+- Cerramos las puertas y usamos mosquiteros en las ventanas.
+- Con un adulto, vaciamos y limpiamos las cubetas cada semana.
+- Caminamos por el centro del camino, lejos del pasto alto.`
+          }
+        },
+        { // 8
+          printed: "img/book4/print/p8", artBox: [46, 23, 100, 99.8],
+          alt: {
+            en: "In the yard, Ruby, Sam, and Deanna, all in long sleeves and long pants, smile and get ready for a walk.",
+            es: "En el patio, Ruby, Sam y Deanna, todos con mangas largas y pantalones largos, sonríen y se preparan para salir a caminar."
+          },
+          text: {
+            en: `A week later, Ruby joined them in the yard.
+“Ready for another walk?”
+Sam and Deanna were wearing long sleeves and long pants, just like her.
+An adult had helped them use repellent and empty and scrub the yard’s buckets.
+“Ready,” said Sam. “Let’s go.”`,
+            es: `Una semana después, Ruby se reunió con ellos en el patio.
+“¿Listos para otro paseo?”
+Sam y Deanna llevaban mangas largas y pantalones largos, igual que ella.
+Un adulto los había ayudado a usar repelente y a vaciar y limpiar las cubetas del patio.
+“Sí”, dijo Sam. “Vamos”.`
+          }
+        },
+        { // 9
+          printed: "img/book4/print/p9", artBox: [46, 23, 100, 99.8],
+          alt: {
+            en: "In the living room, Sam and Deanna show a Vector Safety Rules poster to Ruby, a friend, and their dog.",
+            es: "En la sala, Sam y Deanna les muestran un cartel de reglas de seguridad contra vectores a Ruby, a un amigo y a su perro."
+          },
+          text: {
+            en: `Ruby and a friend studied the poster.
+“Can we make one for my house?” Ruby asked.
+Their dog settled beside her.
+“What about him?” asked Sam.
+**“Dogs can bring ticks home, too,”** said Deanna.
+“An adult can help us check him after walks.”`,
+            es: `Ruby y un amigo miraban el cartel.
+“¿Podemos hacer uno para mi casa?” preguntó Ruby.
+El perro se acostó a su lado.
+“¿Y él?” preguntó Sam.
+**“Los perros también pueden traer garrapatas a casa”**, dijo Deanna.
+“Un adulto nos puede ayudar a revisarlo después de los paseos”.`
+          }
+        }
+      ],
+
+      /* End-of-book quiz. "answer" is the position of the right option,
+         counting from 0. Nothing a reader chooses is saved or sent anywhere. */
+      quiz: [
+        {
+          q: { en: "What is a vector?", es: "¿Qué es un vector?" },
+          options: [
+            { en: "A kind of bug spray", es: "Un tipo de repelente" },
+            { en: "An animal, like a mosquito or tick, that can pass germs when it bites", es: "Un animal, como un mosquito o una garrapata, que puede transmitir gérmenes al picar" },
+            { en: "A doctor who treats bites", es: "Un médico que cura picaduras" }
+          ],
+          answer: 1,
+          why: {
+            en: "Mosquitoes and ticks are vectors because they can carry germs to people and animals.",
+            es: "Los mosquitos y las garrapatas son vectores porque pueden llevar gérmenes a las personas y a los animales."
+          }
+        },
+        {
+          q: { en: "Where do mosquitoes start life?", es: "¿Dónde empiezan su vida los mosquitos?" },
+          options: [
+            { en: "In water, like puddles, tree holes, and buckets", es: "En el agua, como charcos, huecos de árboles y cubetas" },
+            { en: "In dry sand", es: "En la arena seca" },
+            { en: "Inside flowers", es: "Dentro de las flores" }
+          ],
+          answer: 0,
+          why: {
+            en: "Mosquitoes need water to grow. That’s why an adult helps empty and scrub buckets each week.",
+            es: "Los mosquitos necesitan agua para crecer. Por eso un adulto ayuda a vaciar y limpiar las cubetas cada semana."
+          }
+        },
+        {
+          q: { en: "Which disease can some mosquitoes in Tennessee carry?", es: "¿Qué enfermedad pueden llevar algunos mosquitos de Tennessee?" },
+          options: [
+            { en: "A food allergy", es: "Una alergia a la comida" },
+            { en: "A cold", es: "Un resfriado" },
+            { en: "West Nile virus", es: "El virus del Nilo Occidental" }
+          ],
+          answer: 2,
+          why: {
+            en: "An infected mosquito can pass West Nile virus to people when it bites.",
+            es: "Un mosquito infectado puede transmitir el virus del Nilo Occidental a las personas al picarlas."
+          }
+        },
+        {
+          q: { en: "You find a tick on your sock. What should you do?", es: "Encuentras una garrapata en tu calcetín. ¿Qué debes hacer?" },
+          options: [
+            { en: "Ask an adult to take it off and check for more", es: "Pedir a un adulto que la quite y te revise por si hay más" },
+            { en: "Leave it there", es: "Dejarla ahí" },
+            { en: "Wait for it to fly away", es: "Esperar a que se vaya volando" }
+          ],
+          answer: 0,
+          why: {
+            en: "Ticks can’t jump or fly. They climb on when we brush past grass, so an adult should check us after outdoor play.",
+            es: "Las garrapatas no saltan ni vuelan. Se suben cuando rozamos el pasto, así que un adulto debe revisarnos después de jugar afuera."
+          }
+        },
+        {
+          q: { en: "A tick bite can sometimes cause alpha-gal syndrome. What can make someone with it sick?", es: "Una picadura de garrapata a veces causa el síndrome de alfa-gal. ¿Qué puede enfermar a alguien que lo tiene?" },
+          options: [
+            { en: "Drinking water", es: "Beber agua" },
+            { en: "Eating beef or pork", es: "Comer carne de res o cerdo" },
+            { en: "Playing outside", es: "Jugar afuera" }
+          ],
+          answer: 1,
+          why: {
+            en: "The allergy can be serious, and people who have it need a doctor’s care.",
+            es: "La alergia puede ser grave, y las personas que la tienen necesitan ayuda de un médico."
+          }
+        },
+        {
+          q: { en: "Which one is on Deanna and Sam’s poster?", es: "¿Cuál está en el cartel de Deanna y Sam?" },
+          options: [
+            { en: "Walk through the tallest grass", es: "Caminar por el pasto más alto" },
+            { en: "Keep doors open at night", es: "Dejar las puertas abiertas de noche" },
+            { en: "Wear long sleeves and long pants", es: "Usar mangas largas y pantalones largos" }
+          ],
+          answer: 2,
+          why: {
+            en: "The poster also says to use repellent with an adult’s help and to walk in the middle of paths.",
+            es: "El cartel también dice que un adulto nos ayude a usar repelente y que caminemos por el centro del camino."
+          }
+        }
+      ]
     },
+
+    /* ------------------------------------------------- BOOK 5 (coming) */
     {
       id: "book5", caseNumber: 5, ready: false,
       title: { en: "The Superbug Mystery", es: "El misterio de las superbacterias" },
