@@ -1085,13 +1085,263 @@ El perro se acostó a su lado.
       ]
     },
 
-    /* ------------------------------------------------- BOOK 5 (coming) */
+    /* ------------------------------------------------------------ BOOK 5 */
     {
-      id: "book5", caseNumber: 5, ready: false,
+      id: "book5",
+      caseNumber: 5,
+      ready: true,
       title: { en: "The Superbug Mystery", es: "El misterio de las superbacterias" },
       topic: { en: "Antibiotic use", es: "Uso de antibióticos" },
       cover: "img/covers/book5",
-      coverAlt: { en: "Cover of The Superbug Mystery", es: "Portada de El misterio de las superbacterias" }
+      coverAlt: {
+        en: "Cover of The Superbug Mystery: Deanna looks through a microscope while Sam writes in his clue log. A magnifying glass shows bacteria, next to a bottle labeled Antibiotic, use only as directed.",
+        es: "Portada de El misterio de las superbacterias: Deanna mira por un microscopio mientras Sam escribe en su cuaderno de pistas. Una lupa muestra bacterias, junto a un frasco con la etiqueta Antibiótico, úsese solo según las indicaciones."
+      },
+      blurb: {
+        en: "Sam and Deanna love solving mysteries. When Uncle Bob’s infection does not get better, the Germ Detectives follow clues from the doctor’s office, the lab, and the farm to learn how some bacteria become superbugs. Along the way, they discover simple rules to keep antibiotics working and people healthy.",
+        es: "A Sam y a Deanna les encanta resolver misterios. Cuando la infección del tío Bob no mejora, los detectives de los gérmenes siguen pistas en el consultorio del médico, en el laboratorio y en la granja para aprender cómo algunas bacterias se convierten en superbacterias. Por el camino, descubren reglas sencillas para que los antibióticos sigan funcionando y las personas se mantengan sanas."
+      },
+      narration: { en: false, es: false },
+
+      pages: [
+        { // 1
+          printed: "img/book5/print/p1", artBox: [46, 20, 100, 96.8],
+          alt: {
+            en: "At the clinic, Uncle Bob sits on the exam table and shows the doctor his sore arm while Sam and Deanna watch. A poster on the wall says Some Germs Can Survive Medicine.",
+            es: "En la clínica, el tío Bob está sentado en la camilla y le muestra a la doctora su brazo adolorido mientras Sam y Deanna observan. Un cartel en la pared dice que algunos gérmenes pueden sobrevivir a los medicamentos."
+          },
+          text: {
+            en: `Uncle Bob showed the doctor his sore arm.
+“The medicine hasn’t helped,” he said.
+**“Antibiotics are medicines for some infections caused by bacteria,”** she explained.
+“We’ll do tests to help choose your treatment.”
+Sam opened their notebook.
+“Can you tell us more?”`,
+            es: `El tío Bob le mostró a la doctora el brazo que le dolía.
+“La medicina no me ha ayudado”, dijo.
+**“Los antibióticos son medicinas para algunas infecciones causadas por bacterias”,** explicó ella.
+“Haremos pruebas para elegir tu tratamiento”.
+Sam abrió el cuaderno. “¿Nos puedes contar más?”`
+          }
+        },
+        { // 2
+          printed: "img/book5/print/p2", artBox: [46, 4, 100, 80.8],
+          alt: {
+            en: "In the lab, Sam looks through a microscope next to Deanna. A bubble shows a purple germ wearing armor and holding a shield among other bacteria.",
+            es: "En el laboratorio, Sam mira por un microscopio junto a Deanna. Una burbuja muestra un germen morado con armadura y escudo entre otras bacterias."
+          },
+          text: {
+            en: `Sam pointed to the germ with a shield.
+“Why does it have armor?”
+“It’s a drawing,” said Deanna.
+**“The armor shows that some bacteria survive certain antibiotics.**
+We call them resistant bacteria, or superbugs.”
+Sam wrote the new word in their notebook.`,
+            es: `Sam señaló el germen con escudo.
+“¿Por qué lleva armadura?”
+“Es un dibujo”, dijo Deanna.
+**“La armadura muestra que algunas bacterias sobreviven a ciertos antibióticos.**
+Las llamamos bacterias resistentes o superbacterias”.
+Sam escribió la palabra nueva en el cuaderno.`
+          }
+        },
+        { // 3
+          printed: "img/book5/print/p3", artBox: [46, 18, 100, 94.8],
+          alt: {
+            en: "In the lab, Sam holds up a chart with arrows showing medicine bottles, bacteria, and one armored germ that survives, while Deanna points to it.",
+            es: "En el laboratorio, Sam sostiene un dibujo con flechas que muestra frascos de medicina, bacterias y un germen con armadura que sobrevive, mientras Deanna lo señala."
+          },
+          text: {
+            en: `Sam followed the arrows on the chart.
+“An antibiotic may stop some bacteria,” Deanna read. “But resistant ones can survive and make more bacteria like themselves.”
+They added a reminder:
+**Use antibiotics only when a doctor says they’re needed, and follow the directions.**`,
+            es: `Sam siguió las flechas del dibujo.
+“Un antibiótico puede detener a algunas bacterias”, leyó Deanna. “Pero las resistentes pueden sobrevivir y producir más bacterias como ellas”.
+Añadieron un recordatorio:
+**Usar antibióticos solo cuando el médico diga que hacen falta y seguir sus indicaciones.**`
+          }
+        },
+        { // 4
+          printed: "img/book5/print/p4", artBox: [46, 12, 100, 88.8],
+          alt: {
+            en: "On a farm path with cows and chickens, Sam and Deanna talk. A diagram shows resistant bacteria moving between animals, food, water, and people.",
+            es: "En un camino de la granja con vacas y gallinas, Sam y Deanna conversan. Un diagrama muestra bacterias resistentes que pasan entre los animales, la comida, el agua y las personas."
+          },
+          text: {
+            en: `On the farm path, Sam watched the cows and chickens.
+“Do animals need antibiotics, too?”
+“Sometimes. A vet, an animal doctor, decides,” said Deanna.
+**Resistant bacteria can spread through unsafe food or water, or contact with animals.**
+“We’ll wash our hands after visiting the animals,” Sam said.`,
+            es: `En la granja, Sam observó las vacas y las gallinas.
+“¿Los animales también necesitan antibióticos?”
+“A veces. Un veterinario lo decide”, dijo Deanna.
+**Las bacterias resistentes pueden llegar a las personas por alimentos o agua contaminados, o al tocar animales.**
+“Nos lavaremos las manos después de visitar a los animales”, dijo Sam.`
+          }
+        },
+        { // 5
+          printed: "img/book5/print/p5", artBox: [46, 10, 100, 86.8],
+          alt: {
+            en: "In the lab, the doctor points to a poster about MRSA showing an armored germ and a shield that says resists many antibiotics, while Sam and Deanna listen.",
+            es: "En el laboratorio, la doctora señala un cartel sobre el SARM que muestra un germen con armadura y un escudo que dice que resiste muchos antibióticos, mientras Sam y Deanna escuchan."
+          },
+          text: {
+            en: `The doctor pointed to the letters MRSA*.
+“The tests found these bacteria in Uncle Bob’s skin infection.
+**Some antibiotics don’t work against them.”**
+“Can you treat it?” Sam asked.
+“Yes. His test results help me choose the right treatment.”
+*MRSA = Methicillin-resistant _Staphylococcus aureus_`,
+            es: `La doctora señaló las letras SARM*.
+“Las pruebas encontraron estas bacterias en la infección de la piel del tío Bob.
+**Algunos antibióticos no funcionan contra ellas”.**
+“¿Se puede tratar?” preguntó Sam.
+“Sí. Los resultados me ayudan a elegir el tratamiento adecuado”.
+*SARM = _Staphylococcus aureus_ resistente a la meticilina`
+          }
+        },
+        { // 6
+          printed: "img/book5/print/p6", artBox: [46, 12, 100, 88.8],
+          alt: {
+            en: "The doctor shows Sam and Deanna a poster: a medicine bottle beating bacteria, and a big red X between a medicine bottle and viruses.",
+            es: "La doctora les muestra a Sam y a Deanna un cartel: un frasco de medicina que vence a las bacterias, y una gran X roja entre un frasco de medicina y unos virus."
+          },
+          text: {
+            en: `“Would antibiotics help with a cold?” Sam asked.
+“No,” said the doctor.
+**“Colds and flu are caused by viruses. Antibiotics treat some infections caused by bacteria.”**
+Deanna wrote: “A doctor decides when we need them.”`,
+            es: `“¿Los antibióticos ayudan si tengo un resfriado?” preguntó Sam.
+“No”, dijo la doctora.
+**“Los resfriados y la gripe los causan los virus. Los antibióticos tratan algunas infecciones causadas por bacterias”.**
+Deanna escribió: “Un médico decide cuándo los necesitamos”.`
+          }
+        },
+        { // 7
+          printed: "img/book5/print/p7", artBox: [46, 14, 100, 90.8],
+          alt: {
+            en: "At home, Sam and Deanna draw a poster with four pictures: taking medicine as directed, not sharing medicine, washing hands, and a bandaged cut.",
+            es: "En casa, Sam y Deanna dibujan un cartel con cuatro imágenes: tomar la medicina como se indica, no compartir medicinas, lavarse las manos y una herida con una curita."
+          },
+          text: {
+            en: `Sam and Deanna made a poster with four reminders:
+- An adult helps us take antibiotics exactly as the doctor says.
+- We never share medicines.
+- We wash our hands with soap and water for 20 seconds.
+- An adult helps us keep cuts clean and covered.`,
+            es: `Sam y Deanna hicieron un cartel con cuatro recordatorios:
+- Un adulto nos ayuda a tomar antibióticos como indica el médico.
+- Nunca compartimos medicamentos.
+- Nos lavamos las manos con agua y jabón durante 20 segundos.
+- Un adulto nos ayuda a mantener las heridas limpias y cubiertas.`
+          }
+        },
+        { // 8
+          printed: "img/book5/print/p8", artBox: [46, 16, 100, 92.8],
+          alt: {
+            en: "Back at the clinic, a smiling Uncle Bob gives a thumbs-up next to Sam, Deanna, and the doctor, who holds a chart showing he is getting better.",
+            es: "De vuelta en la clínica, el tío Bob, sonriente, levanta el pulgar junto a Sam, Deanna y la doctora, que sostiene un gráfico que muestra que está mejorando."
+          },
+          text: {
+            en: `A few weeks later, Uncle Bob returned for a checkup.
+“My arm feels much better,” he told the doctor.
+“Your treatment is helping,” she said.
+Sam closed their notebook.
+“Can we show our poster at school?”
+Deanna nodded. “I’ll bring it tomorrow.”`,
+            es: `Unas semanas después, el tío Bob volvió a la clínica.
+“El brazo ya me duele mucho menos”, le dijo a la doctora.
+“El tratamiento está ayudando”, respondió ella.
+Sam cerró el cuaderno.
+“¿Podemos llevar el cartel a la escuela?”
+Deanna asintió. “Yo lo llevo mañana”.`
+          }
+        }
+      ],
+
+      /* End-of-book quiz. "answer" is the position of the right option,
+         counting from 0. Nothing a reader chooses is saved or sent anywhere. */
+      quiz: [
+        {
+          q: { en: "What are antibiotics?", es: "¿Qué son los antibióticos?" },
+          options: [
+            { en: "Vitamins that make you strong", es: "Vitaminas que te hacen fuerte" },
+            { en: "Medicines for some infections caused by bacteria", es: "Medicinas para algunas infecciones causadas por bacterias" },
+            { en: "Medicines for every kind of sickness", es: "Medicinas para cualquier enfermedad" }
+          ],
+          answer: 1,
+          why: {
+            en: "Antibiotics treat some infections caused by bacteria. A doctor decides when we need them.",
+            es: "Los antibióticos tratan algunas infecciones causadas por bacterias. Un médico decide cuándo los necesitamos."
+          }
+        },
+        {
+          q: { en: "What is a superbug?", es: "¿Qué es una superbacteria?" },
+          options: [
+            { en: "Bacteria that can survive certain antibiotics", es: "Una bacteria que puede sobrevivir a ciertos antibióticos" },
+            { en: "A very big insect", es: "Un insecto muy grande" },
+            { en: "A germ wearing real armor", es: "Un germen con una armadura de verdad" }
+          ],
+          answer: 0,
+          why: {
+            en: "The armor in the drawing shows that some bacteria survive certain antibiotics. We call them resistant bacteria, or superbugs.",
+            es: "La armadura del dibujo muestra que algunas bacterias sobreviven a ciertos antibióticos. Las llamamos bacterias resistentes o superbacterias."
+          }
+        },
+        {
+          q: { en: "Would antibiotics help with a cold?", es: "¿Los antibióticos ayudan si tienes un resfriado?" },
+          options: [
+            { en: "Yes, they help with every sickness", es: "Sí, ayudan con cualquier enfermedad" },
+            { en: "Only if you take a lot", es: "Solo si tomas muchos" },
+            { en: "No, colds and flu are caused by viruses", es: "No, los resfriados y la gripe los causan los virus" }
+          ],
+          answer: 2,
+          why: {
+            en: "Antibiotics treat some infections caused by bacteria, not viruses.",
+            es: "Los antibióticos tratan algunas infecciones causadas por bacterias, no por virus."
+          }
+        },
+        {
+          q: { en: "How can resistant bacteria spread?", es: "¿Cómo pueden propagarse las bacterias resistentes?" },
+          options: [
+            { en: "Through unsafe food or water, or contact with animals", es: "Por alimentos o agua contaminados, o al tocar animales" },
+            { en: "Only through television", es: "Solo por la televisión" },
+            { en: "They can never spread", es: "Nunca pueden propagarse" }
+          ],
+          answer: 0,
+          why: {
+            en: "That’s why Sam said they would wash their hands after visiting the animals.",
+            es: "Por eso Sam dijo que se lavarían las manos después de visitar a los animales."
+          }
+        },
+        {
+          q: { en: "Your friend has leftover medicine. Should you take it?", es: "Tu amigo tiene medicina que le sobró. ¿Debes tomarla?" },
+          options: [
+            { en: "Yes, if you feel sick", es: "Sí, si te sientes mal" },
+            { en: "No, we never share medicines", es: "No, nunca compartimos medicamentos" }
+          ],
+          answer: 1,
+          why: {
+            en: "An adult helps us take antibiotics exactly as the doctor says, and only the ones a doctor chose for us.",
+            es: "Un adulto nos ayuda a tomar los antibióticos como indica el médico, y solo los que el médico eligió para nosotros."
+          }
+        },
+        {
+          q: { en: "Which one is on Sam and Deanna’s poster?", es: "¿Cuál está en el cartel de Sam y Deanna?" },
+          options: [
+            { en: "Stop taking medicine when you feel a little better", es: "Dejar la medicina cuando te sientas un poco mejor" },
+            { en: "Leave cuts uncovered", es: "Dejar las heridas sin cubrir" },
+            { en: "Wash your hands with soap and water for 20 seconds", es: "Lavarte las manos con agua y jabón durante 20 segundos" }
+          ],
+          answer: 2,
+          why: {
+            en: "The poster also says to take antibiotics exactly as the doctor says, never share medicines, and keep cuts clean and covered.",
+            es: "El cartel también dice que tomemos los antibióticos como indica el médico, que nunca compartamos medicamentos y que mantengamos las heridas limpias y cubiertas."
+          }
+        }
+      ]
     }
   ]
 };

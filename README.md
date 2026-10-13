@@ -9,8 +9,8 @@ The site doesn't need a server, a database, accounts or a build step. Everything
 | File or folder | What it is |
 |---|---|
 | `index.html` | The app. You shouldn't need to edit it. |
-| `books.js` | **All the book content**: titles, which picture each page uses, the story text for screen readers, and the quiz. Edit this to add books. |
-| `img/book1/print/` | Book 1's **finished pages with the text inside the picture** (from `Book1_ready`), in three sizes. |
+| `books.js` | **All the book content**: titles, which picture each page uses, the story text shown on phones, picture descriptions, and the quizzes. |
+| `img/book1/` … `img/book5/` | Each book's **finished pages with the text inside the picture**, in three sizes (inside a `print` folder). |
 | `img/covers/` | Front covers for the library page. |
 | `audio/` | Empty for now. This is where narration recordings go (see below). |
 | `fonts/` | The three typefaces, stored here so the site never calls Google. Andika is a font designed for early readers. |
@@ -25,16 +25,19 @@ The picture part comes from `artBox` in `books.js`, so there are no extra images
 
 Colors follow the official Tennessee Tech palette: Purple `#753BBD` and Gold `#FFD100`, with Gray `#444444`, Black and White ([tntech.edu/ocm/color.php](https://www.tntech.edu/ocm/color.php)).
 
-## Put it online with GitHub Pages (about 10 minutes, no coding)
+## The site on GitHub
 
-1. Sign in at github.com and click **New repository**. Name it `germ-detectives` and set it to **Public**. (A free account can only publish public repositories. If you have GitHub Pro, for example through GitHub Education, a private repository also works.)
-2. In the new repository, click **Add file → Upload files**. Drag in **everything inside this folder**, keeping the subfolders, and click **Commit changes**.
-3. Go to **Settings → Pages**. Under *Build and deployment*, choose **Deploy from a branch**, then branch **main** and folder **/ (root)**. Click **Save**.
-4. After a minute or two the site is live at `https://YOUR-USERNAME.github.io/germ-detectives/`.
+The site lives in the `germ-detectives` repository on GitHub and is published at **https://manueljara.github.io/germ-detectives/**.
 
-To change something later, edit the file on GitHub (pencil icon) or upload the new version. The site updates by itself within a minute or two.
+**GitHub's web upload takes fewer than 100 files at a time**, so upload folder by folder, from inside the matching GitHub folder:
 
-After an upload, give GitHub about two minutes to publish. New or changed books show up on the next visit, because the site always fetches the latest `books.js`. Browsers can keep their saved copy of `index.html` (the app's design) and of the pictures for up to 10 minutes. To see an `index.html` change right away, open the site with `?v=` and any new number at the end, for example `https://manueljara.github.io/germ-detectives/?v=7`.
+1. In GitHub, click into the folder you're updating (for example **img**, then **covers**).
+2. Click **Add file → Upload files**, drag in the files or folder from the same place in this folder on your computer, and click **Commit changes**.
+3. Upload `books.js` **last**, from the main page of the repository. That way a book only appears in the library once its pictures are already online.
+
+A file with the same name replaces the old one. Files you don't upload stay as they are.
+
+After an upload, give GitHub about two minutes to publish. Book changes show up on the next visit, because the site always fetches the latest `books.js`. Browsers can keep their saved copy of `index.html` (the app's design) and of the pictures for up to 10 minutes. To see a change right away, press **Ctrl + Shift + R**, or open the site with `?v=` and any new number at the end, for example `https://manueljara.github.io/germ-detectives/?v=7`.
 
 > Before sharing publicly, check with TTU University Communications about showing the Tennessee Tech logo, which appears on the covers, on a public website.
 
@@ -43,8 +46,8 @@ After an upload, give GitHub about two minutes to publish. New or changed books 
 Add these to the end of the site address:
 
 - `#es` opens the library in Spanish.
-- `#book1` opens Farm Safety. `#book1-es` opens it in Spanish.
-- `#book1-p5` opens page 5 directly, which is handy for projecting one page in class.
+- `#book1` … `#book5` open a book. `#book3-es` opens Book 3 in Spanish.
+- `#book2-p5` opens page 5 of Book 2 directly, which is handy for projecting one page in class.
 
 ## Add narration (recorded voices)
 
@@ -59,22 +62,25 @@ Add these to the end of the site address:
 
 A **Listen** button then appears on every page. Once a child taps it, each page they turn plays its recording automatically until they tap **Pause**. To keep files small, export as mono MP3 at 64–96 kbps. Audacity (free) can convert them.
 
-## Add Book 5
+## Fix or replace a finished page
 
-Books 1–4 are done. Book 5 follows the same steps:
-
-1. From inside this website folder, prepare the finished pages (the folder with `Page_1.png`, `Page_2.png` …, as in `Book4_Vector-borne_diseases`) and the cover:
+1. Fix the page in Photoshop and save it as `Page_N.png` in the book's folder, as before.
+2. From inside this website folder, run (Book 3 shown):
    ```
    pip install pillow
-   python tools/make_images.py "C:\Manuel\Grant_applications\Children's_book\Book5_Antibiotic_use" book5
-   python tools/make_images.py "C:\Manuel\Grant_applications\Children's_book\Book5_Antibiotic_use" book5 --cover
+   python tools/make_images.py "C:\Manuel\Grant_applications\Children's_book\Book3_Food_safety" book3
    ```
-   If you later change a finished page, run the first command again and upload the new images.
-2. In `books.js`, find the `book5` entry. Copy the `blurb`, `narration`, `pages` and `quiz` sections from Book 4, replace the content, and change `ready: false` to `ready: true`. For each page:
-   - `printed: "img/book5/print/p1"` (p2, p3 …) is the picture.
-   - `artBox: [left, top, right, bottom]` is the picture part shown on phones, in % of the page's width and height. Keep it clear of the text box and about 5:4 in shape. For Book 1 it's `[46.5, 10, 100, 86.1]` when the text box is on the left. If you leave it out, the app uses the side of the page opposite the text box (`side: "left"` or `"right"`).
-   - `text` is the story in English and Spanish. Phones show it under the picture and screen readers read it aloud, so it must match the printed page.
-   - `alt` is a one-sentence description of the picture, also for screen readers.
+   This remakes all of that book's web pictures in `img\book3\print`.
+3. In GitHub, go into **img → book3 → print**, then **Add file → Upload files**. Drag in the new files for that page (for example `p7-960.webp`, `p7-1600.webp`, `p7-2400.webp`) and click **Commit changes**.
+4. If the page's words changed, update that page's `text` in `books.js` too (phones show this text), then upload `books.js`.
+
+To change a cover, run the same command with `--cover` at the end, and upload the two files from `img\covers` into **img → covers**.
+
+In `books.js`, each page has:
+- `printed: "img/book3/print/p1"` (p2, p3 …): the picture.
+- `artBox: [left, top, right, bottom]`: the picture part shown on phones, in % of the page's width and height, kept clear of the text box.
+- `text`: the story in English and Spanish. Phones show it under the picture and screen readers read it aloud, so it must match the printed page.
+- `alt`: a one-sentence description of the picture, for screen readers.
 
 ## The quiz and Phase 4 assessment
 
@@ -82,12 +88,33 @@ The quiz is practice only. **Nothing a reader does is saved or sent anywhere**, 
 
 If you want to use responses for the project's impact assessment, collect them with an IRB-approved instrument outside this site (for example a teacher survey or a Qualtrics link). Don't add tracking to the site.
 
-## Punctuation to check on the printed pages
+## Corrections to make on the printed pages
 
-Laptops show your pages exactly as printed. These look like missing quotation marks. The phone text in `books.js` already has them, so if you agree, fix them in Photoshop and rerun `make_images.py`:
+Laptops show your pages exactly as printed. The phone text in `books.js` already has the fixes below, so the printed pages are the only place they're needed. After fixing a page, follow "Fix or replace a finished page" above.
 
-- Page 3 (EN): added quotation marks to *"Clue found!" said Deanna.* and *"Salmonella and Campylobacter … chicken poop," explained Sam.*
-- Page 3 (ES): added the opening quotation marks to *"¡Encontramos una pista!", dijo Deanna.* and *"Salmonella y Campylobacter … gallinas", explicó Sam.*
-- Page 4 (EN): added quotation marks to *"They had the flu last year," whispered Deanna.*
+**Book 1 – Farm Safety**
+- Page 3 (EN): add quotation marks to *"Clue found!" said Deanna.* and *"Salmonella and Campylobacter … chicken poop," explained Sam.*
+- Page 3 (ES): add the opening quotation marks to *"¡Encontramos una pista!", dijo Deanna.* and *"Salmonella y Campylobacter … gallinas", explicó Sam.*
+- Page 4 (EN): add quotation marks to *"They had the flu last year," whispered Deanna.*
 
-These were written for the site and need a native-speaker review: the Spanish book titles (all five), the Spanish back-cover summary for Book 1, the picture descriptions (`alt`), and the quiz in both languages.
+**Book 2 – The Water Mystery**
+- Page 1 (ES): "Detectives de los **G**érmenes" is capitalized here but not elsewhere in the series.
+
+**Book 3 – The Food Safety Case**
+- Page 7 (ES): the last bullet ends with leftover words: "…en el refrigerador. **podemos guardarlo.**"
+- Page 3 (EN): the closing quotation mark of "those drips," slipped to the start of the next line.
+- Page 1: the English says **Deanna** opened the notebook, the Spanish says **Sam** (the picture shows Sam).
+- Page 3 (ES): leaves out "They called an adult to clean up."
+- Page 2 (ES): *Salmonella* and *Campylobacter* aren't in italics.
+
+**Book 4 – The Buzzing Mystery Case**
+- Page 3 (ES): "pueden llevar **el** enfermedades" has an extra "el".
+- Page 7 (ES): "…Deanna y Sam**.:**" has a period before the colon.
+- Page 7 (EN): there's an empty bullet point above the divider line.
+
+**Book 5 – The Superbug Mystery**
+- Back cover (EN): "they discover simple rules **working and people healthy**" is missing words, probably "rules **to keep antibiotics** working and people healthy". The library summary uses that wording.
+- Page 2 (ES): the last line ends with a stray closing quotation mark: "…en el cuaderno.**"**"
+- Page 8 (ES): the opening quotation mark of "¿Podemos llevar el cartel…?" sits at the end of the line above.
+
+These were written for the site and need a native-speaker review: the Spanish book titles and library summaries, the picture descriptions (`alt`), and the quizzes in both languages.
