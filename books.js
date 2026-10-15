@@ -86,7 +86,7 @@ Las bacterias y los virus son distintos tipos de microbios.
           }
         },
         { // 3
-          printed: "img/book1/print/p3", artBox: [46.5, 4, 100, 80.1],
+          printed: "img/book1/print/p3", artBox: [46.5, 9.5, 100, 85.6],
           alt: {
             en: "Inside the chicken coop, Deanna inspects eggs in dirty straw with a magnifying glass while Sam takes notes.",
             es: "Dentro del gallinero, Deanna examina con una lupa unos huevos sobre paja sucia mientras Sam toma notas."
@@ -103,7 +103,7 @@ Las bacterias y los virus son distintos tipos de microbios.
           }
         },
         { // 4
-          printed: "img/book1/print/p4", artBox: [46.5, 4, 100, 80.1],
+          printed: "img/book1/print/p4", artBox: [46.5, 9.5, 100, 85.6],
           alt: {
             en: "Sam and Deanna lean on a fence, watching pigs sneeze in a muddy pen.",
             es: "Sam y Deanna se apoyan en una cerca y observan a unos cerdos que estornudan en un corral con barro."
@@ -156,7 +156,7 @@ Las bacterias y los virus son distintos tipos de microbios.
           }
         },
         { // 7
-          printed: "img/book1/print/p7", artBox: [46.5, 8, 100, 84.1],
+          printed: "img/book1/print/p7", artBox: [46.5, 9.5, 100, 85.6],
           alt: {
             en: "Sam and Deanna sit at a table covered with clue notes and their Germ Safety Plan.",
             es: "Sam y Deanna, sentados a una mesa llena de notas con pistas y su plan contra los gérmenes."
@@ -302,7 +302,7 @@ Juntos, hicieron una lista:
 
       pages: [
         { // 1
-          printed: "img/book2/print/p1", artBox: [46, 6, 100, 82.8],
+          printed: "img/book2/print/p1", artBox: [46, 9.5, 100, 86.3],
           alt: {
             en: "Sam and Deanna crouch at the edge of a clear creek, filling a jar with water, while their friend Ben holds his stomach.",
             es: "Sam y Deanna se agachan a la orilla de un arroyo de agua clara para llenar un frasco, mientras su amigo Ben se sujeta el estómago."
@@ -373,7 +373,7 @@ Sam abrió su cuaderno.
           }
         },
         { // 5
-          printed: "img/book2/print/p5", artBox: [46, 8, 100, 99],
+          printed: "img/book2/print/p5", artBox: [46, 9.5, 100, 99.5],
           alt: {
             en: "Sam and Deanna watch a garden sprinkler spray a fine mist with a rainbow. A small diagram shows water from a pipe becoming mist that a child breathes into his lungs.",
             es: "Sam y Deanna observan un rociador de jardín que lanza una neblina fina con un arcoíris. Un pequeño diagrama muestra el agua de una tubería convirtiéndose en neblina que un niño respira hasta sus pulmones."
@@ -588,7 +588,7 @@ Un adulto debe cocinar bien el pollo”.`
           }
         },
         { // 3
-          printed: "img/book3/print/p3", side: "right", artBox: [0, 4, 53.5, 98.5],
+          printed: "img/book3/print/p3", side: "right", artBox: [0, 9.5, 53.5, 100],
           alt: {
             en: "Sam and Deanna look at raw chicken next to a bowl of salad. A close-up shows drips from the chicken carrying Salmonella and Campylobacter toward the salad.",
             es: "Sam y Deanna miran un pollo crudo junto a un plato de ensalada. Un primer plano muestra gotas del pollo que llevan Salmonella y Campylobacter hacia la ensalada."
@@ -919,7 +919,7 @@ Una enfermedad que pueden transmitir se llama ehrlichiosis. Puede causar fiebre 
           }
         },
         { // 6
-          printed: "img/book4/print/p6", artBox: [46, 8, 100, 95],
+          printed: "img/book4/print/p6", artBox: [46, 9.5, 100, 96.5],
           alt: {
             en: "At home, Deanna and Sam look at a science book page about alpha-gal syndrome, with a drawing of a tick, an arrow, and pieces of meat.",
             es: "En casa, Deanna y Sam miran una página de un libro de ciencias sobre el síndrome de alfa-gal, con el dibujo de una garrapata, una flecha y trozos de carne."
@@ -975,7 +975,7 @@ An adult had helped them use repellent and empty and scrub the yard’s buckets.
 “¿Listos para otro paseo?”
 Sam y Deanna llevaban mangas largas y pantalones largos, igual que ella.
 Un adulto los había ayudado a usar repelente y a vaciar y limpiar las cubetas del patio.
-“Sí”, dijo Sam. “Vamos”.`
+“Estamos listos”, dijo Sam. “Vamos”.`
           }
         },
         { // 9
@@ -1125,7 +1125,7 @@ Sam abrió el cuaderno. “¿Nos puedes contar más?”`
           }
         },
         { // 2
-          printed: "img/book5/print/p2", artBox: [46, 4, 100, 80.8],
+          printed: "img/book5/print/p2", artBox: [46, 9.5, 100, 86.3],
           alt: {
             en: "In the lab, Sam looks through a microscope next to Deanna. A bubble shows a purple germ wearing armor and holding a shield among other bacteria.",
             es: "En el laboratorio, Sam mira por un microscopio junto a Deanna. Una burbuja muestra un germen morado con armadura y escudo entre otras bacterias."
@@ -1248,15 +1248,13 @@ Deanna escribió: “Un médico decide cuándo los necesitamos”.`
             en: `A few weeks later, Uncle Bob returned for a checkup.
 “My arm feels much better,” he told the doctor.
 “Your treatment is helping,” she said.
-Sam closed their notebook.
-“Can we show our poster at school?”
-Deanna nodded. “I’ll bring it tomorrow.”`,
+**“Thanks to the right medicine and the right plan,”** said Deanna.
+“Another mystery solved by the Germ Detectives!”`,
             es: `Unas semanas después, el tío Bob volvió a la clínica.
 “El brazo ya me duele mucho menos”, le dijo a la doctora.
 “El tratamiento está ayudando”, respondió ella.
-Sam cerró el cuaderno.
-“¿Podemos llevar el cartel a la escuela?”
-Deanna asintió. “Yo lo llevo mañana”.`
+**“Gracias al medicamento correcto y al plan correcto”,** dijo Deanna.
+“¡Otro misterio resuelto por los detectives de los gérmenes!”`
           }
         }
       ],

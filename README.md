@@ -78,7 +78,7 @@ To change a cover, run the same command with `--cover` at the end, and upload th
 
 In `books.js`, each page has:
 - `printed: "img/book3/print/p1"` (p2, p3 …): the picture.
-- `artBox: [left, top, right, bottom]`: the picture part shown on phones, in % of the page's width and height, kept clear of the text box.
+- `artBox: [left, top, right, bottom]`: the picture part shown on phones, in % of the page's width and height, kept clear of the text box. Keep `top` at 9.5 or more so the location label in the top corner ("At the farm / En la granja") stays out of the phone picture.
 - `text`: the story in English and Spanish. Phones show it under the picture and screen readers read it aloud, so it must match the printed page.
 - `alt`: a one-sentence description of the picture, for screen readers.
 
@@ -96,9 +96,11 @@ Laptops show your pages exactly as printed. The phone text in `books.js` already
 - Page 3 (EN): add quotation marks to *"Clue found!" said Deanna.* and *"Salmonella and Campylobacter … chicken poop," explained Sam.*
 - Page 3 (ES): add the opening quotation marks to *"¡Encontramos una pista!", dijo Deanna.* and *"Salmonella y Campylobacter … gallinas", explicó Sam.*
 - Page 4 (EN): add quotation marks to *"They had the flu last year," whispered Deanna.*
+- Page 6 (location label): "At Uncle**'s** Bob's house" should be "At Uncle Bob's house".
 
 **Book 2 – The Water Mystery**
 - Page 1 (ES): "Detectives de los **G**érmenes" is capitalized here but not elsewhere in the series.
+- Page 6: the "At school / En la escuela" label covers the word "Several" on the whiteboard. Move it (for example to the bottom-right corner) or make it narrower.
 
 **Book 3 – The Food Safety Case**
 - Page 7 (ES): the last bullet ends with leftover words: "…en el refrigerador. **podemos guardarlo.**"
@@ -110,11 +112,11 @@ Laptops show your pages exactly as printed. The phone text in `books.js` already
 **Book 4 – The Buzzing Mystery Case**
 - Page 3 (ES): "pueden llevar **el** enfermedades" has an extra "el".
 - Page 7 (ES): "…Deanna y Sam**.:**" has a period before the colon.
-- Page 7 (EN): there's an empty bullet point above the divider line.
 
 **Book 5 – The Superbug Mystery**
 - Back cover (EN): "they discover simple rules **working and people healthy**" is missing words, probably "rules **to keep antibiotics** working and people healthy". The library summary uses that wording.
 - Page 2 (ES): the last line ends with a stray closing quotation mark: "…en el cuaderno.**"**"
-- Page 8 (ES): the opening quotation mark of "¿Podemos llevar el cartel…?" sits at the end of the line above.
+- Page 8 (EN): "Another mystery solved by the germ detectives" has no closing punctuation. The Spanish line ends with "!", and the phone text uses "…by the Germ Detectives!"
+- Page 8 (ES): "detectives de los **G**érmenes" is capitalized, as in Book 2 page 1.
 
 These were written for the site and need a native-speaker review: the Spanish book titles and library summaries, the picture descriptions (`alt`), and the quizzes in both languages.
