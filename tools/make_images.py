@@ -8,14 +8,17 @@ Usage (from inside the website folder):
 
   Front cover for the library (from the front/back cover spread):
     python tools/make_images.py "C:\\path\\to\\Book2_Water_microorganisms" book2 --cover
+  or from a single front-cover picture:
+    python tools/make_images.py "C:\\path\\to\\book2_cover.png" book2 --cover
 
 What it does:
   • Pages: takes Page_1.png, Page_2.png ... (or 1.png, 2.png ...) and saves
     img/book2/print/p1-960.webp, p1-1600.webp and p1-2400.webp (and so on).
     The largest size keeps the words sharp on high-resolution screens.
   • --cover: takes the front/back cover spread (any .png with "front" in its name),
-    keeps the right half (the front cover), and saves img/covers/book2.webp and
-    img/covers/book2-420.webp.
+    keeps the right half (the front cover), and saves img/covers/book2.webp
+    (836 pixels wide, the size the library uses) and img/covers/book2-420.webp.
+    A single front-cover .png is used whole.
 
 Needs Python 3 and Pillow:  pip install pillow
 """
@@ -55,17 +58,25 @@ def resized(im, width):
     return im.resize((width, height), Image.LANCZOS)
 
 
+COVER_WIDTH = 836  # the library shows covers at 836 x 941 (.case-cover in index.html)
+
 if cover_mode:
-    covers = [p for p in source.glob("*.png") if "front" in p.name.lower()]
+    if source.is_file():
+        covers = [source]
+    else:
+        covers = [p for p in source.glob("*.png") if "front" in p.name.lower()]
     if not covers:
         sys.exit(f"No cover found in {source} (looked for a .png with 'front' in its name).")
     out = site / "img" / "covers"
     out.mkdir(parents=True, exist_ok=True)
     im = load_rgb(covers[0])
-    front = im.crop((im.width // 2, 0, im.width, im.height))
+    # A front/back spread is wider than it is tall: keep its right half, the front cover.
+    front = im.crop((im.width // 2, 0, im.width, im.height)) if im.width > im.height else im
+    if front.width > COVER_WIDTH:
+        front = resized(front, COVER_WIDTH)
     front.save(out / f"{book_id}.webp", "WEBP", quality=82, method=6)
     resized(front, 420).save(out / f"{book_id}-420.webp", "WEBP", quality=80, method=6)
-    print(f"Cover saved to {out} (from {covers[0].name})")
+    print(f"Cover saved to {out} (from {covers[0].name}, {front.width} x {front.height} pixels)")
     sys.exit(0)
 
 # One file per page number. If a folder has both Page_3.png and 3.png, Page_3.png wins.
