@@ -74,7 +74,7 @@ A **Listen** button then appears on every page. Once a child taps it, each page 
 3. In GitHub, go into **img → book3 → print**, then **Add file → Upload files**. Drag in the new files for that page (for example `p7-960.webp`, `p7-1600.webp`, `p7-2400.webp`) and click **Commit changes**.
 4. If the page's words changed, update that page's `text` in `books.js` too (phones show this text), then upload `books.js`.
 
-To change a cover, run the same command with `--cover` at the end, and upload the two files from `img\covers` into **img → covers**.
+To change a cover, run the same command with `--cover` at the end. It keeps the right half of `Front_back_pages.png` (the front cover) and makes it 836 pixels wide, the size the library uses. Then upload the two files from `img\covers` (for example `book3.webp` and `book3-420.webp`) into **img → covers**.
 
 In `books.js`, each page has:
 - `printed: "img/book3/print/p1"` (p2, p3 …): the picture.
@@ -114,9 +114,8 @@ Laptops show your pages exactly as printed. The phone text in `books.js` already
 - Page 7 (ES): "…Deanna y Sam**.:**" has a period before the colon.
 
 **Book 5 – The Superbug Mystery**
-- Back cover (EN): "they discover simple rules **working and people healthy**" is missing words, probably "rules **to keep antibiotics** working and people healthy". The library summary uses that wording.
 - Page 2 (ES): the last line ends with a stray closing quotation mark: "…en el cuaderno.**"**"
 - Page 8 (EN): "Another mystery solved by the germ detectives" has no closing punctuation. The Spanish line ends with "!", and the phone text uses "…by the Germ Detectives!"
 - Page 8 (ES): "detectives de los **G**érmenes" is capitalized, as in Book 2 page 1.
 
-These were written for the site and need a native-speaker review: the Spanish book titles and library summaries, the picture descriptions (`alt`), and the quizzes in both languages.
+The book titles and library summaries match your covers. These were written for the site and need a native-speaker review: the picture descriptions (`alt`) and the quizzes in both languages.

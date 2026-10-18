@@ -42,7 +42,7 @@ window.GERM_DETECTIVES = {
       },
       blurb: {
         en: "Sam and Deanna love solving mysteries. When clues around the farm lead them to animals, eggs, milk, and muddy water, the Germ Detectives learn simple farm safety rules that help keep people and animals healthy.",
-        es: "A Sam y a Deanna les encanta resolver misterios. Cuando unas pistas en la granja los llevan hasta los animales, los huevos, la leche y el agua con barro, los detectives de los gérmenes aprenden reglas sencillas de seguridad en la granja que ayudan a mantener sanas a las personas y a los animales."
+        es: "A Sam y a Deanna les encanta resolver misterios. Cuando las pistas de la granja los llevan hasta los animales, los huevos, la leche y el agua con barro, los detectives de los gérmenes aprenden reglas sencillas de seguridad en la granja que ayudan a mantener sanas a las personas y a los animales."
       },
       narration: { en: false, es: false },
 
@@ -75,11 +75,11 @@ Sacaron sus cuadernos.
             es: "Una profesora señala una pantalla sobre bacterias y virus mientras los alumnos escuchan en sus pupitres."
           },
           text: {
-            en: `At school, our teacher told us about microbes.
+            en: `At school, the teacher told us about microbes.
 They are too tiny to see with our eyes alone.
 Bacteria and viruses are different kinds of microbes.
 **Many microbes are harmless, but some can make us sick.**`,
-            es: `En la escuela, nuestra profesora nos habló de los microbios.
+            es: `En la escuela, la profesora nos habló de los microbios.
 Son tan pequeños que no podemos verlos a simple vista.
 Las bacterias y los virus son distintos tipos de microbios.
 **Muchos son inofensivos, pero algunos pueden enfermarnos.**`
@@ -1098,7 +1098,7 @@ El perro se acostó a su lado.
         es: "Portada de El misterio de las superbacterias: Deanna mira por un microscopio mientras Sam escribe en su cuaderno de pistas. Una lupa muestra bacterias, junto a un frasco con la etiqueta Antibiótico, úsese solo según las indicaciones."
       },
       blurb: {
-        en: "Sam and Deanna love solving mysteries. When Uncle Bob’s infection does not get better, the Germ Detectives follow clues from the doctor’s office, the lab, and the farm to learn how some bacteria become superbugs. Along the way, they discover simple rules to keep antibiotics working and people healthy.",
+        en: "Sam and Deanna love solving mysteries. When Uncle Bob’s infection does not get better, the Germ Detectives follow clues from the doctor’s office, the lab, and the farm to learn how some bacteria become superbugs. Along the way, they discover simple rules that help keep antibiotics working and people healthy.",
         es: "A Sam y a Deanna les encanta resolver misterios. Cuando la infección del tío Bob no mejora, los detectives de los gérmenes siguen pistas en el consultorio del médico, en el laboratorio y en la granja para aprender cómo algunas bacterias se convierten en superbacterias. Por el camino, descubren reglas sencillas para que los antibióticos sigan funcionando y las personas se mantengan sanas."
       },
       narration: { en: false, es: false },
