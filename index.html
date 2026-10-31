@@ -3,9 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#F4F7FA">
+<meta name="theme-color" content="#753BBD" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#3B2163" media="(prefers-color-scheme: dark)">
 <meta property="og:title" content="Germ Detectives">
 <meta property="og:description" content="Bilingual science picture books about germs, health, and safety.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://manueljara.github.io/germ-detectives/">
+<meta property="og:image" content="https://manueljara.github.io/germ-detectives/img/covers/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The five Germ Detectives picture books, in English and Spanish">
+<meta name="twitter:card" content="summary_large_image">
 <title>Germ Detectives</title>
 <meta name="description" content="Germ Detectives: bilingual (English and Spanish) science picture books about germs, health, and safety from Tennessee Tech University.">
 <style>
@@ -161,11 +169,14 @@ button.case { cursor: pointer; }
   border-radius: 3px 6px 6px 3px; box-shadow: var(--shadow); background: var(--stage);
 }
 .case.soon .case-cover img { filter: saturate(.5); opacity: .8; }
+/* "Case 1": a gold sticky note under the cover, so the "Book / Libro" badge printed on each cover stays visible */
 .case-no {
-  position: absolute; top: -9px; left: -7px; padding: 1px 9px 0;
-  background: var(--gold); color: var(--on-gold); font-size: 1.05rem; line-height: 1.5;
-  transform: rotate(-4deg); box-shadow: 0 1px 2px rgba(0,0,0,.18);
+  display: inline-block; margin-bottom: 4px; padding: 1px 10px 0;
+  background: var(--gold); color: var(--on-gold); font-size: 1.05rem; line-height: 1.45;
+  transform: rotate(-3deg); transform-origin: 0 50%; box-shadow: 0 1px 2px rgba(0,0,0,.18);
+  transition: transform .2s ease;
 }
+button.case:hover .case-no { transform: rotate(-5deg); }
 .case-meta { display: grid; gap: 4px; min-width: 0; justify-items: start; }
 .case-title { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.15; text-wrap: balance; }
 .case-topic { color: var(--ink-soft); font-size: .98rem; }
@@ -181,12 +192,29 @@ button.case:hover .case-cover img { transform: translateY(-3px) rotate(-.6deg); 
 
 @media (min-width: 640px) {
   .cases { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 28px; }
-  .case { grid-template-columns: 1fr; align-items: start; gap: 14px; }
-  .case-no { top: -11px; left: -9px; font-size: 1.15rem; }
+  /* cards in a row share one height, so the "Read the book" buttons line up */
+  .cases > li { display: flex; }
+  .case { grid-template-columns: 1fr; grid-template-rows: auto 1fr; align-items: stretch; gap: 14px; height: 100%; }
+  .case-meta { display: flex; flex-direction: column; align-items: flex-start; }
+  .case-meta > :nth-last-child(2) { margin-bottom: 6px; }
+  .case-meta .chip { margin-top: auto; }
+  .case-no { font-size: 1.15rem; }
 }
 @media (min-width: 980px) {
   .cases { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 28px; }
 }
+.about {
+  position: relative; max-width: 46rem; margin-top: 8px; padding: 24px 24px 20px;
+  background: var(--surface); border-radius: 4px; box-shadow: var(--shadow);
+}
+.about::before {
+  content: ""; position: absolute; top: -11px; left: 26px; width: 86px; height: 22px;
+  background: color-mix(in srgb, var(--gold) 72%, transparent); transform: rotate(-4deg);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .08);
+}
+.about h2 { margin: 0 0 8px; font-family: var(--font-display); font-weight: 400; font-size: clamp(1.4rem, 3.6vw, 1.8rem); line-height: 1.15; }
+.about p { margin: 0 0 .55em; font-size: 1.06rem; }
+.about p.by { margin: 14px 0 0; padding-top: 12px; border-top: 1.5px dashed var(--line); color: var(--ink-soft); font-size: .98rem; }
 .lib-foot { display: grid; gap: 4px; color: var(--ink-soft); font-size: .92rem; border-top: 1.5px solid var(--line); padding-top: 16px; }
 .lib-foot p { margin: 0; }
 .lib-foot p:first-child { color: var(--purple); font-weight: 700; }
@@ -466,7 +494,7 @@ window.startGermDetectives = function () {
       perfect: "You’re a real Germ Detective.", good: "Great detective work!",
       more: "Read the book again to find more clues!",
       tryAgain: "Try the questions again", readAgain: "Read the book again",
-      privacy: "No sign-up, no ads, no tracking.",
+      privacy: "No sign-up, no ads, no tracking.", about: "About this project",
       missing: "Book not found.",
       whole: "Whole page", wholeLabel: "See the whole printed page", close: "Close",
       rotateTip: "Turn your phone sideways to see the page bigger."
@@ -487,7 +515,7 @@ window.startGermDetectives = function () {
       perfect: "Ya formas parte de los detectives de los gérmenes.", good: "¡Muy buen trabajo de detective!",
       more: "¡Lee el libro otra vez para encontrar más pistas!",
       tryAgain: "Repetir las preguntas", readAgain: "Leer el libro otra vez",
-      privacy: "Sin registro, sin anuncios, sin rastreo.",
+      privacy: "Sin registro, sin anuncios, sin rastreo.", about: "Sobre este proyecto",
       missing: "No se encontró el libro.",
       whole: "Página completa", wholeLabel: "Ver la página impresa completa", close: "Cerrar",
       rotateTip: "Gira el teléfono para ver la página más grande."
@@ -614,9 +642,9 @@ window.startGermDetectives = function () {
       var title = L(b.title), topic = L(b.topic);
       var showTopic = topic && topic.toLowerCase() !== title.toLowerCase();
       var inner =
-        '<span class="case-cover"><img src="' + b.cover + '-420.webp" alt="' + esc(L(b.coverAlt)) + '" loading="lazy" width="420" height="473">' +
-        '<span class="case-no note">' + t("caseWord") + " " + b.caseNumber + "</span></span>" +
-        '<span class="case-meta"><span class="case-title">' + esc(title) + "</span>" +
+        '<span class="case-cover"><img src="' + b.cover + '-420.webp" alt="' + esc(L(b.coverAlt)) + '" loading="lazy" width="420" height="473"></span>' +
+        '<span class="case-meta"><span class="case-no note">' + t("caseWord") + " " + b.caseNumber + "</span>" +
+        '<span class="case-title">' + esc(title) + "</span>" +
         (showTopic ? '<span class="case-topic">' + esc(topic) + "</span>" : "") +
         (b.ready
           ? '<span class="chip go">' + t("read") + I.next + "</span>"
@@ -636,6 +664,7 @@ window.startGermDetectives = function () {
       '<div class="lib">' +
         '<p class="intro">' + t("intro") + "</p>" +
         '<ol class="cases">' + cards + "</ol>" +
+        aboutHTML() +
         '<footer class="lib-foot"><p>' + esc(L(DATA.credit)) + "</p><p>" + t("privacy") + "</p></footer>" +
       "</div>";
 
@@ -643,6 +672,15 @@ window.startGermDetectives = function () {
     app.querySelectorAll("[data-open]").forEach(function (el) {
       el.addEventListener("click", function () { openBook(el.dataset.open, 0, true); });
     });
+  }
+
+  /* "About this project" card on the library page (text in books.js; left out if books.js has none) */
+  function aboutHTML() {
+    if (!DATA.about) return "";
+    var paras = String(L(DATA.about)).split("\n").filter(function (line) { return line.trim(); })
+      .map(function (line) { return "<p>" + inline(line.trim()) + "</p>"; }).join("");
+    return '<section class="about" aria-labelledby="aboutTitle"><h2 id="aboutTitle">' + t("about") + "</h2>" + paras +
+      (DATA.authors ? '<p class="by">' + esc(L(DATA.authors)) + "</p>" : "") + "</section>";
   }
 
   /* ---------- reader ---------- */

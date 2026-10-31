@@ -9,9 +9,9 @@ The site doesn't need a server, a database, accounts or a build step. Everything
 | File or folder | What it is |
 |---|---|
 | `index.html` | The app. You shouldn't need to edit it. |
-| `books.js` | **All the book content**: titles, which picture each page uses, the story text shown on phones, picture descriptions, and the quizzes. |
+| `books.js` | **All the book content**: titles, which picture each page uses, the story text shown on phones, picture descriptions, the quizzes, and the "About this project" text at the bottom of the library page. |
 | `img/book1/` … `img/book5/` | Each book's **finished pages with the text inside the picture**, in three sizes (inside a `print` folder). |
-| `img/covers/` | Front covers for the library page. |
+| `img/covers/` | Front covers for the library page, and `share.jpg`, the picture that appears when someone shares the site's link in an email, a text or on social media. |
 | `audio/` | Empty for now. This is where narration recordings go (see below). |
 | `fonts/` | The three typefaces, stored here so the site never calls Google. Andika is a font designed for early readers. |
 | `tools/make_images.py` | Turns your finished PNG pages and cover into the web-sized images the site uses. |
@@ -37,7 +37,7 @@ The site lives in the `germ-detectives` repository on GitHub and is published at
 
 Shortcut: this link opens the upload page already inside a folder. Change the end of it to the folder you need: `https://github.com/manueljara/germ-detectives/upload/main/img/covers`
 
-A file with the same name replaces the old one. Files you don't upload stay as they are. The site only uses the pictures in `img/covers` and in each book's `print` folder, so the older loose pictures sitting directly in `img/book1` on GitHub aren't used.
+A file with the same name replaces the old one. Files you don't upload stay as they are. The site only uses the pictures in `img/covers` and in each book's `print` folder, so older loose pictures elsewhere on GitHub (for example directly in `img` or in `img/book1`) aren't used.
 
 After an upload, give GitHub about two minutes to publish. Book changes show up on the next visit, because the site always fetches the latest `books.js`. Browsers can keep their saved copy of `index.html` (the app's design) and of the pictures for up to 10 minutes. To see a change right away, press **Ctrl + Shift + R**, or open the site with `?v=` and any new number at the end, for example `https://manueljara.github.io/germ-detectives/?v=7`.
 
@@ -80,7 +80,7 @@ To change a cover, save the new front cover as `CoverN.png` in `Book_Covers_and_
 ```
 python tools/make_images.py "C:\Manuel\Grant_applications\Children's_book\Book_Covers_and_Project_Text\Cover3.png" book3 --cover
 ```
-It makes the cover 836 pixels wide, the size the library uses. Then upload the two files from `img\covers` (for example `book3.webp` and `book3-420.webp`) into **img → covers**. (Pointing the same command at a book folder instead uses the right half of its `Front_back_pages.png`.)
+It makes the cover 836 pixels wide, the size the library uses. Then upload the two files from `img\covers` (for example `book3.webp` and `book3-420.webp`) into **img → covers**. (Pointing the same command at a book folder instead uses the right half of its `Front_back_pages.png`.) `share.jpg` shows all five covers in one picture and doesn't update by itself, so it needs remaking if a cover changes.
 
 In `books.js`, each page has:
 - `printed: "img/book3/print/p1"` (p2, p3 …): the picture.
@@ -96,8 +96,6 @@ If you want to use responses for the project's impact assessment, collect them w
 
 ## Printed pages and phone text
 
-As of October 31, 2026, the pictures and the phone text in `books.js` match the final printed books, with one known difference:
-
-- **Book 4, page 5 (ES):** the printed page lost its last sentence, "Puede causar fiebre y dolor de cabeza.", when the page was re-saved. The English still has it ("It can cause fever and headaches."), so the phone text keeps it. If you add it back to the printed page, remake that page's pictures (see "Fix or replace a finished page").
+As of October 31, 2026, the pictures and the phone text in `books.js` match the final printed books.
 
 The book titles and library summaries match your covers. These were written for the site and need a native-speaker review: the picture descriptions (`alt`) and the quizzes in both languages.

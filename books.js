@@ -26,6 +26,12 @@ window.GERM_DETECTIVES = {
   series:  { en: "Germ Detectives", es: "Detectives de los gérmenes" },
   tagline: { en: "Exploring Science Together", es: "Explorando la ciencia juntos" },
   credit:  { en: "Tennessee Tech University", es: "Tennessee Tech University" },
+  authors: { en: "By Alba Frias-De-Diego & Manuel Jara", es: "Por Alba Frias-De-Diego y Manuel Jara" },
+  /* "About this project" on the library page. Each line is its own paragraph. */
+  about: {
+    en: "This series was funded by the Rural Reimagined Faculty Grant Program at Tennessee Technological University.\nExploring Science Together uses bilingual stories and classroom activities to help children ages 7-9 in rural Tennessee learn about germs, build healthy habits, and explore connections between people, animals, and the environment.",
+    es: "Esta serie fue financiada por el Rural Reimagined Faculty Grant Program de Tennessee Technological University.\nExplorando la ciencia juntos combina cuentos bilingües y actividades escolares para que niños de 7 a 9 años de las comunidades rurales de Tennessee aprendan sobre los gérmenes, los hábitos saludables y la conexión entre las personas, los animales y el medio ambiente."
+  },
 
   books: [
     /* ------------------------------------------------------------ BOOK 1 */
