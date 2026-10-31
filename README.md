@@ -31,11 +31,13 @@ The site lives in the `germ-detectives` repository on GitHub and is published at
 
 **GitHub's web upload takes fewer than 100 files at a time**, so upload folder by folder, from inside the matching GitHub folder:
 
-1. In GitHub, click into the folder you're updating (for example **img**, then **covers**).
-2. Click **Add file → Upload files**, drag in the files or folder from the same place in this folder on your computer, and click **Commit changes**.
+1. In GitHub, click into the folder you're updating (for example **img**, then **covers**). Page pictures go one level deeper, inside **print** (for example **img → book3 → print**). The path at the top of the page should then match the folder on your computer, for example `germ-detectives / img / covers`.
+2. Click **Add file → Upload files**. Open the same folder on your computer, select the files inside it (Ctrl + A), drag them in, and click **Commit changes**. Drag the files, not the folder that holds them: a dragged folder becomes a new folder inside the GitHub one (for example `img/covers/covers`), and the site can't find files there.
 3. Upload `books.js` **last**, from the main page of the repository. That way a book only appears in the library once its pictures are already online.
 
-A file with the same name replaces the old one. Files you don't upload stay as they are.
+Shortcut: this link opens the upload page already inside a folder. Change the end of it to the folder you need: `https://github.com/manueljara/germ-detectives/upload/main/img/covers`
+
+A file with the same name replaces the old one. Files you don't upload stay as they are. The site only uses the pictures in `img/covers` and in each book's `print` folder, so the older loose pictures sitting directly in `img/book1` on GitHub aren't used.
 
 After an upload, give GitHub about two minutes to publish. Book changes show up on the next visit, because the site always fetches the latest `books.js`. Browsers can keep their saved copy of `index.html` (the app's design) and of the pictures for up to 10 minutes. To see a change right away, press **Ctrl + Shift + R**, or open the site with `?v=` and any new number at the end, for example `https://manueljara.github.io/germ-detectives/?v=7`.
 
@@ -70,11 +72,15 @@ A **Listen** button then appears on every page. Once a child taps it, each page 
    pip install pillow
    python tools/make_images.py "C:\Manuel\Grant_applications\Children's_book\Book3_Food_safety" book3
    ```
-   This remakes all of that book's web pictures in `img\book3\print`.
+   This remakes all of that book's web pictures in `img\book3\print`. The site doesn't show the book's last page (the series page), so you don't need to upload its files (`p10-…` for Books 3 and 4, `p9-…` for Books 1, 2 and 5).
 3. In GitHub, go into **img → book3 → print**, then **Add file → Upload files**. Drag in the new files for that page (for example `p7-960.webp`, `p7-1600.webp`, `p7-2400.webp`) and click **Commit changes**.
 4. If the page's words changed, update that page's `text` in `books.js` too (phones show this text), then upload `books.js`.
 
-To change a cover, run the same command with `--cover` at the end. It keeps the right half of `Front_back_pages.png` (the front cover) and makes it 836 pixels wide, the size the library uses. Then upload the two files from `img\covers` (for example `book3.webp` and `book3-420.webp`) into **img → covers**.
+To change a cover, save the new front cover as `CoverN.png` in `Book_Covers_and_Project_Text` and run (Book 3 shown):
+```
+python tools/make_images.py "C:\Manuel\Grant_applications\Children's_book\Book_Covers_and_Project_Text\Cover3.png" book3 --cover
+```
+It makes the cover 836 pixels wide, the size the library uses. Then upload the two files from `img\covers` (for example `book3.webp` and `book3-420.webp`) into **img → covers**. (Pointing the same command at a book folder instead uses the right half of its `Front_back_pages.png`.)
 
 In `books.js`, each page has:
 - `printed: "img/book3/print/p1"` (p2, p3 …): the picture.
@@ -88,34 +94,10 @@ The quiz is practice only. **Nothing a reader does is saved or sent anywhere**, 
 
 If you want to use responses for the project's impact assessment, collect them with an IRB-approved instrument outside this site (for example a teacher survey or a Qualtrics link). Don't add tracking to the site.
 
-## Corrections to make on the printed pages
+## Printed pages and phone text
 
-Laptops show your pages exactly as printed. The phone text in `books.js` already has the fixes below, so the printed pages are the only place they're needed. After fixing a page, follow "Fix or replace a finished page" above.
+As of October 31, 2026, the pictures and the phone text in `books.js` match the final printed books, with one known difference:
 
-**Book 1 – Farm Safety**
-- Page 3 (EN): add quotation marks to *"Clue found!" said Deanna.* and *"Salmonella and Campylobacter … chicken poop," explained Sam.*
-- Page 3 (ES): add the opening quotation marks to *"¡Encontramos una pista!", dijo Deanna.* and *"Salmonella y Campylobacter … gallinas", explicó Sam.*
-- Page 4 (EN): add quotation marks to *"They had the flu last year," whispered Deanna.*
-- Page 6 (location label): "At Uncle**'s** Bob's house" should be "At Uncle Bob's house".
-
-**Book 2 – The Water Mystery**
-- Page 1 (ES): "Detectives de los **G**érmenes" is capitalized here but not elsewhere in the series.
-- Page 6: the "At school / En la escuela" label covers the word "Several" on the whiteboard. Move it (for example to the bottom-right corner) or make it narrower.
-
-**Book 3 – The Food Safety Case**
-- Page 7 (ES): the last bullet ends with leftover words: "…en el refrigerador. **podemos guardarlo.**"
-- Page 3 (EN): the closing quotation mark of "those drips," slipped to the start of the next line.
-- Page 1: the English says **Deanna** opened the notebook, the Spanish says **Sam** (the picture shows Sam).
-- Page 3 (ES): leaves out "They called an adult to clean up."
-- Page 2 (ES): *Salmonella* and *Campylobacter* aren't in italics.
-
-**Book 4 – The Buzzing Mystery Case**
-- Page 3 (ES): "pueden llevar **el** enfermedades" has an extra "el".
-- Page 7 (ES): "…Deanna y Sam**.:**" has a period before the colon.
-
-**Book 5 – The Superbug Mystery**
-- Page 2 (ES): the last line ends with a stray closing quotation mark: "…en el cuaderno.**"**"
-- Page 8 (EN): "Another mystery solved by the germ detectives" has no closing punctuation. The Spanish line ends with "!", and the phone text uses "…by the Germ Detectives!"
-- Page 8 (ES): "detectives de los **G**érmenes" is capitalized, as in Book 2 page 1.
+- **Book 4, page 5 (ES):** the printed page lost its last sentence, "Puede causar fiebre y dolor de cabeza.", when the page was re-saved. The English still has it ("It can cause fever and headaches."), so the phone text keeps it. If you add it back to the printed page, remake that page's pictures (see "Fix or replace a finished page").
 
 The book titles and library summaries match your covers. These were written for the site and need a native-speaker review: the picture descriptions (`alt`) and the quizzes in both languages.

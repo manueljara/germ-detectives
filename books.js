@@ -58,14 +58,14 @@ window.GERM_DETECTIVES = {
 The chickens were quiet, and a calf looked tired.
 “Time for a new case!” shouted Sam.
 They pulled out their notebooks.
-**Today, we’re Germ Detectives.**
-**Let’s solve this farm mystery!**`,
+**“Today, we’re Germ Detectives.**
+**Let’s solve this farm mystery!”** they said together.`,
             es: `“¡Mira, algo anda mal!”, dijo Deanna.
 Las gallinas estaban calladas y un ternero parecía cansado.
 “¡Tenemos un nuevo caso!”, exclamó Sam.
 Sacaron sus cuadernos.
-**¡Hoy somos detectives de los gérmenes!**
-**¡Vamos a resolver el misterio de la granja!**`
+**“¡Hoy somos detectives de los gérmenes!**
+**¡Vamos a resolver el misterio de la granja!”,** dijeron juntos.`
           }
         },
         { // 2
@@ -75,14 +75,14 @@ Sacaron sus cuadernos.
             es: "Una profesora señala una pantalla sobre bacterias y virus mientras los alumnos escuchan en sus pupitres."
           },
           text: {
-            en: `At school, the teacher told us about microbes.
+            en: `At school, their teacher told them about microbes.
 They are too tiny to see with our eyes alone.
 Bacteria and viruses are different kinds of microbes.
-**Many microbes are harmless, but some can make us sick.**`,
-            es: `En la escuela, la profesora nos habló de los microbios.
+**“Many microbes are harmless, but some can make us sick,”** explained the teacher.`,
+            es: `En la escuela, la profesora les habló de los microbios.
 Son tan pequeños que no podemos verlos a simple vista.
 Las bacterias y los virus son distintos tipos de microbios.
-**Muchos son inofensivos, pero algunos pueden enfermarnos.**`
+**“Muchos son inofensivos, pero algunos pueden enfermarnos”,** explicó la profesora.`
           }
         },
         { // 3
@@ -310,14 +310,14 @@ Juntos, hicieron una lista:
           text: {
             en: `“The creek looks so clear!” said Deanna.
 “Clear doesn’t always mean safe,” Sam replied.
-Ben arrived, holding his stomach. “My tummy hurts. I drank water from our well.”
+Ben arrived, holding his stomach. “My tummy hurts. I drank water from our creek.”
 “Let’s tell an adult and look for clues,” said Deanna.
 **“Germ Detectives, we have a mystery!”**`,
             es: `“¡El agua del arroyo se ve tan clara!”, dijo Deanna.
 “Que sea clara no significa que sea segura”, respondió Sam.
-Ben llegó con dolor de estómago. “Me duele la barriga. Bebí agua de nuestro pozo”.
+Ben llegó con dolor de estómago. “Me duele la barriga. Bebí agua de nuestro arroyo”.
 “Avisemos a un adulto y busquemos pistas”, dijo Deanna.
-**“¡Detectives de los Gérmenes, tenemos un misterio!”**`
+**“¡Detectives de los gérmenes, tenemos un misterio!”**`
           }
         },
         { // 2
@@ -328,10 +328,12 @@ Ben llegó con dolor de estómago. “Me duele la barriga. Bebí agua de nuestro
           },
           text: {
             en: `“My magnifying glass can’t show these germs,” said Sam.
-Deanna pointed to an enlarged drawing. “_Giardia_ and _Cryptosporidium_ are tiny parasites. They can get into water through poop from infected people or animals.
+“_Giardia_ and _Cryptosporidium_ are tiny parasites,” explained Deanna.
+“They can get into water through poop from infected people or animals.
 **Swallowing that water can cause stomachaches and diarrhea.**”`,
             es: `“Mi lupa no permite ver estos gérmenes”, dijo Sam.
-Deanna señaló un dibujo ampliado. “_Giardia_ y _Cryptosporidium_ son parásitos diminutos. Pueden llegar al agua a través de la caca de personas o animales infectados.
+“_Giardia_ y _Cryptosporidium_ son parásitos diminutos”, explicó Deanna.
+“Pueden llegar al agua a través de la caca de personas o animales infectados.
 **Si tragamos esa agua, podemos tener dolor de barriga y diarrea**”.`
           }
         },
@@ -346,12 +348,12 @@ Deanna señaló un dibujo ampliado. “_Giardia_ y _Cryptosporidium_ son parási
 “Look at the muddy rainwater!” said Deanna.
 “Rain can wash manure, or animal poop, into the stream.”
 “It can carry bacteria,” said Sam.
-**“Some kinds of _E. coli_ can make us sick if we swallow them.”**`,
+**“Some kinds of _Escherichia coli_ can make us sick if we swallow water containing them.”**`,
             es: `Unas vacas pastaban cerca del arroyo.
 “¡Mira el agua de lluvia llena de barro!”, dijo Deanna.
 “La lluvia puede arrastrar estiércol, o caca de animales, hasta el arroyo”.
 “Puede llevar bacterias”, dijo Sam.
-**“Algunos tipos de _E. coli_ pueden enfermarnos si los tragamos”.**`
+**“Algunos tipos de _Escherichia coli_ pueden enfermarnos si tragamos el agua que los contiene”.**`
           }
         },
         { // 4
@@ -476,7 +478,7 @@ Deanna cerró su cuaderno.
           }
         },
         {
-          q: { en: "How can bacteria like _E. coli_ get into a stream?", es: "¿Cómo pueden llegar bacterias como _E. coli_ a un arroyo?" },
+          q: { en: "How can bacteria like _Escherichia coli_ get into a stream?", es: "¿Cómo pueden llegar bacterias como _Escherichia coli_ a un arroyo?" },
           options: [
             { en: "Rain washes manure, or animal poop, into it", es: "La lluvia arrastra estiércol, o caca de animales, hasta él" },
             { en: "Fish bring them from the ocean", es: "Los peces las traen del mar" },
@@ -559,7 +561,7 @@ Deanna cerró su cuaderno.
             en: `At the picnic, their friend held her stomach.
 “My tummy hurts!”
 “Let’s get an adult,” said Deanna.
-Deanna opened her notebook.
+Sam opened his notebook.
 **“Food can carry germs we can’t see.** Let’s follow the clues and learn how to keep our meals safe!”`,
             es: `En el picnic, su amiga se llevó las manos a la barriga.
 “¡Me duele!”
@@ -602,7 +604,8 @@ They called an adult to clean up.`,
             es: `Sam vio unas gotas del pollo crudo junto a la ensalada.
 “Esas gotas pueden llevar gérmenes”, dijo Deanna.
 **“Usemos una tabla para el pollo crudo y otra para la ensalada”.**
-“Si las gotas tocan la ensalada, no debemos comerla”, dijo Sam.`
+“Si las gotas tocan la ensalada, no debemos comerla”, dijo Sam.
+Pidieron a un adulto que limpiara.`
           }
         },
         { // 4
@@ -614,13 +617,13 @@ They called an adult to clean up.`,
           text: {
             en: `Sam stopped by the vegetable stall.
 Fresh vegetables can carry germs.
-Some kinds of _E. coli_ can make us sick.
+Some kinds of _Escherichia coli_ can make us sick.
 “At home, we’ll rinse them under clean running water,” he said.
 “Just water for the vegetables,” Deanna added. “Soap and water for our hands.”
 **Washing helps, but some germs may remain.**`,
             es: `Sam se detuvo frente al puesto de verduras.
 Las verduras frescas pueden tener gérmenes.
-Algunos tipos de _E. coli_ pueden enfermarnos.
+Algunos tipos de _Escherichia coli_ pueden enfermarnos.
 “En casa, las enjuagaremos bajo el chorro de agua limpia”, dijo Sam.
 “Solo agua para las verduras”, añadió Deanna. “Para las manos, agua y jabón”.
 **El lavado ayuda, pero pueden quedar algunos gérmenes.**`
@@ -709,17 +712,18 @@ Los dos asintieron.`
             es: "Sam y Deanna están frente a una pizarra titulada Food Safety Rules (Reglas de seguridad alimentaria) y se las explican a un grupo de niños."
           },
           text: {
-            en: `Sam put the cold foods in a cooler with ice packs.
-“We’ll take out what we’re ready to eat,” said Deanna.
-“The rest stays cold.”
-Their friend joined them.
-**“Before we eat, let’s wash our hands.”**
-Sam put his notebook away. It was time for lunch.`,
-            es: `Sam guardó los alimentos fríos en una hielera con hielo.
-“Saquemos solo lo que vamos a comer”, dijo Deanna. “Lo demás se queda frío”.
-Su amiga se acercó.
-**“Antes de comer, lavémonos las manos”.**
-Sam cerró el cuaderno. Era hora de almorzar.`
+            en: `Sam and Deanna shared their food safety tips with their friends.
+“Cook meat thoroughly and wash fruits and vegetables,” said Sam.
+He pointed to the next picture. “Keep raw meat separate from foods that are ready to eat.”
+“And keep cold foods in the refrigerator,” added Deanna, pointing to the fridge on the board.
+“Before we eat, let’s wash our hands!”
+**Small steps can help keep our food safe.**`,
+            es: `Sam y Deanna compartieron con sus amigos consejos para comer de forma segura.
+“Cocinen bien la carne y laven las frutas y verduras”, dijo Sam.
+Señaló el siguiente dibujo. “Mantengan la carne cruda separada de los alimentos listos para comer”.
+“Y guarden los alimentos fríos en el refrigerador”, añadió Deanna, señalando el refrigerador dibujado en la pizarra.
+“¡Antes de comer, lavémonos las manos!”
+**Con pequeños pasos podemos cuidar la seguridad de nuestros alimentos.**`
           }
         }
       ],
@@ -962,25 +966,6 @@ La alergia puede ser grave. Las personas que la tienen necesitan ayuda de un mé
         { // 8
           printed: "img/book4/print/p8", artBox: [46, 23, 100, 99.8],
           alt: {
-            en: "In the yard, Ruby, Sam, and Deanna, all in long sleeves and long pants, smile and get ready for a walk.",
-            es: "En el patio, Ruby, Sam y Deanna, todos con mangas largas y pantalones largos, sonríen y se preparan para salir a caminar."
-          },
-          text: {
-            en: `A week later, Ruby joined them in the yard.
-“Ready for another walk?”
-Sam and Deanna were wearing long sleeves and long pants, just like her.
-An adult had helped them use repellent and empty and scrub the yard’s buckets.
-“Ready,” said Sam. “Let’s go.”`,
-            es: `Una semana después, Ruby se reunió con ellos en el patio.
-“¿Listos para otro paseo?”
-Sam y Deanna llevaban mangas largas y pantalones largos, igual que ella.
-Un adulto los había ayudado a usar repelente y a vaciar y limpiar las cubetas del patio.
-“Estamos listos”, dijo Sam. “Vamos”.`
-          }
-        },
-        { // 9
-          printed: "img/book4/print/p9", artBox: [46, 23, 100, 99.8],
-          alt: {
             en: "In the living room, Sam and Deanna show a Vector Safety Rules poster to Ruby, a friend, and their dog.",
             es: "En la sala, Sam y Deanna les muestran un cartel de reglas de seguridad contra vectores a Ruby, a un amigo y a su perro."
           },
@@ -997,6 +982,25 @@ El perro se acostó a su lado.
 “¿Y él?” preguntó Sam.
 **“Los perros también pueden traer garrapatas a casa”**, dijo Deanna.
 “Un adulto nos puede ayudar a revisarlo después de los paseos”.`
+          }
+        },
+        { // 9
+          printed: "img/book4/print/p9", artBox: [46, 23, 100, 99.8],
+          alt: {
+            en: "In the yard, Ruby, Sam, and Deanna, all in long sleeves and long pants, smile and get ready for a walk.",
+            es: "En el patio, Ruby, Sam y Deanna, todos con mangas largas y pantalones largos, sonríen y se preparan para salir a caminar."
+          },
+          text: {
+            en: `A week later, Ruby joined them in the yard.
+“Ready for another walk?”
+Sam and Deanna were wearing long sleeves and long pants, just like her.
+**An adult had helped them use repellent and empty and scrub the yard’s buckets.**
+“Ready,” said Sam. “Let’s go.”`,
+            es: `Una semana después, Ruby se reunió con ellos en el patio.
+“¿Listos para otro paseo?”
+Sam y Deanna llevaban mangas largas y pantalones largos, igual que ella.
+**Un adulto los había ayudado a usar repelente y a vaciar y limpiar las cubetas del patio.**
+“Estamos listos”, dijo Sam. “Vamos”.`
           }
         }
       ],
@@ -1249,7 +1253,7 @@ Deanna escribió: “Un médico decide cuándo los necesitamos”.`
 “My arm feels much better,” he told the doctor.
 “Your treatment is helping,” she said.
 **“Thanks to the right medicine and the right plan,”** said Deanna.
-“Another mystery solved by the Germ Detectives!”`,
+“Another mystery solved by the germ detectives!”`,
             es: `Unas semanas después, el tío Bob volvió a la clínica.
 “El brazo ya me duele mucho menos”, le dijo a la doctora.
 “El tratamiento está ayudando”, respondió ella.
